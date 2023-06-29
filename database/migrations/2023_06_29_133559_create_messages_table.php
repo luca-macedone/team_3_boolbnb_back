@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('apartment_id');
+            $table->foreignId('apartment_id')->nullable()->constrained()->onDelete('set null');
             $table->string('email');
             $table->text('message');
             $table->string('name');
