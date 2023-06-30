@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Service;
 use Illuminate\Database\Seeder;
 
 class ServiceSeeder extends Seeder
@@ -15,38 +15,38 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         $services = [
-            'Toilet Paper',
-            'Hand & Body Soap',
-            'Towels',
-            'Bed Linens',
-            'Pillows',
-            'Cleaning products',
-            'Pool',
-            'Wi-fi',
-            'Kitchen',
-            'Fridge',
-            'TV',
-            'Microwave',
-            'Parking',
-            'Jacuzzi',
-            'Washing Machine',
-            'Dryer',
-            'Self check-in',
-            'Pets Allowed',
-            'CO2 detector',
-            'Smoke detector',
-            'Fire Extinguisher',
-            'Aid Kit',
-            'Emergency numbers',
-            'Chimney',
-            'Heating',
-            'AC'
+            ['Toilet Paper', null],
+            ['Hand & Body Soap', null],
+            ['Towels', null],
+            ['Bed Linens', null],
+            ['Pillows', null],
+            ['Cleaning products', null],
+            ['Pool', null],
+            ['Wi-fi', null],
+            ['Kitchen', null],
+            ['Fridge', null],
+            ['TV', null],
+            ['Microwave', null],
+            ['Parking', null],
+            ['Jacuzzi', null],
+            ['Washing Machine', null],
+            ['Dryer', null],
+            ['Self check-in', null],
+            ['Pets Allowed', null],
+            ['CO2 detector', null],
+            ['Smoke detector', null],
+            ['Fire Extinguisher', null],
+            ['Aid Kit', null],
+            ['Emergency numbers', null],
+            ['Chimney', null],
+            ['Heating', null],
+            ['AC', null],
         ];
-        foreach ($services as $service){
-            $newService = New Service();
-            $newService -> name = $Service[0];
-            $newService -> description = $Service[1];
-            $newService -> save();
+        foreach ($services as $service) {
+            $newService = new Service();
+            $newService->name = $service[0];
+            $newService->description = $service[1];
+            $newService->save();
         }
     }
 }
