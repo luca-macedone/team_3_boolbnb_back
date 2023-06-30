@@ -17,7 +17,7 @@ class ViewController extends Controller
     public function index()
     {
         $views = View::get();
-        dd($views);
+        /* dd($views); */
         return view('views.index', compact('views'));
     }
 
@@ -84,6 +84,6 @@ class ViewController extends Controller
      */
     public function destroy(View $view)
     {
-        //
+        
     }
 }
