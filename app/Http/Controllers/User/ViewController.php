@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\View;
 use App\Http\Requests\StoreViewRequest;
 use App\Http\Requests\UpdateViewRequest;
 use App\Http\Controllers\Controller;
+use App\Models\View;
 
 class ViewController extends Controller
 {
@@ -16,7 +16,9 @@ class ViewController extends Controller
      */
     public function index()
     {
-        //
+        $views = View::get();
+        dd($views);
+        return view('views.index', compact('views'));
     }
 
     /**
@@ -48,7 +50,7 @@ class ViewController extends Controller
      */
     public function show(View $view)
     {
-        //
+        return view('views.show', compact('view'));
     }
 
     /**
