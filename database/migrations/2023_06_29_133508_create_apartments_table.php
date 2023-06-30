@@ -22,11 +22,11 @@ return new class extends Migration
             $table->unsignedTinyInteger('beds')->nullable();
             $table->unsignedSmallInteger('square_meters')->nullable();
             $table->unsignedTinyInteger('bathrooms')->nullable();
-            $table->lineString('image')->nullable();
+            $table->string('image')->nullable();
             $table->boolean('visibility')->default(true);
-            $table->lineString('latitude');
-            $table->lineString('longitude');
-            $table->lineString('full_address');
+            $table->string('latitude');
+            $table->string('longitude');
+            $table->string('full_address');
             $table->timestamps();
         });
     }
