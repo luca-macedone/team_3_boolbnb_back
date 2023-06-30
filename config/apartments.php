@@ -124,10 +124,10 @@ return [
     ],
     [
         'title' => 'AnGiò holiday rooms',
-        'rooms' => 2 ,
-        'beds' => 3 ,
-        'square_meters' => 93 ,
-        'bathrooms' => 2 ,
+        'rooms' => 2,
+        'beds' => 3,
+        'square_meters' => 93,
+        'bathrooms' => 2,
         'image' => 'AnGiò holiday rooms',
         'latitude' => '40.839371',
         'longitude' => '14.254716',
@@ -232,7 +232,7 @@ return [
         'latitude' => '44.031985',
         'longitude' => '12.620691',
         'full_address' => 'Viale Regina Margherita 261, 47924 Rimini',
-        
+
     ],
     [
         'title' => 'Terrazza vicino al mare',
@@ -244,9 +244,9 @@ return [
         'latitude' => '44.030544',
         'longitude' => '12.618372',
         'full_address' => 'Viale Ivo Oliveti 60, 47924 Rimini',
-        
+
     ],
-    
+
     [
         'title' => 'Platzlhof',
         'rooms' => '10',
@@ -257,7 +257,7 @@ return [
         'latitude' => '46.467729',
         'longitude' => '11.250869',
         'full_address' => 'Strada della Piazzetta 18, 39057 Appiano sulla Strada del Vino',
-        
+
     ],
 
     [
@@ -270,7 +270,7 @@ return [
         'latitude' => '46.459777',
         'longitude' => '11.244183',
         'full_address' => 'Strada Masaccio, 39057 Appiano sulla Strada del Vino',
-        
+
     ],
 
     [
@@ -283,9 +283,9 @@ return [
         'latitude' => '46.508469',
         'longitude' => '11.345534',
         'full_address' => 'Via Fago 3, 39100 Bolzano',
-        
+
     ],
-    
+
     [
         'title' => 'Harmony Apt 3',
         'rooms' => '3',
@@ -296,7 +296,7 @@ return [
         'latitude' => '46.456545',
         'longitude' => '11.240563',
         'full_address' => 'Strada Masaccio 20, 39057 Appiano sulla Strada del Vino',
-        
+
     ],
 
     [
@@ -309,7 +309,7 @@ return [
         'latitude' => '46.44926',
         'longitude' => '11.16935',
         'full_address' => 'Località Regole, 38011 Sarnonico',
-        
+
     ],
 
     [
@@ -322,7 +322,7 @@ return [
         'latitude' => '46.330636',
         'longitude' => '11.303376',
         'full_address' => '39040 Montagna',
-        
+
     ],
 
     [
@@ -335,7 +335,7 @@ return [
         'latitude' => '46.348721',
         'longitude' => '11.405653',
         'full_address' => 'Frazione Redagno di Sopra 6, 39040 Aldino',
-        
+
     ],
 
     [
@@ -348,6 +348,117 @@ return [
         'latitude' => '46.365908',
         'longitude' => '11.390259',
         'full_address' => 'Lerch 34, 39040 Aldein',
-        
+
     ],
+    [
+        'title' => 'Baciato dal sole',
+        'rooms' => 3,
+        'beds' => 5,
+        'square_meters' => 120,
+        'bathrooms' => 2,
+        'image' => 'baciato_dal_sole.webp',
+        'latitude' => '38.174974',
+        'longitude' => '12.733683',
+        'full_address' => 'Via Priamo 3, San Vito Lo Capo, Sicilia, Italia',
+    ],
+    [
+        'title' => 'Ca.Sá Belló San Vito lo Capo',
+        'rooms' => 2,
+        'beds' => 4,
+        'square_meters' => 90,
+        'bathrooms' => 1,
+        'image' => 'bello_san_vito_lo_capo.webp',
+        'latitude' => '38.174959',
+        'longitude' => '12.732961',
+        'full_address' => 'Via Duca Degli Abruzzi 5, San Vito Lo Capo,Sicilia,Italia',
+    ],
+    [
+        'title' => 'Suite Hermes, piscina e relax',
+        'rooms' => 4,
+        'beds' => 6,
+        'square_meters' => 150,
+        'bathrooms' => 3,
+        'image' => 'suite_hermes.webp',
+        'latitude' => '37.305598',
+        'longitude' => '13.489236',
+        'full_address' => 'Via Noci 3, Porto Empedocle, Sicilia, Italia',
+    ],
+    [
+        'title' => 'Rapa Nui" b&b, un\'isola di pace',
+        'rooms' => 5,
+        'beds' => 8,
+        'square_meters' => 160,
+        'bathrooms' => 3,
+        'image' => 'rapa_nui.webp',
+        'latitude' => '37.305598',
+        'longitude' => '12.467359',
+        'full_address' => 'Via Noci 3, Porto Empedocle, Sicilia, Italia',
+    ],
+    [
+        'title' => 'IL GIARDINO DI SICILIA',
+        'rooms' => 8,
+        'beds' => 16,
+        'square_meters' => 180,
+        'bathrooms' => 5,
+        'image' => 'giardino_di_sicilia.jpg',
+        'latitude' => '37.815376',
+        'longitude' => '12.467359',
+        'full_address' => 'Strada Cavadonna 12, Siracusa, Sicilia, Italia',
+    ],
+    [
+        'title' => 'Camere Agriturismo Stallaini',
+        'rooms' => 5,
+        'beds' => 8,
+        'square_meters' => 120,
+        'bathrooms' => 4,
+        'image' => 'agriturismo_stallaini.webp',
+        'latitude' => '36.744502',
+        'longitude' => '15.086139',
+        'full_address' => 'Contrada Stallaini 3, 96017 Noto SR, Sicilia, Italia',
+    ],
+    [
+        'title' => 'Camera matrimoniale con finestra vista mare',
+        'rooms' => 4,
+        'beds' => 6,
+        'square_meters' => 150,
+        'bathrooms' => 3,
+        'image' => 'antonio_vivaldi.webp',
+        'latitude' => '36.723341',
+        'longitude' => '14.83527',
+        'full_address' => 'Via Antonio Vivaldi 3, Pozzallo RG, Sicilia, Italia',
+    ],
+    [
+        'title' => 'LIBECCIO · Boa Vista Favignana - Seminterrato "Libeccio"',
+        'rooms' => 10,
+        'beds' => 16,
+        'square_meters' => 160,
+        'bathrooms' => 4,
+        'image' => 'boa_vista_favignana.webp',
+        'latitude' => '37.919726',
+        'longitude' => '12.323881',
+        'full_address' => 'str. Costiera di Mezzogiorno 5, Favignana, Sicilia, Italia',
+    ],
+    [
+        'title' => 'Casa vacanza Villa Giorgio di Francesca Rizzo',
+        'rooms' => 7,
+        'beds' => 12,
+        'square_meters' => 160,
+        'bathrooms' => 3,
+        'image' => 'villa_giorgio.webp',
+        'latitude' => '37.805248',
+        'longitude' => '12.454625',
+        'full_address' => 'Via Vita 5, Marsala, Sicilia, Italia',
+    ],
+    [
+        'title' => 'Villa panoramica sull\'Etna con piscina vista mare',
+        'rooms' => 2,
+        'beds' => 3,
+        'square_meters' => 80,
+        'bathrooms' => 1,
+        'image' => 'villa_panoramica_sull\'etna.webp',
+        'latitude' => '37.704768',
+        'longitude' => '15.171399',
+        'full_address' => 'Via Bellavista 18, 95014 Giarre CT, Sicilia, Italia',
+    ],
+
 ];
