@@ -46,7 +46,7 @@ class ApartmentController extends Controller
     {
         $val_data = $request->validated();
 
-        $response = Http::get("https://api.tomtom.com/search/2/search/$request->full_address.json?key=".env(TOMTOMAPIKEY).'&countrySet=ITA&radius=20000');
+        $response = Http::get("https://api.tomtom.com/search/2/search/$request->full_address.json?key="env(TOMTOMAPIKEY).'&countrySet=ITA&radius=20000');
         $json_data = $response->json();
         $val_data->latitude = $json_data->results->position->lat;
         $val_data->longitude = $json_data->results->position->lon;
