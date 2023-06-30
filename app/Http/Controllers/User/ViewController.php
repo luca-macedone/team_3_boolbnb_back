@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Models\View;
 use App\Http\Requests\StoreViewRequest;
 use App\Http\Requests\UpdateViewRequest;
+use App\Http\Controllers\Controller;
 
 class ViewController extends Controller
 {
