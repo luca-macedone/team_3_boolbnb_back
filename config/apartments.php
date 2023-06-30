@@ -136,7 +136,7 @@ return [
     [
         'title' => 'Parthenopes Nest',
         'rooms' => 3,
-        'beds' => 3,
+        'beds' => 4,
         'square_meters' => 89,
         'bathrooms' => 2,
         'image' => 'Parthenopes Nest',
