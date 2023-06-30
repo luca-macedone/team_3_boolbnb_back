@@ -13,7 +13,7 @@ return [
         'full_address' => 'Via Sossana, 2, 22025 Lezzeno CO, Italia',
     ],
     [
-        'title' => 'BaitaTana da l\'Ors, torna nella natura con un sorriso.',
+        'title' => 'Baita, Tana da l\'Ors, torna nella natura con un sorriso.',
         'rooms' => 3,
         'beds' => 3,
         'square_meters' => 30,
