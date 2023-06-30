@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Models\Apartment;
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use App\Models\Service;
 
 class ApartmentController extends Controller
 {
@@ -15,7 +18,9 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        //
+        $apartments = Auth::user()->apartments()->orderByDesc('id')->paginate(10);
+        dd($apartments);
+        return view('apartments.index', compact('apartments'));
     }
 
     /**
@@ -25,7 +30,8 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        $services = Service::all();
+        return view('apartments.create', compact('services'));
     }
 
     /**
@@ -36,7 +42,13 @@ class ApartmentController extends Controller
      */
     public function store(StoreApartmentRequest $request)
     {
-        //
+        $val_data = request->validated();
+        
+        $response = Http::get("https://api.tomtom.com/search/2/search/$request->full_address.json?key=".env(TOMTOMAPIKEY)."&countrySet=ITA&radius=20000");
+        $json_data = $response->json();
+        $val_data->latitude=$json_data->results->position->lat;
+        $val_data->longitude=$json_data->results->position->lon;
+        dd($val_data);
     }
 
     /**
@@ -47,7 +59,7 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        //
+        return view('apartments.show');
     }
 
     /**
@@ -58,7 +70,7 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        //
+        
     }
 
     /**
