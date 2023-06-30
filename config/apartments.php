@@ -221,4 +221,133 @@ return [
         'longitude' => '14.24647',
         'full_address' => '28 Via Emanuele de Deo, Plebiscito, 80134 Naples',
     ],
+
+    [
+        'title' => 'Splendido appartamento con vista su San Marino sul mare di Rimini Miramare',
+        'rooms' => '1',
+        'beds' => '1',
+        'square_meters' => '40',
+        'bathrooms' => '1',
+        'image' => 'miramare_vista_sul_mare.jpg',
+        'latitude' => '44.031985',
+        'longitude' => '12.620691',
+        'full_address' => 'Viale Regina Margherita 261, 47924 Rimini',
+        
+    ],
+    [
+        'title' => 'Terrazza vicino al mare',
+        'rooms' => '3',
+        'beds' => '2',
+        'square_meters' => '90',
+        'bathrooms' => '1',
+        'image' => 'terrazza_vicino_mare_miramare.jpg',
+        'latitude' => '44.030544',
+        'longitude' => '12.618372',
+        'full_address' => 'Viale Ivo Oliveti 60, 47924 Rimini',
+        
+    ],
+    
+    [
+        'title' => 'Platzlhof',
+        'rooms' => '10',
+        'beds' => '4',
+        'square_meters' => '250',
+        'bathrooms' => '3',
+        'image' => 'Platzlhof.jpg',
+        'latitude' => '46.467729',
+        'longitude' => '11.250869',
+        'full_address' => 'Strada della Piazzetta 18, 39057 Appiano sulla Strada del Vino',
+        
+    ],
+
+    [
+        'title' => 'Schloss Freudenstein',
+        'rooms' => '30',
+        'beds' => '10',
+        'square_meters' => '850',
+        'bathrooms' => '6',
+        'image' => 'schloss_bz.jpg',
+        'latitude' => '46.459777',
+        'longitude' => '11.244183',
+        'full_address' => 'Strada Masaccio, 39057 Appiano sulla Strada del Vino',
+        
+    ],
+
+    [
+        'title' => 'Villa Schmid',
+        'rooms' => '4',
+        'beds' => '2',
+        'square_meters' => '100',
+        'bathrooms' => '2',
+        'image' => 'schmid_bz.jpg',
+        'latitude' => '46.508469',
+        'longitude' => '11.345534',
+        'full_address' => 'Via Fago 3, 39100 Bolzano',
+        
+    ],
+    
+    [
+        'title' => 'Harmony Apt 3',
+        'rooms' => '3',
+        'beds' => '1',
+        'square_meters' => '80',
+        'bathrooms' => '1',
+        'image' => 'harmony.jpg',
+        'latitude' => '46.456545',
+        'longitude' => '11.240563',
+        'full_address' => 'Strada Masaccio 20, 39057 Appiano sulla Strada del Vino',
+        
+    ],
+
+    [
+        'title' => 'Il Falchetto',
+        'rooms' => '3',
+        'beds' => '1',
+        'square_meters' => '60',
+        'bathrooms' => '1',
+        'image' => 'falchetto_bz.jpg',
+        'latitude' => '46.44926',
+        'longitude' => '11.16935',
+        'full_address' => 'Località Regole, 38011 Sarnonico',
+        
+    ],
+
+    [
+        'title' => 'Manna Resort',
+        'rooms' => '20',
+        'beds' => '8',
+        'square_meters' => '360',
+        'bathrooms' => '4',
+        'image' => 'Manna.jpg',
+        'latitude' => '46.330636',
+        'longitude' => '11.303376',
+        'full_address' => '39040 Montagna',
+        
+    ],
+
+    [
+        'title' => 'Thomaserhof',
+        'rooms' => '10',
+        'beds' => '4',
+        'square_meters' => '160',
+        'bathrooms' => '2',
+        'image' => 'thomaserhof.jpg',
+        'latitude' => '46.348721',
+        'longitude' => '11.405653',
+        'full_address' => 'Frazione Redagno di Sopra 6, 39040 Aldino',
+        
+    ],
+
+    [
+        'title' => 'Huanzhof Ferienwohnung Schwarzhorn',
+        'rooms' => '12',
+        'beds' => '6',
+        'square_meters' => '200',
+        'bathrooms' => '4',
+        'image' => 'huanzhof.jpg',
+        'latitude' => '46.365908',
+        'longitude' => '11.390259',
+        'full_address' => 'Lerch 34, 39040 Aldein',
+        
+    ],
 ];
