@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 use App\Models\Message;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -15,7 +16,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $messages = Message::orderByDesc('id')->get();
+        $user = Auth::user();
+        $messages = Message::whereIn('apartment_id', $user->apartments->pluck('id'))->orderByDesc('id')->get();
+
         return view('messages.index', compact('messages'));
     }
 
@@ -82,7 +85,15 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        $message->delete();
-        return to_route('messages.index')->with('message', 'Message deleted');
+
+        $apartment = $message->apartment;
+        $user = Auth::user();
+
+        if ($apartment->user_id === $user->id) {
+            $message->delete();
+            return to_route('messages.index')->with('message', 'Message deleted');
+        } else {
+            return to_route('messages.index')->with('error', 'You are not authorized to delete this message');
+        }
     }
 }
