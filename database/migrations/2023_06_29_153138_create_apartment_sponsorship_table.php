@@ -23,6 +23,8 @@ return new class extends Migration
             $table->dateTime('starting_date');
 
             $table->dateTime('ending_date');
+
+            $table->primary(['apartment_id', 'sponsorship_id']);
         });
     }
 
