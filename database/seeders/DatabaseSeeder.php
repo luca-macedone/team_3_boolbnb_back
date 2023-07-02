@@ -21,10 +21,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
-            ApartmentSeeder::class,
-            MessageSeeder::class,
             ServiceSeeder::class,
             SponsorshipSeeder::class,
+            // ! add user seeder for add default apartments to one premade user
+            ApartmentSeeder::class,
+            MessageSeeder::class,
             ViewSeeder::class,
         ]);
     }
