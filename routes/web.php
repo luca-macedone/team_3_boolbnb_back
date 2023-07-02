@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\User\ApartmentController;
-use App\Http\Controllers\User\MessageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\ApartmentController;
 use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\MessageController;
 use App\Http\Controllers\User\ViewController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->prefix('user')->name('user.')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     // Route::resource('projects', ProjectController::class)->parameters(
     //     ['projects' => 'project:slug']
     // );
