@@ -6,6 +6,7 @@ use App\Http\Requests\StoreViewRequest;
 use App\Http\Requests\UpdateViewRequest;
 use App\Http\Controllers\Controller;
 use App\Models\View;
+use Illuminate\Support\Facades\Auth;
 
 class ViewController extends Controller
 {
@@ -15,9 +16,9 @@ class ViewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $views = View::get();
-        dd($views);
+    {   $user = Auth::user();
+        $views = View::where('user_id', $user->id)->get();
+        /* dd($views); */
         return view('views.index', compact('views'));
     }
 
@@ -84,6 +85,6 @@ class ViewController extends Controller
      */
     public function destroy(View $view)
     {
-        //
+        
     }
 }
