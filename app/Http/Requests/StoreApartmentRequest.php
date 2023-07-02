@@ -13,7 +13,7 @@ class StoreApartmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class StoreApartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => ['required', 'string', 'max:255'],
+            'rooms' => ['numeric', 'nullable'],
+            'bads' => ['numeric', 'nullable'],
+            'square_meters' => ['numeric', 'nullable'],
+            'bathrooms' => ['numeric', 'nullable'],
+            'image' => ['image', 'nullable'],
+            'visibility' => ['boolean'],
+            'services' => 'exists:services,id',
+            'full_address' => ['required', 'string', 'max:255'],
         ];
     }
 }
