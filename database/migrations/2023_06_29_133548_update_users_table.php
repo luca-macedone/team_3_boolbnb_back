@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->after('name', function ($table) {
-                $table->string('lastname');
+                $table->string('lastname')->nullable();
             });
             $table->after('password', function ($table) {
-                $table->date('birthday');
+                $table->date('birthday')->nullable();
             });
         });
     }
