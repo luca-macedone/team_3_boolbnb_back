@@ -5,8 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Requests\StoreViewRequest;
 use App\Http\Requests\UpdateViewRequest;
 use App\Http\Controllers\Controller;
-use App\Models\View;
 use Illuminate\Support\Facades\Auth;
+use App\Models\View;
 
 class ViewController extends Controller
 {
@@ -17,8 +17,8 @@ class ViewController extends Controller
      */
     public function index()
     {   $user = Auth::user();
-        $views = View::where('user_id', $user->id)->get();
-        /* dd($views); */
+        $views = View::where('apartment_id->user_id', '=', $user->id)->get();
+        dd($views);
         return view('views.index', compact('views'));
     }
 
