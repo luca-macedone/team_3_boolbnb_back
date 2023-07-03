@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\ApartmentController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\MessageController;
+use App\Http\Controllers\User\ServiceController;
 use App\Http\Controllers\User\ViewController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::middleware(['auth', 'verified'])->prefix('user')->name('user.')->group(fu
     Route::resource('apartments', ApartmentController::class)->parameters(
         ['apartments' => 'apartment:slug']
     );
+    Route::resource('services', ServiceController::class);
     Route::resource('messages', MessageController::class);
     Route::resource('views', ViewController::class);
 });

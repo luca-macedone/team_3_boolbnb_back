@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use App\Models\Service;
+use Illuminate\Routing\Controller;
 
 class ServiceController extends Controller
 {
@@ -15,7 +16,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+
+        return view('user.services.index', compact('services'));
     }
 
     /**
@@ -31,7 +34,6 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreServiceRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreServiceRequest $request)
@@ -42,7 +44,6 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
     public function show(Service $service)
@@ -53,7 +54,6 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
     public function edit(Service $service)
@@ -64,8 +64,6 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateServiceRequest  $request
-     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateServiceRequest $request, Service $service)
@@ -76,7 +74,7 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Service  $service
+
      * @return \Illuminate\Http\Response
      */
     public function destroy(Service $service)
