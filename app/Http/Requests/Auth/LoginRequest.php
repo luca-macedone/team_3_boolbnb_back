@@ -29,6 +29,9 @@ class LoginRequest extends FormRequest
         return [
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
+            'name' => 'nullable|string|max:255',
+            'lastname' => 'nullable|string|max:255',
+            'birthday' => 'nullable|date|before:-18 years',
         ];
     }
 

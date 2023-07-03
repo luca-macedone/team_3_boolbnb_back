@@ -27,6 +27,7 @@ class ApartmentSeeder extends Seeder
             $new_apartment->latitude = $apartment['latitude'];
             $new_apartment->longitude = $apartment['longitude'];
             $new_apartment->full_address = $apartment['full_address'];
+            $new_apartment->user_id = '1'; // adds all seeded apartments to defaul user (ADMIN)
             $new_apartment->save();
         }
     }

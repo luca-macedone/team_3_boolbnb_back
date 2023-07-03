@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             SponsorshipSeeder::class,
             // ! add user seeder for add default apartments to one premade user
+            UserSeeder::class,
             ApartmentSeeder::class,
             MessageSeeder::class,
             ViewSeeder::class,

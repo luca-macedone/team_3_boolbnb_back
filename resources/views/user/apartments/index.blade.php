@@ -92,5 +92,8 @@
                 </tbody>
             </table>
         </div>
+        <div class="px-3 py-2">
+            {{ $apartments->links('pagination::bootstrap-5') }}
+        </div>
     </div>
 @endsection
