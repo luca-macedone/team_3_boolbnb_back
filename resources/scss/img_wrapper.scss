@@ -1,0 +1,11 @@
+.img-wrapper {
+    height: 100px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: fill;
+    }
+}
