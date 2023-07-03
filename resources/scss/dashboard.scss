@@ -1,0 +1,74 @@
+@import './variables.scss';
+
+.my_dashboard{
+    position: absolute;
+}
+
+.dashboard_bg {
+    background-image: url('../../storage/app/public/internal/bg_wave.svg');
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: calc(100vh - 96px);
+  }
+
+  .container_z_index{
+    position: absolute;
+    top: 100px;
+  }
+
+  .margin_top{
+    margin-top: 140px;
+  }
+  .margin_start{
+    margin-left: 20%;
+  }
+
+ul{
+    list-style-type: none;
+}
+
+
+
+.col_bg{
+    background-color: $bg-light;
+    border-radius: 10px;
+    padding-top: 10px;
+    box-shadow: 0 8px 18px $bg-dark;
+}
+
+.my_link{
+    font-weight: 500;
+}
+
+ul{
+    padding-left: 5px;
+}
+li{
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+
+li:hover > .my_link{
+    font-weight: 800;
+
+}
+
+li:hover > #my_svg{
+    width: calc(16px + 4px );
+}
+
+li:hover{
+    
+    background-color: $secondary-light;
+    border-radius: 10px;
+}
+
+.user_name{
+    font-size: 2rem;
+    font-weight: 800;
+
+}
