@@ -1,0 +1,17 @@
+@import "./variables.scss";
+
+body {
+    font-family: "Open Sans", sans-serif;
+
+    background-color: $bnb-light;
+    background-image: url("../../storage/app/public/internal/bg_wave_green.svg");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+// a {
+//     text-decoration: none;
+//     color: $bnb-dark;
+// }
