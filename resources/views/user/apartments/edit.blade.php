@@ -46,7 +46,15 @@
             </div>
             {{-- image --}}
             <div class="d-flex gap-3 mb-3">
-                <img width="100" src="{{ asset('storage/' . $apartment->image) }}" alt="">
+                <div class="img-wrapper">
+                    @if ($apartment?->image)
+                        <img class="img-fluid" src="{{ asset('/storage/uploads/' . $apartment->image) }}" alt="">
+                    @else
+                        <img class="img-fluid" src="{{ asset('/storage/internal/missing_image_replacement.webp') }}"
+                            alt="Image Not Uploaded">
+                    @endif
+
+                </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
                     <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
