@@ -48,6 +48,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/user/apartments') }}">{{ __('Apartments') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/user/services') }}">{{ __('Services') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
