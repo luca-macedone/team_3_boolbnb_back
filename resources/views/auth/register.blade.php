@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('javascript')
+@vite(['resources/js/registration-validation.js'])
+@endsection
+
 @section('content')
     <div class="container mt-4">
         <div class="row justify-content-center">
@@ -12,9 +16,10 @@
                             @csrf
 
                             <div class="mb-4 row">
+                                
                                 <label for="name"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
+                             
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
@@ -64,7 +69,7 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }} <span class="text-danger">*</span> </label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -81,12 +86,12 @@
 
                             <div class="mb-4 row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }} <span class="text-danger">*</span> </label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password">
+                                        required min="8"  autocomplete="new-password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -98,12 +103,15 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }} <span class="text-danger">*</span> </label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                        name="password_confirmation" min="8" required autocomplete="new-password">
                                 </div>
+                            </div>
+                            <div class="text-center pb-3">
+                            <small class="text-danger">* <span class="text-dark">indicates a required field</span></small>
                             </div>
 
                             <div class="mb-4 row mb-0">
