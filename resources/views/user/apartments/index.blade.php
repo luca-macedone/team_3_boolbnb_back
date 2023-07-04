@@ -12,8 +12,12 @@
                 </div>
             </div>
         @endif
-        <div class="col d-flex justify-content-end p-3">
-            <a type="button" class="btn btn-dark" href="{{ route('user.apartments.create') }}">Add</a>
+        <div class="col d-flex justify-content-end py-3">
+            <a type="button" class="btn new_apartment_btn d-flex align-items-center gap-2 shadow"
+                href="{{ route('user.apartments.create') }}">
+                <i class="fa-solid fa-house-medical"></i>
+                Add a new apartment
+            </a>
         </div>
 
 
@@ -176,7 +180,7 @@
             @endforelse
         </div>
     </div>
-    <div class="px-3 py-2">
+    <div class="my-5">
         {{ $apartments->links('pagination::bootstrap-5') }}
     </div>
 @endsection

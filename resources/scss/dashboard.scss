@@ -206,7 +206,55 @@
 //     z-index: 0;
 // }
 
+.new_apartment_btn {
+    background-color: $bnb-accent;
+    color: $bnb-light;
+    padding: 0.5rem 2rem;
+    transition: 0.25s all ease-in-out;
+    border-radius: 0.75rem;
+    &:hover {
+        background-color: $bnb-light;
+        color: $bnb-accent;
+        scale: 1.2;
+    }
+}
+
 .modal-content {
     background-color: $bnb-light;
     border-radius: 0.75rem !important;
+}
+
+.pagination {
+    border-radius: 0.25rem;
+    .page-item {
+        .page-link {
+            color: $bnb-dark;
+            border-color: $bnb-primary;
+            background-color: $bnb-light;
+            &:hover {
+                background-color: $bnb-primary;
+                color: $bnb-accent;
+            }
+        }
+    }
+    .page-item.disabled {
+        .page-link {
+            // border-color: $bnb-dark;
+            background-color: rgba(128, 128, 128, 0.3);
+        }
+    }
+    .page-item.active {
+        .page-link {
+            // border-color: $bnb-accent;
+            border-color: $bnb-primary;
+            color: $bnb-accent;
+            background-color: $bnb-primary;
+        }
+    }
+    // .page-item:first-child,
+    // .page-item:last-child {
+    //     .page-link {
+    //         background-color: $bnb-primary;
+    //     }
+    // }
 }
