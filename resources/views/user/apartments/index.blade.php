@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row">
-                @if (session('message'))
+    <div class="container">
+
+                 @if (session('message'))
                     <div class="col-12 pt-3">
                         <div class="alert alert-primary alert-dismissible fade show" role="alert">
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -16,25 +15,34 @@
                 <div class="col d-flex justify-content-end p-3">
                     <a type="button" class="btn btn-outline-dark" href="{{ route('user.apartments.create') }}">Add</a>
                 </div>
-            </div>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Rooms</th>
-                        <th scope="col">Full Address</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($apartments as $apartment)
-                        <tr class="">
-                            <td scope="row">{{ $apartment->title }}</td>
-                            <td>{{ $apartment->rooms }}</td>
-                            <td>{{ $apartment->full_address }}</td>
-                            <td>
+            
+        
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+          
+        
+        
+                   
+                    
+
+                        @forelse ($apartments as $apartment)
+
+                        
+                        <div class="card mb-3" >
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                              <img src="{{asset('storage/' . $apartment->image)}}" class="img-fluid" alt="{{$apartment->title}}">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{$apartment->title}}</h5>
+                                  <p class="card-text">{{$apartment->full_address}}</p>
+                                  <p class="card-text"><small class="text-muted">You have 3 message!</small></p>
+                                </div>
+                           
+
+
+                    <!-- action -->
+                       
                                 <div class="d-flex align-items-center gap-2">
                                     <a type="button" class="btn btn-outline-dark"
                                         href="{{ route('user.apartments.show', $apartment->slug) }}">watch</a>
@@ -45,6 +53,9 @@
                                         title="{{ __('Delete') }}">
                                         delete
                                     </button>
+
+            <!-- delete modal -->
+
                                     <div class="modal fade" id="{{ 'modal' . $apartment->id }}" tabindex="-1"
                                         data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
                                         aria-labelledby="{{ 'modalTitle' . $apartment->id }}" aria-hidden="true">
@@ -78,22 +89,25 @@
                                             </div>
                                         </div>
                                     </div>
+
+        <!-- / delete modal -->
+
+
                                 </div>
-                            </td>
-                        </tr>
+
+                                </div>
+                            </div>
+                          </div>
+                         
                     @empty
-                        <tr class="">
-                            <td scope="row">Nothing here yet!</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        
                     @endforelse
-                </tbody>
-            </table>
+             
+        </div>
+
         </div>
         <div class="px-3 py-2">
             {{ $apartments->links('pagination::bootstrap-5') }}
         </div>
-    </div>
+        
 @endsection
