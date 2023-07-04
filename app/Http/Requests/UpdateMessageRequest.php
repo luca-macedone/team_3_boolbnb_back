@@ -13,7 +13,7 @@ class UpdateMessageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateMessageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => ['required', 'email', 'max:255'],
+            'message' => ['required', 'string'],
+            'name' => ['nullable', 'string', 'max:100'],
+            'lastname' => ['nullable', 'string', 'max:100'],
+            'apartment_id' => ['exists:apartments,id', 'required'],
         ];
     }
 }

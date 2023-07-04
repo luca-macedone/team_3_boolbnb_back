@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('apartment_id')->nullable()->constrained()->onDelete('set null');
             $table->string('email');
             $table->text('message');
-            $table->string('name');
-            $table->string('lastname');
+            $table->string('name')->nullable();
+            $table->string('lastname')->nullable();
             $table->timestamps();
         });
     }
