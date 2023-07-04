@@ -42,17 +42,45 @@
     border-radius: 0.75rem;
 }
 
+.offcanvas {
+    background-color: $bnb-light;
+}
+
 .offcanvas_navbar {
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 500;
     width: 100%;
-    background-color: rgba($bnb-accent, 1);
+    height: 60px;
+    background-color: rgba($bnb-primary, 1);
+
+    .logo_wrapper {
+        width: 250px;
+        aspect-ratio: 2.25 / 1;
+        // overflow: hidden;
+        background-image: url("/storage/app/public/internal/logo_horizontal.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        margin-left: calc(50% - 125px - 52px);
+
+        @media screen and (min-width: 1200px) {
+            margin-left: calc(50% - 125px);
+        }
+    }
 }
 
 .offcanvas_button {
     // background-color: $bnb-light;
+    color: $bnb-dark;
+    border: none;
     border-radius: 0.75rem;
+    &:hover {
+        // background-color: transparent;
+        color: $bnb-accent;
+    }
 }
 
 .offcanvas-body,
