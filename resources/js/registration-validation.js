@@ -65,7 +65,7 @@ form.addEventListener("submit", (e) => {
             passwordConfirmEl.insertAdjacentElement("afterend", passwordConfirmationSpan);
           }
       
-          if(date > today) {
+          if( date > today) {
             // aggiungi la classe "is-invalid"
             birthdayEl.classList.add("is-invalid");
       
@@ -78,7 +78,7 @@ form.addEventListener("submit", (e) => {
             // aggiungi lo strong al messaggio
             const dateStrong = document.createElement("strong");
             dateStrong.classList.add("text-danger");
-            dateStrong.innerText = "Date of birth cannot be a future date";
+            dateStrong.innerText = "Your date must be between 1900/01/01 and today";
       
             // aggiungi il messaggio d'errore alla DOM
             dateSpan.appendChild(dateStrong);

@@ -19,7 +19,7 @@ class ProfileUpdateRequest extends FormRequest
             'name' => ['nullable', 'string', 'max:255'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'lastname' => 'nullable|string|max:255',
-            'birthday' => 'nullable|date|before:-18 years',
+            'birthday' => 'nullable|date|after:1900/01/01|before:today',
         ];
     }
 }
