@@ -50,7 +50,7 @@
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 500;
+    z-index: 50;
     width: 100%;
     height: 60px;
     background-color: rgba($bnb-primary, 1);
@@ -116,16 +116,27 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    border: 3px solid;
+    border: 3px solid transparent;
     border-radius: 100%;
     aspect-ratio: 1 /1;
     height: $bnb-xxxl;
+    i {
+        scale: 1;
+        transition: scale 0.25s ease-in-out;
+    }
 }
 
 .action_show {
     border-color: $bnb-dark;
     i {
         color: $bnb-dark;
+    }
+}
+
+.action_messages {
+    border-color: $bnb-primary;
+    i {
+        color: $bnb-primary;
     }
 }
 
@@ -138,6 +149,7 @@
 
 .action_delete {
     border-color: $bnb-tertiary;
+    background-color: transparent;
     i {
         color: $bnb-tertiary;
     }
@@ -148,14 +160,53 @@
 }
 
 .action_btn:hover > i {
-    transition: font-size 0.1s linear;
-    font-size: calc($bnb-xxxl + $bnb-xxs);
+    // transition: font-size 0.1s linear;
+    // font-size: calc($bnb-xxxl + $bnb-xxs);
+    scale: 2;
 }
 
-.card_hover {
-    padding: $bnb-xs;
+.card {
+    scale: 1;
+    background-color: $bnb-light;
+    border-radius: 0.75rem;
     &:hover {
+        scale: 1.025;
         box-shadow: 3px 8px 14px rgba($bnb-dark, 0.5);
-        transition: box-shadow 0.2s linear;
+        transition: box-shadow 0.2s ease-in-out;
+        transition: scale 0.2s ease-in-out;
     }
+    .list_img_wrapper {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 0.25rem;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        @media screen and (min-width: 768px) {
+            width: 50%;
+            aspect-ratio: 1 / 1;
+            img {
+                aspect-ratio: 1 / 1;
+            }
+        }
+    }
+    .card-title {
+        font-weight: $bnb-w-semibold;
+        font-size: $bnb-lg;
+    }
+    .description {
+        font-size: $bnb-md;
+    }
+}
+
+// .modal-backdrop {
+//     z-index: 0;
+// }
+
+.modal-content {
+    background-color: $bnb-light;
+    border-radius: 0.75rem !important;
 }

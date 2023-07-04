@@ -20,7 +20,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Auth::user()->apartments()->orderByDesc('id')->paginate(10);
+        $apartments = Auth::user()->apartments()->orderByDesc('id')->paginate(12);
         // dd($apartments);
 
         return view('user.apartments.index', compact('apartments'));
@@ -91,8 +91,8 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-         return view('user.apartments.show', compact('apartment'));
-      
+        return view('user.apartments.show', compact('apartment'));
+
     }
 
     /**
