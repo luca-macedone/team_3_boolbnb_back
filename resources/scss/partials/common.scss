@@ -11,11 +11,11 @@ body {
     min-height: 100vh;
 }
 
-.card_shadow{
-    box-shadow: 1px 3px 8px $bnb-dark;
+.card_shadow {
+    box-shadow: 1px 3px 8px rgba($bnb-dark, 0.4);
 }
 
-.bg_bnb_white{
+.bg_bnb_white {
     background-color: $bnb-light;
 }
 
