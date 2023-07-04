@@ -26,7 +26,7 @@ class StoreApartmentRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'rooms' => ['numeric', 'nullable'],
-            'bads' => ['numeric', 'nullable'],
+            'beds' => ['numeric', 'nullable'],
             'square_meters' => ['numeric', 'nullable'],
             'bathrooms' => ['numeric', 'nullable'],
             'image' => ['image', 'nullable'],
