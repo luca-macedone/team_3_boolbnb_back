@@ -45,7 +45,7 @@
 
                     <!-- action -->
                        
-                                <div class="d-flex align-items-center gap-2">
+                                <div class="d-flex align-items-center gap-2 ms-1">
                                     <a class="action_btn action_show p-2"
                                         href="{{ route('user.apartments.show', $apartment->slug) }}">
                                             <i class="fa-solid fa-eye"></i>
