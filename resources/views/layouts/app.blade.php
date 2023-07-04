@@ -63,27 +63,9 @@
                             </a>
                         </li>
                         <li>
-                            <i class="fa-solid fa-envelope-open-text"></i>
-                            <a class="" href="{{ url('/user/apartments') }}">
-                                {{ __('Messages') }}
-                            </a>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-tv"></i>
-                            <a class="" href="{{ url('/user/services') }}">
-                                {{ __('Services') }}
-                            </a>
-                        </li>
-                        <li>
                             <i class="fa-solid fa-star"></i>
                             <a class="" href="{{ url('/user/services') }}">
                                 {{ __('Sponsorships') }}
-                            </a>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-chart-pie"></i>
-                            <a class="" href="{{ url('/user/services') }}">
-                                {{ __('Analytics') }}
                             </a>
                         </li>
                     @endauth
@@ -104,7 +86,6 @@
                                                      document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
-
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
@@ -124,7 +105,7 @@
                         <ul class="d-flex flex-column align-items-start justify-content-start gap-3 ps-0">
                             {{-- <li>
                                 <div class="logo_wrapper">
-                                    
+
                                 </div>
                             </li> --}}
                             @auth
@@ -147,27 +128,9 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-envelope-open-text"></i>
-                                    <a class="" href="{{ url('/user/apartments') }}">
-                                        {{ __('Messages') }}
-                                    </a>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-tv"></i>
-                                    <a class="" href="{{ url('/user/services') }}">
-                                        {{ __('Services') }}
-                                    </a>
-                                </li>
-                                <li>
                                     <i class="fa-solid fa-star"></i>
-                                    <a class="" href="{{ url('/user/services') }}">
+                                    <a class="" href="{{ url('/user/sponsorships') }}">
                                         {{ __('Sponsorships') }}
-                                    </a>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-chart-pie"></i>
-                                    <a class="" href="{{ url('/user/services') }}">
-                                        {{ __('Analytics') }}
                                     </a>
                                 </li>
                             @endauth
@@ -189,8 +152,7 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </li>
