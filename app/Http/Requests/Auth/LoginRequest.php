@@ -27,11 +27,11 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
-            'name' => 'nullable|string|max:255',
+            'email' => ['required', 'string', 'email', 'regex:/^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$/'],
+            'password' => ['required', 'string', 'regex:/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/'],
+            /*'name' => 'nullable|string|max:255',
             'lastname' => 'nullable|string|max:255',
-            'birthday' => 'nullable|date|before:-18 years',
+            'birthday' => 'nullable|date|after:1900/01/01|before:today',*/
         ];
     }
 
