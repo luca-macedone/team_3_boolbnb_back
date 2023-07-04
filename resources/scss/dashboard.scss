@@ -151,7 +151,7 @@
  }
 
  .action_btn:hover > i{
-    
+    transition: font-size 0.1s linear;
     font-size: calc($bnb-xxxl + $bnb-xxs);
  }
  
@@ -160,7 +160,7 @@
     &:hover{
         
         box-shadow: 3px 8px 14px $bnb-dark;;
-        transition: box-shadow 0.5s ease;
+        transition: box-shadow 0.2s linear;
        }
     
  }

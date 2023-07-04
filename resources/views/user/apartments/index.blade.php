@@ -13,7 +13,7 @@
                     </div>
                 @endif
                 <div class="col d-flex justify-content-end p-3">
-                    <a type="button" class="btn btn-outline-dark" href="{{ route('user.apartments.create') }}">Add</a>
+                    <a type="button" class="btn btn-dark" href="{{ route('user.apartments.create') }}">Add</a>
                 </div>
             
         
