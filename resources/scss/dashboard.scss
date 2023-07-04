@@ -110,3 +110,57 @@
         }
     }
 }
+
+.action_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: 3px solid;
+    border-radius: 100%;
+    aspect-ratio: 1 /1;
+    height: $bnb-xxxl;
+
+}
+
+.action_show{
+    border-color: $bnb-dark;
+    i{
+        color: $bnb-dark;
+    }
+
+ }
+
+ .action_edit{
+    border-color: $bnb-accent;
+    i{
+        color: $bnb-accent;
+    }
+ }
+
+ .action_delete{
+    border-color: $bnb-tertiary;
+    i{
+        color: $bnb-tertiary;
+    }
+
+ }
+
+ .action_btn:hover{
+    border: none;
+ }
+
+ .action_btn:hover > i{
+    
+    font-size: calc($bnb-xxxl + $bnb-xxs);
+ }
+ 
+ .card_hover{
+    padding: $bnb-xs;
+    &:hover{
+        
+        box-shadow: 3px 8px 14px $bnb-dark;;
+        transition: box-shadow 0.5s ease;
+       }
+    
+ }

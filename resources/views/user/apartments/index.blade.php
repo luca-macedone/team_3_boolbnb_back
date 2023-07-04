@@ -17,7 +17,7 @@
                 </div>
             
         
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 gap-5">
           
         
         
@@ -27,10 +27,12 @@
                         @forelse ($apartments as $apartment)
 
                         
-                        <div class="card mb-3" >
-                            <div class="row g-0">
+                        <div class="card mb-3 card_padding card_shadow bg_bnb_white card_hover" >
+                            <div class="row ">
                               <div class="col-md-4">
-                              <img src="{{asset('storage/' . $apartment->image)}}" class="img-fluid" alt="{{$apartment->title}}">
+                               <div class="img-wrapper rounded-2 card_shadow">
+                                    <img src="{{asset('storage/' . $apartment->image)}}" class="img-fluid" alt="{{$apartment->title}}">
+                               </div>
                               </div>
                               <div class="col-md-8">
                                 <div class="card-body">
@@ -38,20 +40,24 @@
                                   <p class="card-text">{{$apartment->full_address}}</p>
                                   <p class="card-text"><small class="text-muted">You have 3 message!</small></p>
                                 </div>
-                           
+                        </div>
 
 
                     <!-- action -->
                        
                                 <div class="d-flex align-items-center gap-2">
-                                    <a type="button" class="btn btn-outline-dark"
-                                        href="{{ route('user.apartments.show', $apartment->slug) }}">watch</a>
-                                    <a type="button" class="btn btn-outline-dark"
-                                        href="{{ route('user.apartments.edit', $apartment->slug) }}">edit</a>
-                                    <button type="button" class="btn btn-outline-danger d-flex align-items-center gap-1"
+                                    <a class="action_btn action_show p-2"
+                                        href="{{ route('user.apartments.show', $apartment->slug) }}">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
+                                    <a  class="action_btn action_edit p-2"
+                                        href="{{ route('user.apartments.edit', $apartment->slug) }}">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </a>
+                                    <button  class="action_btn action_delete p-2"
                                         data-bs-toggle="modal" data-bs-target="{{ '#modal' . $apartment->id }}"
                                         title="{{ __('Delete') }}">
-                                        delete
+                                        <i class="fa-solid fa-trash"></i>
                                     </button>
 
             <!-- delete modal -->
@@ -96,7 +102,7 @@
                                 </div>
 
                                 </div>
-                            </div>
+                            
                           </div>
                          
                     @empty
