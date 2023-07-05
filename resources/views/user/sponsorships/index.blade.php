@@ -20,21 +20,24 @@
     <div>
         <button class="btn text-uppercase">go to checkout</button>
     </div>
-    
+
     <div>
         <button class="btn text-uppercase">continue shopping</button>
     </div>
   </div>
 </div>
-    <div class="container py-3">
-        <h1 class="mb-3">Sponsorships</h1>
-        <div class="my-3">
-            <h4>Give to your apartment an extra boost to reach as many clients as possible! Here below you can find the right sponsorship for you!</h4>
+    <section class="jumbotron shadow jumbotron-fluid rounded-4 py-5">
+        <div class="container">
+            <div class="row mx-3">
+                <h1 class="mb-4">Sponsorships</h1>
+                <p class="mb-3">Give to your apartment an extra boost to reach as many clients as possible! Here below you can find the right sponsorship for you!</p>
+            </div>
         </div>
+    </section>
         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-3 py-3">
             @forelse ($sponsorships as $sponsorship)
                 <div class="col">
-                    <div class="card p-3 h-100" id="{{'sponsor_' . $sponsorship->name}}">
+                    <div class="card shadow p-3 h-100" id="{{'sponsor_' . $sponsorship->name}}">
                         <div class="card-body text-center mb-0">
                             <div class="fw-bold text-center" id="name">{{ $sponsorship->name }}</div>
                             <div class="my-3" id="duration">Duration: {{$sponsorship->duration}} hours</div>

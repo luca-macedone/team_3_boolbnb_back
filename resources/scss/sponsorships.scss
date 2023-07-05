@@ -26,7 +26,9 @@
     border: 1px solid #d4af37;
     color: #d4af37;
 }
-
+.jumbotron{
+    background-color: $bnb-light;
+}
 .cart{
     background-color: $bnb-accent;
     color: $bnb-light;
@@ -35,6 +37,7 @@
     border-radius: 0.75rem;
     border: none;
     &:hover {
+        border: 1px solid $bnb-accent;
         background-color: $bnb-light;
         color: $bnb-accent;
         scale: 1.2;
