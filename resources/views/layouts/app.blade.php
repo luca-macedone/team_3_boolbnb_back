@@ -110,26 +110,30 @@
                             </li> --}}
                             @auth
                                 <li>
-                                    <i class="fa-solid fa-home"></i>
                                     <a class="" href="{{ url('/') }}">
+                                        <i class="fa-solid fa-home pe-2"></i>
+                                   
                                         {{ __('Home') }}
                                     </a>
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-user"></i>
                                     <a class="" href="{{ url('profile') }}">
+                                    <i class="fa-solid fa-user pe-2"></i>
+                                   
                                         {{ __('Profile') }}
                                     </a>
                                 </li>
                                 <li>
-                                    <i class="fa-regular fa-building"></i>
                                     <a class="" href="{{ url('/user/apartments') }}">
+                                    <i class="fa-regular fa-building pe-2"></i>
+                                   
                                         {{ __('Apartments') }}
                                     </a>
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-star"></i>
                                     <a class="" href="{{ url('/user/sponsorships') }}">
+                                    <i class="fa-solid fa-star pe-2"></i>
+                                    
                                         {{ __('Sponsorships') }}
                                     </a>
                                 </li>
@@ -145,10 +149,11 @@
                                 @endif
                             @else
                                 <li>
-                                    <i class="fa-solid fa-right-from-bracket"></i>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                        <i class="fa-solid fa-right-from-bracket pe-2"></i>
+                                 
                                         {{ __('Logout') }}
                                     </a>
 
