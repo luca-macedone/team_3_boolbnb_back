@@ -18,9 +18,9 @@
                 <div>
                     <small id="helpId" class="form-text text-muted">Name required, maximum 255 characters</small>
                 </div>
-                <div id="title_error" class="d-none">
-                    <strong>Error! </strong>
-                    <span>
+                <div id="title_error" class="alert alert-danger border-0 my-1 d-none">
+                    <strong class="fw-semibold">Error! </strong>
+                    <span class="fw-lighter">
                         Please insert a valid text (min lenght 1 char, max lenght 255 chars)
                     </span>
                 </div>
@@ -35,9 +35,9 @@
                 <div>
                     <small id="helpId" class="form-text text-muted">Insert a numerical value</small>
                 </div>
-                <div id="rooms_error" class="d-none">
-                    <strong>Error! </strong>
-                    <span>
+                <div id="rooms_error" class="alert alert-danger border-0 my-1 d-none">
+                    <strong class="fw-semibold">Error! </strong>
+                    <span class="fw-lighter">
                         Please insert a valid number (minimum number is 1)
                     </span>
                 </div>
@@ -51,9 +51,9 @@
                 <div>
                     <small id="helpId" class="form-text text-muted">Insert a numerical value</small>
                 </div>
-                <div id="beds_error" class="d-none">
-                    <strong>Error! </strong>
-                    <span>
+                <div id="beds_error" class="alert alert-danger border-0 my-1 d-none">
+                    <strong class="fw-semibold">Error! </strong>
+                    <span class="fw-lighter">
                         Please insert a valid number (minimum number is 1)
                     </span>
                 </div>
@@ -69,9 +69,9 @@
                     <small id="helpId" class="form-text text-muted">Insert a numerical value, minimum 8 square
                         meters</small>
                 </div>
-                <div id="square_meters_error" class="d-none">
-                    <strong>Error! </strong>
-                    <span>
+                <div id="square_meters_error" class="alert alert-danger border-0 my-1 d-none">
+                    <strong class="fw-semibold">Error! </strong>
+                    <span class="fw-lighter">
                         Please insert a valid number (minimum number is 8)
                     </span>
                 </div>
@@ -85,9 +85,9 @@
                 <div>
                     <small id="helpId" class="form-text text-muted">Insert a numerical value</small>
                 </div>
-                <div id="bathrooms_error" class="d-none">
-                    <strong>Error! </strong>
-                    <span>
+                <div id="bathrooms_error" class="alert alert-danger border-0 my-1 d-none">
+                    <strong class="fw-semibold">Error! </strong>
+                    <span class="fw-lighter">
                         Please insert a valid number (minimum number is 1)
                     </span>
                 </div>
@@ -105,16 +105,16 @@
             {{-- full address --}}
             <div class="mb-3">
                 <label for="full_address" class="form-label">Full address</label>
-                <input type="text" class="form-control @error('full_address') is-invalid @enderror" name="full_address"
-                    id="full_address" aria-describedby="helpId" placeholder="Insert the full address here"
-                    value="{{ old('full_address') }}">
+                <input type="text" class="form-control @error('full_address') is-invalid @enderror"
+                    name="full_address" id="full_address" aria-describedby="helpId"
+                    placeholder="Insert the full address here" value="{{ old('full_address') }}">
                 <div>
                     <small id="helpId" class="form-text text-muted">Full address required, maximum 255
                         characters</small>
                 </div>
-                <div id="full_address_error" class="d-none">
-                    <strong>Error! </strong>
-                    <span>Please insert a valid text (min lenght 1 char, max lenght 255 chars)</span>
+                <div id="full_address_error" class="alert alert-danger border-0 my-1 d-none">
+                    <strong class="fw-semibold">Error! </strong>
+                    <span class="fw-lighter">Please insert a valid text (min lenght 1 char, max lenght 255 chars)</span>
                 </div>
             </div>
             {{-- visibility --}}
@@ -140,9 +140,9 @@
                 @empty
                 @endforelse
             </div>
-            <div id="services_error" class="d-none">
-                <strong>Error! </strong>
-                <span>Please select at least 1 service</span>
+            <div id="services_error" class="alert alert-danger border-0 my-1 d-none">
+                <strong class="fw-semibold">Error! </strong>
+                <span class="fw-lighter">Please select at least 1 service</span>
             </div>
 
             <div class="mt-3">
