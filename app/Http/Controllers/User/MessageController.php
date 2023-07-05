@@ -18,9 +18,8 @@ class MessageController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $messages = Message::whereIn('apartment_id', $user->apartments->pluck('id'))->orderByDesc('id')->get();
-
-        return view('messages.index', compact('messages'));
+        $messages = Message::where('apartment_id->user_id', '=', $user->id)->get();
+        return view('user.messages.index', compact('messages'));
     }
 
     /**
@@ -41,7 +40,11 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request)
     {
-        //
+        $val_data = $request->validated();
+        $message = Message::create();
+        $message->fill($val_data);
+        $message->save();
+        return view('user.messages.show', compact('message'));
     }
 
     /**
@@ -52,7 +55,9 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-        return view('messages.show', compact('message'));
+        $user = Auth::user();
+        $message = Message::where('apartment_id->user_id', '=', $user->id)->get();
+        return view('user.messages.show', compact('message'));
     }
 
     /**
@@ -87,14 +92,14 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
 
-        $apartment = $message->apartment;
-        $user = Auth::user();
+        /*    $user = Auth::user();
+    $apartment = $message->apartment_id;
 
-        if ($apartment->user_id === $user->id) {
-            $message->delete();
-            return to_route('messages.index')->with('message', 'Message deleted');
-        } else {
-            return to_route('messages.index')->with('error', 'You are not authorized to delete this message');
-        }
+    if ($apartment->user_id === $user->id) {
+    $message->delete();
+    return redirect()->route('user.apartments.show', compact($apartment->slug))->with('message', 'Message deleted');
+    } else {
+    return redirect()->route('user.apartments.show', compact($apartment->slug))->with('error', 'You are not authorized to delete this message');
+    } */
     }
 }

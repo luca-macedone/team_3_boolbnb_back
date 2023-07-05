@@ -65,7 +65,9 @@ form.addEventListener("submit", (e) => {
             passwordConfirmEl.insertAdjacentElement("afterend", passwordConfirmationSpan);
           }
       
+
           if(date < "1900-01-01") {
+
             // aggiungi la classe "is-invalid"
             birthdayEl.classList.add("is-invalid");
       
@@ -78,7 +80,9 @@ form.addEventListener("submit", (e) => {
             // aggiungi lo strong al messaggio
             const dateStrong = document.createElement("strong");
             dateStrong.classList.add("text-danger");
+
             dateStrong.innerText = "You must insert a date after 01/01/1900";
+
       
             // aggiungi il messaggio d'errore alla DOM
             dateSpan.appendChild(dateStrong);

@@ -50,7 +50,7 @@
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 500;
+    z-index: 50;
     width: 100%;
     height: 60px;
     background-color: rgba($bnb-primary, 1);
@@ -59,7 +59,7 @@
         width: 250px;
         aspect-ratio: 2.25 / 1;
         // overflow: hidden;
-        background-image: url("/storage/app/public/internal/logo_horizontal.svg");
+        background-image: url("../../storage/app/public/internal/logo_horizontal.svg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -109,4 +109,152 @@
             // border-radius: 0.25rem;
         }
     }
+}
+
+.action_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: 3px solid transparent;
+    border-radius: 100%;
+    aspect-ratio: 1 /1;
+    height: $bnb-xxxl;
+    i {
+        scale: 1;
+        transition: scale 0.25s ease-in-out;
+    }
+}
+
+.action_show {
+    border-color: $bnb-dark;
+    i {
+        color: $bnb-dark;
+    }
+}
+
+.action_messages {
+    border-color: $bnb-primary;
+    i {
+        color: $bnb-primary;
+    }
+}
+
+.action_edit {
+    border-color: $bnb-accent;
+    i {
+        color: $bnb-accent;
+    }
+}
+
+.action_delete {
+    border-color: $bnb-tertiary;
+    background-color: transparent;
+    i {
+        color: $bnb-tertiary;
+    }
+}
+
+.action_btn:hover {
+    border: none;
+}
+
+.action_btn:hover > i {
+    // transition: font-size 0.1s linear;
+    // font-size: calc($bnb-xxxl + $bnb-xxs);
+    scale: 2;
+}
+
+.card {
+    scale: 1;
+    background-color: $bnb-light;
+    border-radius: 0.75rem;
+    &:hover {
+        scale: 1.025;
+        box-shadow: 3px 8px 14px rgba($bnb-dark, 0.5);
+        transition: box-shadow 0.2s ease-in-out;
+        transition: scale 0.2s ease-in-out;
+    }
+    .list_img_wrapper {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 0.25rem;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        @media screen and (min-width: 768px) {
+            width: 50%;
+            aspect-ratio: 1 / 1;
+            img {
+                aspect-ratio: 1 / 1;
+            }
+        }
+    }
+    .card-title {
+        font-weight: $bnb-w-semibold;
+        font-size: $bnb-lg;
+    }
+    .description {
+        font-size: $bnb-md;
+    }
+}
+
+// .modal-backdrop {
+//     z-index: 0;
+// }
+
+.new_apartment_btn {
+    background-color: $bnb-accent;
+    color: $bnb-light;
+    padding: 0.5rem 2rem;
+    transition: 0.25s all ease-in-out;
+    border-radius: 0.75rem;
+    &:hover {
+        background-color: $bnb-light;
+        color: $bnb-accent;
+        scale: 1.2;
+    }
+}
+
+.modal-content {
+    background-color: $bnb-light;
+    border-radius: 0.75rem !important;
+}
+
+.pagination {
+    border-radius: 0.25rem;
+    .page-item {
+        .page-link {
+            color: $bnb-dark;
+            border-color: $bnb-primary;
+            background-color: $bnb-light;
+            &:hover {
+                background-color: $bnb-primary;
+                color: $bnb-accent;
+            }
+        }
+    }
+    .page-item.disabled {
+        .page-link {
+            // border-color: $bnb-dark;
+            background-color: rgba(128, 128, 128, 0.3);
+        }
+    }
+    .page-item.active {
+        .page-link {
+            // border-color: $bnb-accent;
+            border-color: $bnb-primary;
+            color: $bnb-accent;
+            background-color: $bnb-primary;
+        }
+    }
+    // .page-item:first-child,
+    // .page-item:last-child {
+    //     .page-link {
+    //         background-color: $bnb-primary;
+    //     }
+    // }
 }

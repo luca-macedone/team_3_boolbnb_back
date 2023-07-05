@@ -11,6 +11,14 @@ body {
     min-height: 100vh;
 }
 
+.card_shadow {
+    box-shadow: 1px 3px 8px rgba($bnb-dark, 0.4);
+}
+
+.bg_bnb_white {
+    background-color: $bnb-light;
+}
+
 // a {
 //     text-decoration: none;
 //     color: $bnb-dark;
