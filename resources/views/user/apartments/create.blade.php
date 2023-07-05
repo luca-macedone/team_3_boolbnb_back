@@ -118,15 +118,37 @@
                 </div>
             </div>
             {{-- visibility --}}
-            <div class="form-check pb-3">
-                <input class="form-check-input @error('visibility') is-invalid @enderror" type="checkbox" value="true"
+            <div>
+                <label for="services" class="form-label">Visibility</label>
+            </div>
+            <div class="form-check d-flex flex-column align-items-start">
+                {{-- <input class="form-check-input @error('visibility') is-invalid @enderror" type="checkbox" value="true"
                     id="visibility" checked>
                 <label class="form-check-label" for="visibility" value="{{ old('visibility') }}">
                     Is visible
-                </label>
+                </label> --}}
+
+                <div>
+                    <input class="form-check-input" type="radio" name="visibility" id="visibility" value="1"
+                        checked>
+                    <label class="form-check-label" for="visibility">
+                        Visible
+                    </label>
+                </div>
+                <div>
+                    <input class="form-check-input" type="radio" name="visibility" id="visibility" value="0">
+                    <label class="form-check-label" for="visibility">
+                        Not visible
+                    </label>
+                </div>
             </div>
+            <small class="form-text text-muted d-inline-block mb-3">
+                Select if you want apartment to be visible in search (default: true)
+            </small>
             {{-- services --}}
-            <label for="services" class="form-label">Services</label>
+            <div>
+                <label for="services" class="form-label">Services</label>
+            </div>
             <div class="d-flex justify-content-start align-items-center flex-wrap gap-3">
                 @forelse ($services as $index => $service)
                     <div class="form-check">

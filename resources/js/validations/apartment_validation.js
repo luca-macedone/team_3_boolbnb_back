@@ -67,7 +67,11 @@ apartment_creation_form_submit_btn.addEventListener('click', e => {
     }
 
     if (services_array_input_el.length < 1) {
-        throwErrorMessage(e, services_error_el);
+        const checked_services = document.querySelectorAll('input[type="checkbox"]:checked');
+        console.log(checked_services);
+        if (checked_services.length <= 0) {
+            throwErrorMessage(e, services_error_el);
+        }
     }
 });
 

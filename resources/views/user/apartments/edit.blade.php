@@ -59,7 +59,7 @@
             {{-- square meters --}}
             <div class="mb-3">
                 <label for="square_meters" class="form-label">Square meters</label>
-                <input type="number" min="8" step="10"
+                <input type="number" min="8" step="1"
                     class="form-control @error('square_meters') is-invalid @enderror" name="square_meters"
                     id="square_meters" aria-describedby="helpId" placeholder="" value="{{ $apartment->square_meters }}">
                 <div>
@@ -121,19 +121,41 @@
                 </div>
                 <div id="full_address_error" class="alert alert-danger border-0 my-1 d-none">
                     <strong class="fw-semibold">Error! </strong>
-                    <span class="fw-lighter">Please insert a valid text (min lenght 1 char, max lenght 255 chars)</span>
+                    <span class="fw-lighter">Please insert a valid text (min length 1 char, max lenght 255 chars)</span>
                 </div>
             </div>
             {{-- visibility --}}
-            <div class="form-check pb-3">
-                <input class="form-check-input @error('visibility') is-invalid @enderror" type="checkbox" value="true"
+            <div>
+                <label for="services" class="form-label">Visibility</label>
+            </div>
+            <div class="form-check d-flex flex-column align-items-start">
+                {{-- <input class="form-check-input @error('visibility') is-invalid @enderror" type="checkbox" value="true"
                     id="visibility" @if ($apartment->visibility == '1') checked @endif>
                 <label class="form-check-label" for="visibility">
                     Is visible
-                </label>
+                </label> --}}
+                <div>
+                    <input class="form-check-input" type="radio" name="visibility" id="visibility-true"
+                        value="1" @if ($apartment->visibility == '1') checked @endif>
+                    <label class="form-check-label" for="visibility-true">
+                        Visible
+                    </label>
+                </div>
+                <div>
+                    <input class="form-check-input" type="radio" name="visibility" id="visibility-false"
+                        value="0" @if ($apartment->visibility == '0') checked @endif>
+                    <label class="form-check-label" for="visibility-false">
+                        Not visible
+                    </label>
+                </div>
             </div>
+            <small class="form-text text-muted d-inline-block mb-3">
+                Select if you want apartment to be visible in search (default: true)
+            </small>
             {{-- services --}}
-            <label for="services" class="form-label">Services</label>
+            <div>
+                <label for="services" class="form-label">Services</label>
+            </div>
             <div class="d-flex justify-content-start align-items-center flex-wrap gap-3 mb-5">
                 @forelse ($services as $index => $service)
                     <div class="form-check">
