@@ -40,6 +40,11 @@
 .sidebar_menu {
     background-color: $bnb-light;
     border-radius: 0.75rem;
+    margin-top: 1rem;
+
+    position: sticky;
+    top: 6rem;
+    left: 0;
 }
 
 .offcanvas {
@@ -163,9 +168,9 @@
 }
 
 .card {
-    scale: 1; 
-    background: rgb(246,246,234);
-    background: linear-gradient(236deg, rgba(246,246,234,1) 74%, rgba(255,243,216,0.9472163865546218) 100%);
+    scale: 1;
+    background: rgb(246, 246, 234);
+    background: linear-gradient(236deg, rgba(246, 246, 234, 1) 74%, rgba(255, 243, 216, 0.9472163865546218) 100%);
     border-radius: 0.75rem;
     &:hover {
         scale: 1.025;
@@ -213,7 +218,8 @@
     &:hover {
         background-color: $bnb-light;
         color: $bnb-accent;
-        scale: 1.2;
+        // scale: 1.2;
+        scale: 1.08;
     }
 }
 
@@ -226,7 +232,8 @@
     &:hover {
         background-color: $bnb-tertiary;
         color: $bnb-dark;
-        scale: 1.2;
+        // scale: 1.2;
+        scale: 1.08;
     }
 }
 
