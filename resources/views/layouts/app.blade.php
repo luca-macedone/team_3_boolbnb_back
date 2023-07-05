@@ -64,7 +64,7 @@
                         </li>
                         <li>
                             <i class="fa-solid fa-star"></i>
-                            <a class="" href="{{ url('/user/services') }}">
+                            <a class="" href="{{ url('/user/sponsorships')}}">
                                 {{ __('Sponsorships') }}
                             </a>
                         </li>
