@@ -253,7 +253,7 @@ return [
         'beds' => 4,
         'square_meters' => 250,
         'bathrooms' => 3,
-        'image' => 'Platzlhof.jpg',
+        'image' => 'platzlhof.jpg',
         'latitude' => '46.467729',
         'longitude' => '11.250869',
         'full_address' => 'Strada della Piazzetta 18, 39057 Appiano sulla Strada del Vino',
