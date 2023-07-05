@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('javascript')
-    @vite(['resources/js/registration-validation.js'])
+    @vite(['/resources/js/validation/registration_validation.js'])
 @endsection
 
 @section('content')
