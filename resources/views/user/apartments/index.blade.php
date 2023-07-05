@@ -12,7 +12,14 @@
                 </div>
             </div>
         @endif
-        <div class="col d-flex justify-content-end py-3">
+
+        <div class="col d-flex justify-content-between py-3">
+            <a type="button" class="btn back_btn d-flex align-items-center gap-2 shadow"
+                href="{{ route('user.dashboard') }}">
+                <i class="fa-solid fa-arrow-left-long"></i>
+                    Back
+            </a>
+        
             <a type="button" class="btn new_apartment_btn d-flex align-items-center gap-2 shadow"
                 href="{{ route('user.apartments.create') }}">
                 <i class="fa-solid fa-house-medical"></i>
@@ -37,6 +44,9 @@
                                     <h5 class="card-title">
                                         {{ $apartment->title }}
                                     </h5>
+
+                                    
+
                                     <p class="description">
                                         {{ $apartment->full_address }}
                                     </p>
@@ -111,6 +121,9 @@
                                     <div class="fw-semibold">
                                         {{ $apartment->title }}
                                     </div>
+
+                                    <hr class="hr_margin_apartment justify-content-center">
+
                                     <div class="fst-italic">
                                         {{ $apartment->full_address }}
                                     </div>

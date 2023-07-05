@@ -5,7 +5,7 @@ body {
 
     background-color: $bnb-light;
     background-image: url("../../storage/app/public/internal/bg_wave_green.svg");
-
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -17,6 +17,15 @@ body {
 
 .bg_bnb_white {
     background-color: $bnb-light;
+}
+
+.hr_margin{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.hr_margin_apartment{
+    margin-right: 2.5rem;
 }
 
 // a {

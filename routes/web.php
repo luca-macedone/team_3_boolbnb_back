@@ -22,12 +22,12 @@ use App\Http\Controllers\User\SponsorshipController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.dashboard');
 });
 
-Route::get('/dashboard', function () {
+/* Route::get('/dashboard', function () {
     return view('user.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard'); */
 
 Route::middleware(['auth', 'verified'])->prefix('user')->name('user.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
