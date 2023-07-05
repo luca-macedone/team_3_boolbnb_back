@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreViewRequest;
 use App\Http\Requests\UpdateViewRequest;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use App\Models\View;
+use Illuminate\Support\Facades\Auth;
 
 class ViewController extends Controller
 {
@@ -16,10 +16,11 @@ class ViewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $user = Auth::user();
+    {
+        $user = Auth::user();
         $views = View::where('apartment_id->user_id', '=', $user->id)->get();
-        dd($views);
-        return view('views.index', compact('views'));
+        //dd($views);
+        return view('user.views.index', compact('views'));
     }
 
     /**
@@ -51,7 +52,9 @@ class ViewController extends Controller
      */
     public function show(View $view)
     {
-        return view('views.show', compact('view'));
+        $user = Auth::user();
+        $view = View::where('apartment_id->user_id', '=', $user->id)->get();
+        return view('user.views.show', compact('view'));
     }
 
     /**
@@ -85,6 +88,6 @@ class ViewController extends Controller
      */
     public function destroy(View $view)
     {
-        
+
     }
 }

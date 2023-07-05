@@ -13,7 +13,7 @@ class UpdateViewRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class UpdateViewRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'apartment_id' => ['exists:apartments,id', 'required'],
+            'date' => ['date', 'required'],
+            'ip' => ['ip', 'required'],
         ];
     }
 }

@@ -31,7 +31,7 @@ class StoreApartmentRequest extends FormRequest
             'bathrooms' => ['numeric', 'nullable'],
             'image' => ['image', 'nullable'],
             'visibility' => ['boolean'],
-            'services' => 'exists:services,id',
+            'services' => ['exists:services,id', 'required'],
             'full_address' => ['required', 'string', 'max:255'],
         ];
     }

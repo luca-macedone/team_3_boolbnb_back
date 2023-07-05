@@ -1,0 +1,46 @@
+@import "./partials/variables";
+
+#sponsor_Bronze #name{
+    margin: 0 auto 1rem;
+    width: 150px;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #cd7f32;
+    color: #cd7f32;
+}
+
+#sponsor_Silver #name{
+    margin: 0 auto 1rem;
+    width: 150px;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #a5a9b4;
+    color: #a5a9b4;
+}
+
+#sponsor_Gold #name{
+    margin: 0 auto 1rem;
+    width: 150px;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+}
+.jumbotron{
+    background-color: $bnb-light;
+}
+.cart{
+    background-color: $bnb-accent;
+    color: $bnb-light;
+    padding: 0.5rem 2rem;
+    transition: 0.25s all ease-in-out;
+    border-radius: 0.75rem;
+    border: none;
+    &:hover {
+        border: 1px solid $bnb-accent;
+        background-color: $bnb-light;
+        color: $bnb-accent;
+        scale: 1.2;
+    }
+}
+

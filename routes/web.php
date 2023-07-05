@@ -7,6 +7,8 @@ use App\Http\Controllers\User\MessageController;
 use App\Http\Controllers\User\ServiceController;
 use App\Http\Controllers\User\ViewController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\SponsorshipController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,7 @@ Route::middleware(['auth', 'verified'])->prefix('user')->name('user.')->group(fu
     Route::resource('services', ServiceController::class);
     Route::resource('messages', MessageController::class);
     Route::resource('views', ViewController::class);
+    Route::resource('sponsorships', SponsorshipController::class);
 });
 
 Route::middleware('auth')->group(function () {
