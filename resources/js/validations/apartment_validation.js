@@ -17,7 +17,6 @@ const full_address_error_el = document.querySelector('#full_address_error');
 const services_error_el = document.querySelector('#services_error');
 
 // recupero il form
-// const apartment_creation_form = document.querySelector('#apartment_creation_form');
 const apartment_creation_form_submit_btn = document.querySelector('button[type="submit"]');
 
 // eseguo le validazioni
@@ -31,71 +30,55 @@ apartment_creation_form_submit_btn.addEventListener('click', e => {
     full_address_error_el.classList.add('d-none');
     services_error_el.classList.add('d-none');
 
-    // console.log('sono nella validazione')
-
     // valido il titolo
     if (title_input_el.value.length <= 0 || title_input_el.value.length > 255) {
-        // non rispetta le regole, lancio l'errore e blocco l'invio
-        e.preventDefault();
-        title_error_el.classList.remove('d-none');
-        // title_error_el.innerHTML += ``;
+        throwErrorMessage(e, title_error_el);
     }
     // valido le stanze
     if (rooms_input_el.value !== '') {
-        // console.log(rooms_input_el.value, 'sono nella validazione delle stanze')
         if (rooms_input_el.value <= 0) {
-            // non rispetta le regole, lancio l'errore e blocco l'invio
-            e.preventDefault();
-            rooms_error_el.classList.remove('d-none');
-            // rooms_error_el.innerHTML += ``;
+            throwErrorMessage(e, rooms_error_el);
         }
     }
 
     // valido i letti
     if (beds_input_el.value !== '') {
-        // console.log(beds_input_el.value, 'sono nella validazione delle stanze')
         if (beds_input_el.value <= 0) {
-            // non rispetta le regole, lancio l'errore e blocco l'invio
-            e.preventDefault();
-            beds_error_el.classList.remove('d-none');
-            // beds_error_el.innerHTML += ``;
+            throwErrorMessage(e, beds_error_el);
         }
     }
 
     // valido la metratura
     if (square_meters_input_el.value !== '') {
-        // console.log(square_meters_input_el.value, 'sono nella validazione delle stanze')
         if (square_meters_input_el.value <= 7) {
-            // non rispetta le regole, lancio l'errore e blocco l'invio
-            e.preventDefault();
-            square_meters_error_el.classList.remove('d-none');
-            // square_meters_error_el.innerHTML += ``;
+            throwErrorMessage(e, square_meters_error_el);
         }
     }
 
     // valido i bagni
     if (bathrooms_input_el.value !== '') {
-        // console.log(bathrooms_input_el.value, 'sono nella validazione delle stanze')
         if (bathrooms_input_el.value <= 0) {
-            // non rispetta le regole, lancio l'errore e blocco l'invio
-            e.preventDefault();
-            bathrooms_error_el.classList.remove('d-none');
-            // bathrooms_error_el.innerHTML += ``;
+            throwErrorMessage(e, bathrooms_error_el);
         }
     }
 
     if (full_address_input_el.value.length <= 0 || full_address_input_el.value.length > 255) {
-        e.preventDefault();
-        full_address_error_el.classList.remove('d-none');
-        // full_address_error_el.innerHTML += ``;
+        throwErrorMessage(e, full_address_error_el);
     }
 
     if (services_array_input_el.length < 1) {
-        console.log(services_array_input_el)
-        e.preventDefault();
-        services_error_el.classList.remove('d-none');
-        // services_error_el.innerHTML += ``
+        throwErrorMessage(e, services_error_el);
     }
 });
+
+/**
+ * Aux Function to stop the submit of the form and display the errors
+ * @param {Event} event 
+ * @param {HTMLElement} element 
+ */
+function throwErrorMessage(event, element) {
+    event.preventDefault();
+    element.classList.remove('d-none');
+}
 
 // se tutto va bene lascio eseguire il form 
