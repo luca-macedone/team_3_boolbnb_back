@@ -30,13 +30,13 @@ form.addEventListener("submit", (e) => {
     let date = birthdayEl.value;
 
     //Format della data
-    let today = new Date();
-    const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const yyyy = today.getFullYear();
-    today = yyyy + '/' + mm + '/' + dd;
+    let over18 = new Date();
+    const dd = String(over18.getDate()).padStart(2, '0');
+    const mm = String(over18.getMonth() + 1).padStart(2, '0');
+    const yyyy = over18.getFullYear() - 18;
+    over18 = yyyy + '-' + mm + '-' + dd;
 
-    if(password != passwordConfirmation || date > today) {
+    if(password != passwordConfirmation || date > over18 || date < "1900-01-01") {
         // evita il submit del form se ci sono errori
         e.preventDefault(); 
 
@@ -65,7 +65,7 @@ form.addEventListener("submit", (e) => {
             passwordConfirmEl.insertAdjacentElement("afterend", passwordConfirmationSpan);
           }
       
-          if( date > today) {
+          if(date < "1900-01-01") {
             // aggiungi la classe "is-invalid"
             birthdayEl.classList.add("is-invalid");
       
@@ -78,20 +78,16 @@ form.addEventListener("submit", (e) => {
             // aggiungi lo strong al messaggio
             const dateStrong = document.createElement("strong");
             dateStrong.classList.add("text-danger");
-            dateStrong.innerText = "Your date must be between 1900/01/01 and today";
+            dateStrong.innerText = "You must insert a date after 01/01/1900";
       
             // aggiungi il messaggio d'errore alla DOM
             dateSpan.appendChild(dateStrong);
             birthdayEl.insertAdjacentElement("afterend", dateSpan);
         }
-
-        /*let age = (Date.now(currentDate) - date);
-        
-         if(age < 18) {
-
+        if(date > over18) {
             // aggiungi la classe "is-invalid"
             birthdayEl.classList.add("is-invalid");
-
+      
             // crea lo span per l'errore del messaggio
             const dateSpan = document.createElement("span");
             dateSpan.classList.add("mt-1");
@@ -101,12 +97,12 @@ form.addEventListener("submit", (e) => {
             // aggiungi lo strong al messaggio
             const dateStrong = document.createElement("strong");
             dateStrong.classList.add("text-danger");
-            dateStrong.innerText = "You must be 18 years old to registrate";
+            dateStrong.innerText = "You must be +18 years old";
       
             // aggiungi il messaggio d'errore alla DOM
             dateSpan.appendChild(dateStrong);
             birthdayEl.insertAdjacentElement("afterend", dateSpan);
-        }*/
+        }
    }
 
 })
