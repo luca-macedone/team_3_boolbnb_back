@@ -21,15 +21,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('http://localhost:5174/');
+    return view('auth.login');
 });
 
 /* Route::get('/dashboard', function () {
     return view('user.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard'); */
 
+Route::get('/front_office', [DashboardController::class, 'front_office'])->name('front_office');
+
 Route::middleware(['auth', 'verified'])->prefix('user')->name('user.')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Route::resource('projects', ProjectController::class)->parameters(
     //     ['projects' => 'project:slug']
     // );
