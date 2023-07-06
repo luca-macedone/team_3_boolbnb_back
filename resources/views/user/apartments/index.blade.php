@@ -17,9 +17,9 @@
             <a type="button" class="btn back_btn d-flex align-items-center gap-2 shadow"
                 href="{{ route('user.dashboard') }}">
                 <i class="fa-solid fa-arrow-left-long"></i>
-                    Back
+                Back
             </a>
-        
+
             <a type="button" class="btn new_apartment_btn d-flex align-items-center gap-2 shadow"
                 href="{{ route('user.apartments.create') }}">
                 <i class="fa-solid fa-house-medical"></i>
@@ -45,7 +45,7 @@
                                         {{ $apartment->title }}
                                     </h5>
 
-                                    
+
 
                                     <p class="description">
                                         {{ $apartment->full_address }}
@@ -113,7 +113,7 @@
                             <div class="d-flex flex-column flex-md-row justify-content-between gap-3 p-1 h-100">
                                 <div class="list_img_wrapper">
                                     {{-- img --}}
-                                    <img src="{{ asset('/storage/uploads/' . $apartment->image) }}" class=""
+                                    <img src="{{ asset('/storage/' . $apartment->image) }}" class=""
                                         alt="{{ $apartment->title }}" />
                                 </div>
                                 <div>
