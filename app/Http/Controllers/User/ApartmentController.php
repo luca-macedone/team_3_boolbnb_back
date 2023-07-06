@@ -33,9 +33,14 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        $services = Service::all();
 
-        return view('user.apartments.create', compact('services'));
+        if (Auth::user()) {
+            $services = Service::all();
+            return view('user.apartments.create', compact('services'));
+        } else {
+            abort(403);
+        }
+
     }
 
     /**
@@ -50,7 +55,7 @@ class ApartmentController extends Controller
 
         $val_data = $request->validated();
 
-        $response = Http::get("https://api.tomtom.com/search/2/search/$request->full_address.json?key=".env('TOMTOMAPIKEY').'&countrySet=ITA&radius=20000');
+        $response = Http::get("https://api.tomtom.com/search/2/search/$request->full_address.json?key=" . env('TOMTOMAPIKEY') . '&countrySet=ITA&radius=20000');
         $json_data = $response->json();
         // dd($json_data);
         $val_data['latitude'] = $json_data['results'][0]['position']['lat'];
@@ -91,7 +96,10 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        return view('user.apartments.show', compact('apartment'));
+        if (Auth::id() === $apartment->user_id) {
+            return view('user.apartments.show', compact('apartment'));
+        }
+        abort(403);
 
     }
 
@@ -122,7 +130,7 @@ class ApartmentController extends Controller
 
         $val_data = $request->validated();
 
-        $response = Http::get("https://api.tomtom.com/search/2/search/$request->full_address.json?key=".env('TOMTOMAPIKEY').'&countrySet=ITA&radius=20000');
+        $response = Http::get("https://api.tomtom.com/search/2/search/$request->full_address.json?key=" . env('TOMTOMAPIKEY') . '&countrySet=ITA&radius=20000');
         $json_data = $response->json();
         // dd($json_data);
         $val_data['latitude'] = $json_data['results'][0]['position']['lat'];
