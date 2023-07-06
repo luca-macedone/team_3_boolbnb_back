@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
-use Illuminate\Http\Request;
 
 class ApartmentController extends Controller
 {
@@ -14,14 +13,15 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-{
-    $apartments = Apartment::with(['services','views','sponsorships'])->orderByDesc('id')->paginate(12);
+    {
+        // $apartments = Apartment::with(['services', 'views', 'sponsorships'])->orderByDesc('id')->paginate(12);
+        $apartments = Apartment::all();
 
-    return response()->json([
-        'success' => true,
-        'apartments' => $apartments,
-    ]);
-}
+        return response()->json([
+            'success' => true,
+            'apartments' => $apartments,
+        ]);
+    }
 
     /**
      * Display the specified resource.
@@ -29,11 +29,11 @@ class ApartmentController extends Controller
      * @param  \App\Models\Apartment  $apartment
      * @return \Illuminate\Http\Response
      */
-
     public function show($slug)
     {
-        $apartment = Apartment::with(['services','views','sponsorships'])->where('slug', $slug)->first();
-        dd($apartment);
+        // $apartment = Apartment::with(['services', 'views', 'sponsorships'])->where('slug', $slug)->first();
+        // dd($apartment);
+        $apartment = Apartment::where('slug', '=', $slug);
 
         if ($apartment) {
 
@@ -50,7 +50,4 @@ class ApartmentController extends Controller
         }
 
     }
-
 }
-
-   
