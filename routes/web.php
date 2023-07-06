@@ -5,10 +5,9 @@ use App\Http\Controllers\User\ApartmentController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\MessageController;
 use App\Http\Controllers\User\ServiceController;
+use App\Http\Controllers\User\SponsorshipController;
 use App\Http\Controllers\User\ViewController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\SponsorshipController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +21,7 @@ use App\Http\Controllers\User\SponsorshipController;
 */
 
 Route::get('/', function () {
-    return view('user.dashboard');
+    return redirect('http://localhost:5174/');
 });
 
 /* Route::get('/dashboard', function () {
