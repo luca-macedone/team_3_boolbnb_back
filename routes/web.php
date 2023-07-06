@@ -5,10 +5,9 @@ use App\Http\Controllers\User\ApartmentController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\MessageController;
 use App\Http\Controllers\User\ServiceController;
+use App\Http\Controllers\User\SponsorshipController;
 use App\Http\Controllers\User\ViewController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\SponsorshipController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -22,15 +21,17 @@ use App\Http\Controllers\User\SponsorshipController;
 */
 
 Route::get('/', function () {
-    return view('user.dashboard');
+    return view('auth.login');
 });
 
 /* Route::get('/dashboard', function () {
     return view('user.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard'); */
 
+Route::get('/front_office', [DashboardController::class, 'front_office'])->name('front_office');
+
 Route::middleware(['auth', 'verified'])->prefix('user')->name('user.')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Route::resource('projects', ProjectController::class)->parameters(
     //     ['projects' => 'project:slug']
     // );

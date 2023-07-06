@@ -45,9 +45,15 @@
                     @auth
 
                         <li>
+                            <img src="{{ asset('/storage/internal/pin_only.svg') }}" height="20">
+                            <a class="" href="{{ route('front_office') }}">
+                                {{ __('Homepage') }}
+                            </a>
+                        </li>
+                        <li>
                             <i class="fa-solid fa-home"></i>
-                            <a class="" href="{{ url('/') }}">
-                                {{ __('Home') }}
+                            <a class="" href="{{ route('user.dashboard') }}">
+                                {{ __('Dashboard') }}
                             </a>
                         </li>
                         <li>
@@ -58,13 +64,13 @@
                         </li>
                         <li>
                             <i class="fa-regular fa-building"></i>
-                            <a class="" href="{{ url('/user/apartments') }}">
+                            <a class="" href="{{ route('user.apartments.index') }}">
                                 {{ __('Apartments') }}
                             </a>
                         </li>
                         <li>
                             <i class="fa-solid fa-star"></i>
-                            <a class="" href="{{ url('/user/sponsorships')}}">
+                            <a class="" href="{{ route('user.sponsorships.index') }}">
                                 {{ __('Sponsorships') }}
                             </a>
                         </li>
@@ -110,30 +116,35 @@
                             </li> --}}
                             @auth
                                 <li>
-                                    <a class="" href="{{ url('/') }}">
-                                        <i class="fa-solid fa-home pe-2"></i>
-                                   
-                                        {{ __('Home') }}
+                                    <img src="{{ asset('/storage/internal/pin_only.svg') }}" height="20">
+                                    <a class="" href="{{ route('front_office') }}">
+                                        {{ __('Homepage') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-home"></i>
+                                    <a class="" href="{{ route('user.dashboard') }}">
+                                        {{ __('Dashboard') }}
                                     </a>
                                 </li>
                                 <li>
                                     <a class="" href="{{ url('profile') }}">
-                                    <i class="fa-solid fa-user pe-2"></i>
-                                   
+                                        <i class="fa-solid fa-user pe-2"></i>
+
                                         {{ __('Profile') }}
                                     </a>
                                 </li>
                                 <li>
                                     <a class="" href="{{ url('/user/apartments') }}">
-                                    <i class="fa-regular fa-building pe-2"></i>
-                                   
+                                        <i class="fa-regular fa-building pe-2"></i>
+
                                         {{ __('Apartments') }}
                                     </a>
                                 </li>
                                 <li>
                                     <a class="" href="{{ url('/user/sponsorships') }}">
-                                    <i class="fa-solid fa-star pe-2"></i>
-                                    
+                                        <i class="fa-solid fa-star pe-2"></i>
+
                                         {{ __('Sponsorships') }}
                                     </a>
                                 </li>
@@ -153,7 +164,7 @@
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         <i class="fa-solid fa-right-from-bracket pe-2"></i>
-                                 
+
                                         {{ __('Logout') }}
                                     </a>
 
