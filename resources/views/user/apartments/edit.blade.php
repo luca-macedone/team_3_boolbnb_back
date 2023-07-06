@@ -93,7 +93,7 @@
             <div class="d-flex gap-3 mb-3">
                 <div class="img-wrapper">
                     @if ($apartment?->image)
-                        <img class="img-fluid" src="{{ asset('/storage/uploads/' . $apartment->image) }}" alt="">
+                        <img class="img-fluid" src="{{ asset('/storage/' . $apartment->image) }}" alt="">
                     @else
                         <img class="img-fluid" src="{{ asset('/storage/internal/missing_image_replacement.webp') }}"
                             alt="Image Not Uploaded">
