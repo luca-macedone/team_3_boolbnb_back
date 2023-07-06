@@ -15,7 +15,7 @@ class ApartmentController extends Controller
     public function index()
     {
         // $apartments = Apartment::with(['services', 'views', 'sponsorships'])->orderByDesc('id')->paginate(12);
-        $apartments = Apartment::all();
+        $apartments = Apartment::with(['services'])->orderByDesc('id')->paginate(12);
 
         return response()->json([
             'success' => true,
@@ -33,7 +33,7 @@ class ApartmentController extends Controller
     {
         // $apartment = Apartment::with(['services', 'views', 'sponsorships'])->where('slug', $slug)->first();
         // dd($apartment);
-        $apartment = Apartment::where('slug', '=', $slug);
+        $apartment = Apartment::with(['services'])->where('slug', '=', $slug);
 
         if ($apartment) {
 
