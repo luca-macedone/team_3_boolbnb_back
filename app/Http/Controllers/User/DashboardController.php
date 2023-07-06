@@ -10,4 +10,9 @@ class DashboardController extends Controller
     {
         return view('user.dashboard');
     }
+
+    public function front_office()
+    {
+        return redirect('http://localhost:5174/');
+    }
 }
