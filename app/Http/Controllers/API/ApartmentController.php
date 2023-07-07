@@ -50,6 +50,26 @@ class ApartmentController extends Controller
                 'result' => 'apartment not found 404',
             ]);
         }
+    }
 
+    /**
+     * Return all the apartments inside a given range
+     *
+     * @param  string  $left_lat max_latitude
+     * @param  string  $left_lon max_longitude
+     * @param  string  $right_lat min_latitude
+     * @param  string  $right_lon min_longitude
+     * @return void
+     */
+    public function concerned_list($left_lat, $left_lon, $right_lat, $right_lon)
+    {
+        // Apartment::where('longitude' > $min_longitude, AND, 'latitude' > $min_latitude, OR, 'longitude' < $max_longitude, AND, 'latitude' < $max_latitude)->orderByDesc('sponsorship_expiration_date')->paginate('18')
+        $apartments = Apartment::with(['services'])->whereBetween('latitude', [$left_lat, $right_lat], 'AND', 'longitude', [$left_lon, $right_lon])->orderByDesc('id')->get();
+        // dd($apartments);
+
+        return response()->json([
+            'success' => true,
+            'result' => $apartments,
+        ]);
     }
 }
