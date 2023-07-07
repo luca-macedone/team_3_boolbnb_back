@@ -5,8 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-header('Access-Control-Allow-Origin: *');
-
 class UserController extends Controller
 {
     public function user_data()
