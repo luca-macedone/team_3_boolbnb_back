@@ -59,7 +59,11 @@
                         <li>
                             <i class="fa-solid fa-user"></i>
                             <a class="" href="{{ url('profile') }}">
-                                {{ __('Profile') }}
+                                @if (Auth::user()->name)
+                                    {{ Auth::user()->name }}
+                                @else
+                                    {{ __('Profile') }}
+                                @endif
                             </a>
                         </li>
                         <li>
@@ -130,8 +134,11 @@
                                 <li>
                                     <a class="" href="{{ url('profile') }}">
                                         <i class="fa-solid fa-user pe-2"></i>
-
-                                        {{ __('Profile') }}
+                                        @if (Auth::user()->name)
+                                            {{ Auth::user()->name }}
+                                        @else
+                                            {{ __('Profile') }}
+                                        @endif
                                     </a>
                                 </li>
                                 <li>
