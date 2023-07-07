@@ -12,19 +12,42 @@
                 </div>
             </div>
         @endif
-
+        <div class="p-5 mb-4 rounded-3 shadow mt-3 dashboard_jumbotron">
+            <div class="container-fluid d-flex flex-column justify-content-between gap-5">
+                <div class="pb-5">
+                    <h1 class="display-5 fw-bold">
+                        Apartments
+                    </h1>
+                    <p class="col-md-8 fs-5">
+                        Puoi creare, visualizzare, modificare ed eliminare i tuoi affitti con facilità.
+                    </p>
+                </div>
+                <div class="pt-5 d-flex justify-content-between align-items-center">
+                    <a type="button" class="btn back_btn d-flex align-items-center gap-2 shadow"
+                        href="{{ route('user.dashboard') }}">
+                        <i class="fa-solid fa-arrow-left-long"></i>
+                        Back
+                    </a>
+                    <a type="button" class="btn new_apartment_btn d-flex align-items-center gap-2 shadow"
+                        href="{{ route('user.apartments.create') }}">
+                        <i class="fa-solid fa-house-medical"></i>
+                        Add a new apartment
+                    </a>
+                </div>
+            </div>
+        </div>
         <div class="col d-flex justify-content-between py-3">
-            <a type="button" class="btn back_btn d-flex align-items-center gap-2 shadow"
+            {{-- <a type="button" class="btn back_btn d-flex align-items-center gap-2 shadow"
                 href="{{ route('user.dashboard') }}">
                 <i class="fa-solid fa-arrow-left-long"></i>
                 Back
-            </a>
+            </a> --}}
 
-            <a type="button" class="btn new_apartment_btn d-flex align-items-center gap-2 shadow"
+            {{-- <a type="button" class="btn new_apartment_btn d-flex align-items-center gap-2 shadow"
                 href="{{ route('user.apartments.create') }}">
                 <i class="fa-solid fa-house-medical"></i>
                 Add a new apartment
-            </a>
+            </a> --}}
         </div>
 
 
