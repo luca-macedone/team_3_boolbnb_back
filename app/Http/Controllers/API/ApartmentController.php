@@ -64,7 +64,7 @@ class ApartmentController extends Controller
     public function concerned_list($left_lat, $left_lon, $right_lat, $right_lon)
     {
         // Apartment::where('longitude' > $min_longitude, AND, 'latitude' > $min_latitude, OR, 'longitude' < $max_longitude, AND, 'latitude' < $max_latitude)->orderByDesc('sponsorship_expiration_date')->paginate('18')
-        $apartments = Apartment::with(['services'])->whereBetween('latitude', [$left_lat, $right_lat], 'AND', 'longitude', [$left_lon, $right_lon])->orderByDesc('id')->get();
+        $apartments = Apartment::with(['services'])->whereBetween('latitude', [$left_lat, $right_lat])->whereBetween('longitude', [$left_lon, $right_lon])->orderByDesc('id')->get();
         // dd($apartments);
 
         return response()->json([
