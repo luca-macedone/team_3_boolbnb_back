@@ -31,9 +31,7 @@
             <div class="row mx-3">
                 <h1 class="mb-4">Sponsorships</h1>
                 <p class="mb-3 fs-5">
-                    Give to your apartment an extra boost to reach as many clients as possible! Here below you
-                    can find the right sponsorship for you! Scegli tra le nostre sponsorizzazioni standard o specifiche per
-                    le tue esigenze.
+                    {{ __('Give your apartment an extra boost to reach as many clients as possible! Below, you can find the right sponsorship for you! Choose from our standard sponsorships or tailor-made options to meet your needs.') }}
                 </p>
             </div>
         </div>
