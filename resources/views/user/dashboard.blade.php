@@ -10,37 +10,14 @@
     @auth
         <div class="">
             <div class="container">
-                <!-- THIS WILL DISAPPEAR -->
-                {{-- <div id="log_box" class="log_box">
-                    <div class="user_name">{{ Auth::user()->name }}</div>
-                    <div class="">
-
-
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-                    </div>
-                    {{ __('You are logged in!') }}
-                </div> --}}
-
-                <!-- END/THIS WILL DISAPPEAR -->
-
-
-                {{-- <img src="/storage/internal/logo_horizontal.svg"  alt=""> --}}
                 <div class="p-5 mb-4 rounded-3 mt-3 shadow dashboard_jumbotron">
                     <div class="container py-3">
                         <h1 class="display-5 fw-semibold mb-5">
-                            Benvenut* nella nostra piattaforma di affitto case e appartamenti!
+                            {{ __('Welcome to our platform for renting houses and apartments!') }}
                         </h1>
                         <p class="col-md-8 fs-5">
-                            Qui potrai
-                            mettere in affitto le tue
-                            proprietà, modificare i dati del tuo account e gestire tutti i tuoi annunzi in modo semplice e
-                            intuitivo.
+                            {{ __('Here you can rent out your properties, update your account information, and manage all your listings in a simple and intuitive way.') }}
                         </p>
-                        {{-- <button class="btn btn-primary btn-lg" type="button">Example button</button> --}}
                     </div>
                 </div>
 
@@ -48,11 +25,8 @@
                     <div class="row g-3">
                         <div class="col-12 col-lg-6">
                             <div class="dashboard_card banner_card shadow p-4 h-100">
-                                <span class="fs-5">
-                                    Inoltre, se vuoi aumentare
-                                    la visibilità dei tuoi annunci, puoi acquistare una sponsorship che li renderà visibili a un
-                                    pubblico più
-                                    vasto.
+                                <span class="fs-5 text-center d-inline-block h-100 d-flex align-items-center">
+                                    {{ __('Furthermore, if you want to increase the visibility of your listings, you can purchase a sponsorship that will make them visible to a wider audience.') }}
                                 </span>
                             </div>
                         </div>
@@ -100,15 +74,13 @@
                         @endif
                         <div class="col-12 col-lg-4">
                             <div class="dashboard_card shadow p-4 h-100">
-                                statistiche appartmento più visto
+                                statistics of apartments
                             </div>
                         </div>
                         <div class="col-12 col-lg-8">
                             <div class="dashboard_card banner_card shadow p-4 h-100">
-                                <h3 class="fs-5">
-                                    Potrai anche visualizzare le statistiche dei tuoi annunci sponsorizzati per migliorare
-                                    ulteriormente
-                                    le tue vendite.
+                                <h3 class="fs-5 text-center h-100 d-flex align-items-center">
+                                    {{ __('You will also be able to view the statistics of your sponsored listings to further improve your sales.') }}
                                 </h3>
                             </div>
                         </div>

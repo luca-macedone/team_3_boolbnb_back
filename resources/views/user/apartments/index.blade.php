@@ -19,7 +19,7 @@
                         Apartments
                     </h1>
                     <p class="col-md-8 fs-5">
-                        Puoi creare, visualizzare, modificare ed eliminare i tuoi affitti con facilità.
+                        {{ __('You can easily create, view, edit, and delete your rentals.') }}
                     </p>
                 </div>
                 <div class="pt-5 d-flex justify-content-between align-items-center">
