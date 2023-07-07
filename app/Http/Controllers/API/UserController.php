@@ -3,40 +3,45 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function user_data()
-    {
+    // public function user_data()
+    // {
+    //     if (Auth::check()) {
+    //         $user = Auth::getUser();
+    //     }
 
-        if (Auth::user()) {
-            if (Auth::user()->name || Auth::user()->lastname) {
-                $user_name = Auth::user()->name;
-                $user_lastname = Auth::user()->lastname;
+    //     $user_id = Auth::id();
+    //     $user = User::where('id', $user_id)->get();
+    //     // dd($user_id);
 
-                return response()->json([
-                    'success' => true,
-                    'user' => [
-                        'name' => $user_name,
-                        'lastname' => $user_lastname,
-                    ],
-                ]);
-            } else {
-                $user_email = Auth::user()->email;
+    //     if ($user_id) {
+    //         if ($user->name || $user->lastname) {
 
-                return response()->json([
-                    'success' => true,
-                    'user' => [
-                        'email' => $user_email,
-                    ],
-                ]);
-            }
-        } else {
-            return response()->json([
-                'success' => false,
-                'user' => null,
-            ]);
-        }
-    }
+    //             return response()->json([
+    //                 'success' => true,
+    //                 'user' => [
+    //                     'name' => $user->name,
+    //                     'lastname' => $user->lastname,
+    //                 ],
+    //             ]);
+    //         } else {
+
+    //             return response()->json([
+    //                 'success' => true,
+    //                 'user' => [
+    //                     'email' => $user->email,
+    //                 ],
+    //             ]);
+    //         }
+    //     } else {
+    //         return response()->json([
+    //             'success' => false,
+    //             'user' => null,
+    //         ]);
+    //     }
+    // }
 }

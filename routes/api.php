@@ -20,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/user/details', [UserController::class, 'user_data']);
+// Route::get('/user/details', [UserController::class, 'user_data']);
 Route::get('/apartments', [APIApartmentController::class, 'index']);
 Route::get('/apartments/{apartment:slug}', [APIApartmentController::class, 'show']);
