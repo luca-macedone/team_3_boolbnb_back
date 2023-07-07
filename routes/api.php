@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\ApartmentController as APIApartmentController;
+use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/user/details', [UserController::class, 'user_data']);
 Route::get('/apartments', [APIApartmentController::class, 'index']);
 Route::get('/apartments/{apartment:slug}', [APIApartmentController::class, 'show']);
