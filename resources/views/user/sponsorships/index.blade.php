@@ -26,12 +26,15 @@
             </div>
         </div>
     </div>
-    <section class="jumbotron shadow jumbotron-fluid rounded-4 mt-3 py-5">
+    <section class="jumbotron shadow jumbotron-fluid rounded-4 mt-3 py-5 dashboard_jumbotron">
         <div class="container">
             <div class="row mx-3">
                 <h1 class="mb-4">Sponsorships</h1>
-                <p class="mb-3">Give to your apartment an extra boost to reach as many clients as possible! Here below you
-                    can find the right sponsorship for you!</p>
+                <p class="mb-3 fs-5">
+                    Give to your apartment an extra boost to reach as many clients as possible! Here below you
+                    can find the right sponsorship for you! Scegli tra le nostre sponsorizzazioni standard o specifiche per
+                    le tue esigenze.
+                </p>
             </div>
         </div>
     </section>
