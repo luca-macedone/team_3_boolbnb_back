@@ -5,11 +5,12 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
+header('Access-Control-Allow-Origin: *');
+
 class UserController extends Controller
 {
     public function user_data()
     {
-        header('Access-Control-Allow-Origin: *');
 
         if (Auth::user()) {
             if (Auth::user()->name || Auth::user()->lastname) {
