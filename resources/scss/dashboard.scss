@@ -210,11 +210,12 @@
 // }
 
 .new_apartment_btn {
-    background-color: $bnb-accent;
+    background-color: $bnb-primary;
     color: $bnb-dark;
     padding: 0.5rem 2rem;
     transition: 0.25s all ease-in-out;
     border-radius: 0.75rem;
+    border: 1px solid rgba($bnb-dark, 0.2);
     &:hover {
         background-color: $bnb-light;
         color: $bnb-accent;
@@ -224,14 +225,15 @@
 }
 
 .back_btn {
-    background-color: $bnb-dark;
-    color: $bnb-light;
+    background-color: $bnb-secondary;
+    color: $bnb-dark;
     padding: 0.5rem 2rem;
     transition: 0.25s all ease-in-out;
     border-radius: 0.75rem;
+    border: 1px solid rgba($bnb-dark, 0.2);
     &:hover {
-        background-color: $bnb-tertiary;
-        color: $bnb-dark;
+        background-color: $bnb-light;
+        color: $bnb-accent;
         // scale: 1.2;
         scale: 1.08;
     }
@@ -275,4 +277,82 @@
     //         background-color: $bnb-primary;
     //     }
     // }
+}
+
+.dashboard_jumbotron {
+    background-color: $bnb-light;
+    // background-image: url("/public/storage/internal/bg_wave.svg");
+    background-image: url("/public/storage/internal/wave_animated.svg");
+    background-repeat: no-repeat;
+    background-position: 180deg;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#dashboard_content {
+    .row {
+        margin-left: -1.25rem;
+        margin-right: -1.25rem;
+    }
+
+    .dashboard_card {
+        border: none;
+        background-color: $bnb-light;
+        border-radius: 0.75rem;
+        min-height: 250px;
+    }
+
+    .dashboard_card.apartment_card {
+        padding: 0 !important;
+        max-height: 250px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        img {
+            height: 100%;
+            border-radius: 0.75rem;
+            object-fit: cover;
+        }
+        .card-img-overlay {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: $bnb-light;
+            background-color: rgba($bnb-dark, 0.3);
+            width: calc(100% - 2rem);
+            padding: 0.5rem;
+            border-radius: 0.75rem;
+            height: max-content;
+            max-height: calc(100% - 2rem);
+            width: calc(100% - 2rem);
+            transition: 0.25s all ease-in-out;
+            .section_title {
+                display: block;
+            }
+            .apartment_info {
+                display: none;
+                height: 100%;
+            }
+        }
+
+        &:hover {
+            .card-img-overlay {
+                height: calc(100% - 2rem);
+                .section_title {
+                    display: none;
+                }
+                .apartment_info {
+                    display: flex !important;
+                }
+            }
+        }
+    }
+
+    .dashboard_card.banner_card {
+        background-image: url("/public/storage/internal/wave_animated.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        background-attachment: fixed;
+    }
 }
