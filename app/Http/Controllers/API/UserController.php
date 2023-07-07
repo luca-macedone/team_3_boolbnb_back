@@ -9,6 +9,7 @@ class UserController extends Controller
 {
     public function user_data()
     {
+        header('Access-Control-Allow-Origin: *');
 
         if (Auth::user()) {
             if (Auth::user()->name || Auth::user()->lastname) {
