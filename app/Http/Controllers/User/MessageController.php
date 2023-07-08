@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use App\Models\Apartment;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,8 @@ class MessageController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $messages = Message::where('apartment_id->user_id', '=', $user->id)->get();
+        $apartmentIds = $user->apartments->pluck('id');
+        $messages = Message::whereIn('apartment_id', $apartmentIds)->get();
         return view('user.messages.index', compact('messages'));
     }
 
@@ -40,11 +42,12 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request)
     {
-        $val_data = $request->validated();
-        $message = Message::create();
-        $message->fill($val_data);
-        $message->save();
-        return view('user.messages.show', compact('message'));
+        /* $val_data = $request->validated();
+    $message = Message::create();
+    $message->fill($val_data);
+    $message->save();
+    return view('user.messages.show', compact('message')); */
+
     }
 
     /**
@@ -55,9 +58,12 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
+
         $user = Auth::user();
-        $message = Message::where('apartment_id->user_id', '=', $user->id)->get();
-        return view('user.messages.show', compact('message'));
+        if ($user->id === $message->apartment->user_id) {
+            return view('user.messages.show', compact('message'));
+        }
+        abort(403);
     }
 
     /**

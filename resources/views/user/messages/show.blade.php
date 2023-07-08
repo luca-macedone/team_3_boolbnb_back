@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Apartment message</h1>
+        <h1>My Messages</h1>
         @include('partials.session_message')
         <table class="table">
             <thead>
