@@ -16,11 +16,17 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
-        $user = Auth::user();
+        /*    $user = Auth::user();
         $apartmentIds = $user->apartments->pluck('id');
         $messages = Message::whereIn('apartment_id', $apartmentIds)->get();
+        return view('user.messages.index', compact('messages')); */
+
+        $user = Auth::user();
+        $apartment = Apartment::where('slug', $slug)->get();
+
+        $messages = $apartment[0]->messages;
         return view('user.messages.index', compact('messages'));
     }
 
@@ -59,11 +65,13 @@ class MessageController extends Controller
     public function show(Message $message)
     {
 
-        $user = Auth::user();
-        if ($user->id === $message->apartment->user_id) {
-            return view('user.messages.show', compact('message'));
-        }
-        abort(403);
+        return view('user.messages.show', compact('message'));
+
+        /*    $user = Auth::user();
+    if ($user->id === $message->apartment_id->user_id) {
+    return view('user.messages.show', compact('message'));
+    }
+    abort(403); */
     }
 
     /**
@@ -98,14 +106,10 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
 
-        /*    $user = Auth::user();
-    $apartment = $message->apartment_id;
+        $apartmentId = $message->apartment_id;
+        $slug = Apartment::find($apartmentId)->slug;
+        $message->delete();
 
-    if ($apartment->user_id === $user->id) {
-    $message->delete();
-    return redirect()->route('user.apartments.show', compact($apartment->slug))->with('message', 'Message deleted');
-    } else {
-    return redirect()->route('user.apartments.show', compact($apartment->slug))->with('error', 'You are not authorized to delete this message');
-    } */
+        return to_route('user.messages.index', compact('slug'))->with('message', 'Message deleted');
     }
 }
