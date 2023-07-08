@@ -18,14 +18,14 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('auth.login');
 });
 
 /* Route::get('/dashboard', function () {
-    return view('user.dashboard');
+return view('user.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard'); */
 
 Route::get('/front_office', [DashboardController::class, 'front_office'])->name('front_office');
@@ -39,9 +39,13 @@ Route::middleware(['auth', 'verified'])->prefix('user')->name('user.')->group(fu
         ['apartments' => 'apartment:slug']
     );
     Route::resource('services', ServiceController::class);
-    Route::resource('messages', MessageController::class);
+    //Route::resource('messages', MessageController::class);
     Route::resource('views', ViewController::class);
     Route::resource('sponsorships', SponsorshipController::class);
+    // Route::resource('messages', MessageController::class);
+    Route::get('/messages/{slug}', [MessageController::class, 'index'])->name('messages.index');
+    Route::get('/messages/show/{message}', [MessageController::class, 'show'])->name('messages.show');
+    Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
 });
 
 Route::middleware('auth')->group(function () {
@@ -50,4 +54,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -21,7 +21,19 @@
                         </td>
                         <td>{{ $message->email }}</td>
                         <td>{{ $message->name }}</td>
-                        <td>{{ $message->lastname }}</td>
+                        <td>
+                            <a href="{{ route('user.messages.show', $message) }}">show</a>
+                            {{ $message->id }}
+                            <form action="{{ route('user.messages.destroy', $message) }}" method="post" class="">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="rounded btn btn-outline-danger">
+                                    {{-- <i class="fa-solid fa-trash me-1"></i> --}}
+                                    {{ __('Delete permanently') }}
+                                </button>
+                            </form>
+                        </td>
+
                     </tr>
                 @empty
                     <tr>

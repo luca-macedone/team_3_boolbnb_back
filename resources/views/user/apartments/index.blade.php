@@ -160,7 +160,8 @@
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
                                 {{-- messages --}}
-                                <a class="action_btn action_messages p-2" title="Show messages" href="#">
+                                <a class="action_btn action_messages p-2" title="Show messages"
+                                    href="{{ route('user.messages.index', $apartment->slug) }}">
                                     <i class="fa-regular fa-comments"></i>
                                 </a>
                                 {{-- edit --}}
