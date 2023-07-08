@@ -24,8 +24,8 @@ return new class extends Migration
             $table->unsignedTinyInteger('bathrooms')->nullable();
             $table->string('image')->nullable();
             $table->boolean('visibility')->default(true);
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->decimal('latitude', 11, 7);
+            $table->decimal('longitude', 11, 7);
             $table->string('full_address');
             $table->timestamps();
         });
