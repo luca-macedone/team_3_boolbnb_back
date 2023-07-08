@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\ApartmentController as APIApartmentController;
 use App\Http\Controllers\API\MessageController;
+use App\Http\Controllers\API\ServicesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,8 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Route::get('/user/details', [UserController::class, 'user_data']);
-Route::get('/apartments/{left_lat}/{left_lon}/{right_lat}/{right_lon}', [APIApartmentController::class, 'concerned_list']);
+// Route::get('/apartments/{left_lat}/{left_lon}/{right_lat}/{right_lon}', [APIApartmentController::class, 'concerned_list']);
 Route::get('/apartments', [APIApartmentController::class, 'index']);
 Route::get('/apartments/{apartment:slug}', [APIApartmentController::class, 'show']);
 Route::get('/messages', [MessageController::class, 'index']);
 Route::get('/messages/{apartment:id}', [MessageController::class, 'show']);
+Route::get('/services', [ServicesController::class, 'index']);
