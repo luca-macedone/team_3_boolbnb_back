@@ -24,5 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/apartments/{left_lat}/{left_lon}/{right_lat}/{right_lon}', [APIApartmentController::class, 'concerned_list']);
 Route::get('/apartments', [APIApartmentController::class, 'index']);
 Route::get('/apartments/{apartment:slug}', [APIApartmentController::class, 'show']);
-Route::get('/messages', [MessageController::class, 'index']);
+Route::post('/messages', [MessageController::class, 'store']);
 Route::get('/messages/{apartment:id}', [MessageController::class, 'show']);
