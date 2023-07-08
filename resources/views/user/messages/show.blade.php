@@ -14,20 +14,16 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($messages as $message)
-                    <tr>
-                        <td>
-                            <textarea readonly rows="4" style="resize: none; width: 100%">{{ $message->message }}</textarea>
-                        </td>
-                        <td>{{ $message->email }}</td>
-                        <td>{{ $message->name }}</td>
-                        <td>{{ $message->lastname }}</td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td colspan="5">No messages found.</td>
-                    </tr>
-                @endforelse
+
+                <tr>
+                    <td>
+                        <textarea readonly rows="4" style="resize: none; width: 100%">{{ $message->message }}</textarea>
+                    </td>
+                    <td>{{ $message->email }}</td>
+                    <td>{{ $message->name }}</td>
+                    <td>{{ $message->lastname }}</td>
+                </tr>
+
             </tbody>
         </table>
     </div>
