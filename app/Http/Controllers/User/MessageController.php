@@ -18,10 +18,6 @@ class MessageController extends Controller
      */
     public function index($slug)
     {
-        /*    $user = Auth::user();
-        $apartmentIds = $user->apartments->pluck('id');
-        $messages = Message::whereIn('apartment_id', $apartmentIds)->get();
-        return view('user.messages.index', compact('messages')); */
 
         $user = Auth::user();
         $apartment = Apartment::where('slug', $slug)->get();
