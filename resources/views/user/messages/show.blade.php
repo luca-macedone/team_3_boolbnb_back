@@ -25,17 +25,13 @@
         </div>
 
         <div class="card">
-            <div class="card-header">
-                Message Details
+            <div class="card-header d-flex justify-content-between">
+                <span>Message Details</span>
+                <span>From: {{ $message->email }}</span>
             </div>
             <div class="card-body">
                 <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea readonly class="form-control" id="message" rows="4">{{ $message->message }}</textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input readonly type="text" class="form-control" id="email" value="{{ $message->email }}">
+                    <div>{{ $message->message }}</div>
                 </div>
                 <div class="d-flex justify-content-end">
                     <button class="action_btn action_delete p-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
@@ -45,12 +41,14 @@
             </div>
         </div>
 
+
         <!-- Delete Modal -->
         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel"><i class="fa-solid fa-trash"></i></h5>
+                        <h5 class="modal-title text-danger" id="{{ 'modalTitle' . $message->id }}"> {{ __('Danger Zone') }}
+                        </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

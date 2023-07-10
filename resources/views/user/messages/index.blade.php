@@ -35,12 +35,12 @@
                 @forelse ($messages as $message)
                     <tr>
                         <td>
-                            <textarea readonly rows="1" style="resize: none; width: 100%">{{ $message->message }}</textarea>
+                            <div readonly rows="1" style="resize: none; width: 100%">{{ $message->message }}</div>
                         </td>
                         <td>{{ $message->email }}</td>
 
                         <td class="d-flex gap-2">
-                            <a class="action_btn action_edit p-2" title="Edit apartment"
+                            <a class="action_btn action_show p-2" title="Edit apartment"
                                 href="{{ route('user.messages.show', $message) }}">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
