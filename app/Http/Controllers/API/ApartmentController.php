@@ -18,7 +18,7 @@ class ApartmentController extends Controller
         // $apartments = Apartment::with(['services', 'views', 'sponsorships'])->orderByDesc('id')->paginate(12);
         // $apartments = Apartment::with(['services'])->orderByDesc('id')->paginate(12);
         // dd($apartments);
-        $generic_search = boolval($request->query('generic_search'));
+        $generic_search = $request->query('generic_search') == 'true' ? true : false;
         $left_lat = floatval($request->query('left_lat'));
         $right_lat = floatval($request->query('right_lat'));
         $left_lon = floatval($request->query('left_lon'));
@@ -36,10 +36,10 @@ class ApartmentController extends Controller
             }
 
             if (! empty($rooms)) {
-                $query->where('rooms', '>', $rooms);
+                $query->where('rooms', '>=', $rooms);
             }
             if (! empty($beds)) {
-                $query->where('beds', '>', $beds);
+                $query->where('beds', '>=', $beds);
             }
 
             if (! empty($services)) {
