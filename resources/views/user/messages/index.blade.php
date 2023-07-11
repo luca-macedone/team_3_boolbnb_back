@@ -33,18 +33,15 @@
             </thead>
             <tbody>
                 @forelse ($messages as $message)
-                    <tr>
-                        <td>
-                            <div readonly rows="1" style="resize: none; width: 100%">{{ $message->message }}</div>
-                        </td>
+                <tr>
+                    <td>
+                        <div class="@if($message->is_read == 0) fw-bold @endif" readonly rows="1" style="resize: none; width: 100%">{{ $message->message }}</div>
+                    </td>
                         <td>{{ $message->email }}</td>
-
-                        <td class="d-flex gap-2">
-                            <a class="action_btn action_show p-2" title="Edit apartment"
-                                href="{{ route('user.messages.show', $message) }}">
+                            <td class="d-flex">
+                            <a onclick="{{$message->mark_messages($message)}}"  class="me-3 action_btn action_show p-2" href="{{ route('user.messages.show', $message) }}">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
-
                             <button class="action_btn action_delete p-2" title="Delete apartment" data-bs-toggle="modal"
                                 data-bs-target="{{ '#modal' . $message->id }}" title="{{ __('Delete') }}">
                                 <i class="fa-solid fa-trash"></i>

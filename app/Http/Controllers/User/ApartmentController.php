@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use App\Models\Service;
-
+use App\Models\Message;
 class ApartmentController extends Controller
 {
     /**
@@ -21,9 +21,15 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Auth::user()->apartments()->orderByDesc('id')->paginate(12);
-        // dd($apartments);
+        $messages_count = [];
+        foreach ($apartments as $apartment)
+        {
+            $message = Message::where('apartment_id', $apartment->id)->where('is_read', 0)->count();
+            array_push($messages_count, $message);
+        }
+        //$unreadCount = Message::getUnreadMessageCount();
 
-        return view('user.apartments.index', compact('apartments'));
+        return view('user.apartments.index', compact('apartments', 'messages_count'));
     }
 
     /**
