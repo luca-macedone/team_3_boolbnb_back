@@ -26,6 +26,7 @@ class ApartmentController extends Controller
         $rooms = $request->query('rooms');
         $beds = $request->query('beds');
         $services = $request->query('services');
+        //$messages = $request->query('messages');
 
         $query = Apartment::query()->with('services');
         if ($generic_search) {

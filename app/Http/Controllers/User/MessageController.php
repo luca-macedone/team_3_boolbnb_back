@@ -25,7 +25,6 @@ class MessageController extends Controller
         $messages = $apartment[0]->messages;
         return view('user.messages.index', compact('messages'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -78,7 +77,7 @@ class MessageController extends Controller
      */
     public function edit(Message $message)
     {
-        //
+        
     }
 
     /**
@@ -108,4 +107,5 @@ class MessageController extends Controller
 
         return to_route('user.messages.index', compact('slug'))->with('message', 'Message deleted');
     }
+
 }
