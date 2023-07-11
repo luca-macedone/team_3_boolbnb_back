@@ -221,7 +221,6 @@ return [
         'longitude' => 14.24647,
         'full_address' => '28 Via Emanuele de Deo, Plebiscito, 80134 Naples',
     ],
-
     [
         'title' => 'Splendido appartamento con vista su San Marino sul mare di Rimini Miramare',
         'rooms' => 1,
@@ -246,7 +245,6 @@ return [
         'full_address' => 'Viale Ivo Oliveti 60, 47924 Rimini',
 
     ],
-
     [
         'title' => 'Platzlhof',
         'rooms' => 10,
@@ -259,7 +257,6 @@ return [
         'full_address' => 'Strada della Piazzetta 18, 39057 Appiano sulla Strada del Vino',
 
     ],
-
     [
         'title' => 'Schloss Freudenstein',
         'rooms' => 30,
@@ -272,7 +269,6 @@ return [
         'full_address' => 'Strada Masaccio, 39057 Appiano sulla Strada del Vino',
 
     ],
-
     [
         'title' => 'Villa Schmid',
         'rooms' => 4,
@@ -285,7 +281,6 @@ return [
         'full_address' => 'Via Fago 3, 39100 Bolzano',
 
     ],
-
     [
         'title' => 'Harmony Apt 3',
         'rooms' => 3,
@@ -298,7 +293,6 @@ return [
         'full_address' => 'Strada Masaccio 20, 39057 Appiano sulla Strada del Vino',
 
     ],
-
     [
         'title' => 'Il Falchetto',
         'rooms' => 3,
@@ -311,7 +305,6 @@ return [
         'full_address' => 'Località Regole, 38011 Sarnonico',
 
     ],
-
     [
         'title' => 'Manna Resort',
         'rooms' => 20,
@@ -324,7 +317,6 @@ return [
         'full_address' => '39040 Montagna',
 
     ],
-
     [
         'title' => 'Thomaserhof',
         'rooms' => 10,
@@ -337,7 +329,6 @@ return [
         'full_address' => 'Frazione Redagno di Sopra 6, 39040 Aldino',
 
     ],
-
     [
         'title' => 'Huanzhof Ferienwohnung Schwarzhorn',
         'rooms' => '12',
@@ -676,7 +667,7 @@ return [
         'square_meters' => 90,
         'bathrooms' => 1,
         'image' => 'uploads/ripa.webp',
-        'latitude' => 45.452115, 
+        'latitude' => 45.452115,
         'longitude' => 9.174747,
         'full_address' => 'vicolo privato lavandai, 4, 20144 Milano MI, Italia',
     ],
