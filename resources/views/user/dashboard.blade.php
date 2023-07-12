@@ -60,7 +60,7 @@
                                                         </span>
                                                     </div>
                                                     <span>
-                                                        <span class="fw-semibold fs-3">1000</span>
+                                                        <span class="fw-semibold fs-3">{{ $apartment?->total_views }}</span>
                                                         <span> views</span>
                                                     </span>
                                                 </div>
