@@ -169,6 +169,11 @@
                                     href="{{ route('user.apartments.edit', $apartment->slug) }}">
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
+                                {{-- stats --}}
+                                <a class="action_btn action_stats p-2" title="Stats apartment"
+                                    href="{{ route('user.views.index', $apartment->slug) }}">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                </a>
                                 {{-- delete --}}
                                 <button class="action_btn action_delete p-2" title="Delete apartment" data-bs-toggle="modal"
                                     data-bs-target="{{ '#modal' . $apartment->id }}" title="{{ __('Delete') }}">
