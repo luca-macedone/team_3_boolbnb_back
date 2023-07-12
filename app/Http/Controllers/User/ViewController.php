@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreViewRequest;
 use App\Http\Requests\UpdateViewRequest;
+use App\Models\Apartment;
 use App\Models\View;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,12 +16,21 @@ class ViewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
-        $user = Auth::user();
-        $views = View::where('apartment_id->user_id', '=', $user->id)->get();
-        //dd($views);
-        return view('user.views.index', compact('views'));
+
+        //dd($slug);
+
+        $apartment = Apartment::where('slug', $slug)->first();
+
+        if (!$apartment) {
+            abort(404); // Appartamento non trovato
+        }
+
+        $views = View::where('apartment_id', $apartment->id)->get();
+        $apartments = Apartment::all();
+
+        return view('user.views.index', compact('views', 'apartment', 'apartments', 'slug'));
     }
 
     /**

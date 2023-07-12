@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\ApartmentController as APIApartmentController;
 use App\Http\Controllers\API\MessageController;
 use App\Http\Controllers\API\ServicesController;
+use App\Http\Controllers\API\ViewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,5 @@ Route::get('/apartments/{apartment:slug}', [APIApartmentController::class, 'show
 Route::post('/messages', [MessageController::class, 'store']);
 Route::get('/messages/{apartment:id}', [MessageController::class, 'show']);
 Route::get('/services', [ServicesController::class, 'index']);
+Route::get('/views/{apartment}', [ViewController::class, 'index']);
+Route::post('/views', [ViewController::class, 'store']);

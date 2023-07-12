@@ -40,12 +40,13 @@ Route::middleware(['auth', 'verified'])->prefix('user')->name('user.')->group(fu
     );
     Route::resource('services', ServiceController::class);
     //Route::resource('messages', MessageController::class);
-    Route::resource('views', ViewController::class);
+    // Route::resource('views', ViewController::class);
     Route::resource('sponsorships', SponsorshipController::class);
     // Route::resource('messages', MessageController::class);
     Route::get('/messages/{slug}', [MessageController::class, 'index'])->name('messages.index');
     Route::get('/messages/show/{message}', [MessageController::class, 'show'])->name('messages.show');
     Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
+    Route::get('/views/{slug}', [ViewController::class, 'index'])->name('views.index');
 });
 
 Route::middleware('auth')->group(function () {
