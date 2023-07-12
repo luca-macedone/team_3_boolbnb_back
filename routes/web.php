@@ -42,6 +42,8 @@ Route::middleware(['auth', 'verified'])->prefix('user')->name('user.')->group(fu
     //Route::resource('messages', MessageController::class);
     Route::resource('views', ViewController::class);
     Route::resource('sponsorships', SponsorshipController::class);
+    Route::get('/payment', [SponsorshipController::class, 'payment'])->name('payment');
+    Route::get('/transaction', [SponsorshipController::class, 'transaction'])->name('transaction');
     // Route::resource('messages', MessageController::class);
     Route::get('/messages/{slug}', [MessageController::class, 'index'])->name('messages.index');
     Route::get('/messages/show/{message}', [MessageController::class, 'show'])->name('messages.show');
