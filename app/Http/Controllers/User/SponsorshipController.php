@@ -2,10 +2,19 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Sponsorship;
 use App\Http\Requests\StoreSponsorshipRequest;
 use App\Http\Requests\UpdateSponsorshipRequest;
+use App\Models\Sponsorship;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+use Braintree\Gateway;
+use Illuminate\Http\Request;
+use App\Models\Apartment;
+use DateTime;
+use DateInterval;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class SponsorshipController extends Controller
 {
@@ -14,26 +23,19 @@ class SponsorshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $slug = $request->input('slug');
         $sponsorships = Sponsorship::all();
-        return view('user.sponsorships.index', compact('sponsorships'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $apartment_list = Auth::user()->apartments()->where('slug', $slug)->get();
+        $apartment = $apartment_list->first();
+        // dd($apartment);
+        return view('user.sponsorships.index', compact(['sponsorships', 'apartment']));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSponsorshipRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreSponsorshipRequest $request)
@@ -44,7 +46,6 @@ class SponsorshipController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Sponsorship  $sponsorship
      * @return \Illuminate\Http\Response
      */
     public function show(Sponsorship $sponsorship)
@@ -53,36 +54,77 @@ class SponsorshipController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Returns the client Token for generate the payment method
      *
-     * @param  \App\Models\Sponsorship  $sponsorship
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function edit(Sponsorship $sponsorship)
+    public function payment(Request $request, Gateway $gateway)
     {
-        //
+        $apartment_id = $request->input('apartment_id');
+        $sponsorship_id = $request->input('sponsorship_id');
+        $sponsorship = Sponsorship::find($sponsorship_id);
+        // $amount = $sponsorship->price;
+        // dd($amount);
+        // dd($apartment_id, $sponsorship_id);
+        $clientToken = $gateway->clientToken()->generate();
+        // echo ($clientToken);
+
+        return view('user.sponsorships.payment', compact(['clientToken', 'apartment_id', 'sponsorship_id', 'sponsorship']));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Handles the transaction and save the result inside the db
      *
-     * @param  \App\Http\Requests\UpdateSponsorshipRequest  $request
-     * @param  \App\Models\Sponsorship  $sponsorship
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Gateway $gateway
+     * @return void
      */
-    public function update(UpdateSponsorshipRequest $request, Sponsorship $sponsorship)
+    public function transaction(Request $request, Gateway $gateway)
     {
-        //
-    }
+        // dd($request);
+        $result = $gateway->transaction()->sale([
+            'amount' => $request->amount,
+            'paymentMethodNonce' => $request->input('payment_method_nonce'),
+            'options' => ['submitForSettlement' => True],
+        ]);
+        // dd($result);
+        if ($result->success) {
+            $apartment_id = $request->apartment_id;
+            $sponsorship_id = $request->sponsorship_id;
+            $apartment = Apartment::find($apartment_id);
+            $sponsorship = Sponsorship::find($sponsorship_id);
+            // dd($interval);
+            // dd($apartment, $sponsorship);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Sponsorship  $sponsorship
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Sponsorship $sponsorship)
-    {
-        //
+            $latest_sponsorization = DB::table('apartment_sponsorship')->where('apartment_id', $apartment->id)->orderByDesc('ending_date')->first();
+            $latest_ending_date = null;
+
+            if ($latest_sponsorization) {
+                $latest_ending_date = $latest_sponsorization->ending_date;
+            }
+
+            $timestamp = Carbon::now()->format("Y-m-d H:i:s");
+
+            if ($latest_ending_date && $latest_ending_date > $timestamp) {
+                // dd('sono nell if');
+                $ending_date__formatted = Carbon::createFromFormat("Y-m-d H:i:s", $latest_ending_date);
+                $duration = $ending_date__formatted->addHours($sponsorship->duration)->format("Y-m-d H:i:s");
+                $apartment->sponsorships()->attach($sponsorship, [
+                    "starting_date" => $latest_ending_date,
+                    "ending_date" => $duration,
+                ]);
+            } else {
+                // dd('sono nell else');
+                $duration = Carbon::now()->addHours($sponsorship->duration)->format("Y-m-d H:i:s");
+                $apartment->sponsorships()->attach($sponsorship, [
+                    "starting_date" => $timestamp,
+                    "ending_date" => $duration,
+                ]);
+            }
+
+
+            return to_route('user.apartments.show', $apartment->slug)->with('message', 'apartment sponsored with success');
+        }
+        abort(403);
     }
 }
