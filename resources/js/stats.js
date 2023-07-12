@@ -59,41 +59,61 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`)
 
         // console.log(datesArray);
         const chart = new Chart(myChart, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: datesArray,
                 datasets: [{
                     label: '',
                     data: countsArray,
-                    borderWidth: 1,
-                    backgroundColor: [
-                        '#3FA9F580',
-                        '#FC9E1580',
-                        '#E3403D80'
-                    ]
+                    borderWidth: 2,
+                    borderColor: '#72A5AA',
+                    backgroundColor: '#72A5AA',
+                    pointBackgroundColor: '#72A5AA',
+                    pointBorderColor: '#72A5AA',
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    pointHoverBorderColor: '#FFF',
+                    tension: 0.3,
                 }]
             },
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
-                    }
+                        beginAtZero: true,
+                        grid: {
+                            drawBorder: false,
+                            color: 'rgba(0, 0, 0, 0.1)',
+                            borderWidth: 1,
+                            borderColor: 'rgba(0, 0, 0, 0.1)',
+                        },
+                    },
+                    x: {
+                        grid: {
+                            display: false,
+                        },
+                    },
                 },
-                tooltips: {
-                    enabled: false
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: '#FFF',
+                        titleColor: '#000',
+                        bodyColor: '#000',
+                        borderColor: '#F8D07C',
+                        borderWidth: 1,
+                        displayColors: false,
+                        callbacks: {
+                            label: function (context) {
+                                return 'Views: ' + context.parsed.y;
+                            },
+                        },
+                    },
                 },
-                legend: {
-                    display: false
-                }
             },
-            plugins: {
-                legend: {
-                    display: false,
-                    labels: {
-                        color: 'rgb(5, 99, 132)'
-                    }
-                }
-            }
         });
+
     })
 
