@@ -21,10 +21,16 @@ class ViewController extends Controller
 
         //dd($slug);
 
-        $views = View::all();
+        $apartment = Apartment::where('slug', $slug)->first();
+
+        if (!$apartment) {
+            abort(404); // Appartamento non trovato
+        }
+
+        $views = View::where('apartment_id', $apartment->id)->get();
         $apartments = Apartment::all();
 
-        return view('user.views.index', compact('views', 'apartments', 'slug'));
+        return view('user.views.index', compact('views', 'apartment', 'apartments', 'slug'));
     }
 
     /**
