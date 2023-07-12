@@ -38,7 +38,8 @@ class Apartment extends Model
 
     public function sponsorships(): BelongsToMany
     {
-        return $this->belongsToMany(Sponsorship::class)->withPivot('starting_date', 'ending_date');
+        // return $this->belongsToMany(Sponsorship::class)->withPivot('starting_date', 'ending_date');
+        return $this->belongsToMany(Sponsorship::class);
     }
 
     public function services(): BelongsToMany
