@@ -127,17 +127,17 @@
         scale: 1;
         transition: scale 0.25s ease-in-out;
     }
-    .badge{
+    .badge {
         position: absolute;
         z-index: 10;
-        top:60%;
-        left:60%;
+        top: 60%;
+        left: 60%;
         color: $bnb-tertiary;
         background-color: $bnb-light;
         border: 1px solid $bnb-tertiary;
         scale: 1.1;
         border-radius: 50%;
-        &:hover{
+        &:hover {
             scale: 2;
             transition: scale 0.25s ease-in-out;
             border: none;
@@ -173,6 +173,13 @@
     }
 }
 
+.action_stats {
+    border-color: $bnb-info;
+    i {
+        color: $bnb-info;
+    }
+}
+
 .action_delete {
     border-color: $bnb-tertiary;
     background-color: transparent;
@@ -185,7 +192,7 @@
     border: none;
 }
 
-.action_btn:hover > i{
+.action_btn:hover > i {
     // transition: font-size 0.1s linear;
     // font-size: calc($bnb-xxxl + $bnb-xxs);
     scale: 2;
