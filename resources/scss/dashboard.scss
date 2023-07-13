@@ -312,6 +312,7 @@
 
 .dashboard_jumbotron {
     background-color: $bnb-light;
+    background: rgb(246, 246, 234);
     // background-image: url("/public/storage/internal/bg_wave.svg");
     background-image: url("/public/storage/internal/wave_animated.svg");
     background-repeat: no-repeat;
@@ -328,7 +329,12 @@
 
     .dashboard_card {
         border: none;
-        background-color: $bnb-light;
+        background: rgb(246, 246, 234);
+        background-image: url("/public/storage/internal/wave_animated.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        background-attachment: fixed;
         border-radius: 0.75rem;
         min-height: 250px;
     }
@@ -380,10 +386,15 @@
     }
 
     .dashboard_card.banner_card {
+        background: rgb(246, 246, 234);
         background-image: url("/public/storage/internal/wave_animated.svg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: bottom;
         background-attachment: fixed;
+    }
+
+    .statistic{
+        color: $bnb-tertiary;
     }
 }

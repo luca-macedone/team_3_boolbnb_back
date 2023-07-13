@@ -21,17 +21,17 @@ class DashboardController extends Controller
         /* dd($apartment); */
 
         $views=Auth::user()?->apartments()
-        ->select('apartments.*', DB::raw('COUNT(views.id) as total_views'))
-        ->leftJoin('views', 'apartments.id', '=', 'views.apartment_id')
-        ->groupBy('apartments.id')
-        ->orderBy('total_views', 'desc')
-        ->get();
+            ->select('apartments.*', DB::raw('COUNT(views.id) as total_views'))
+            ->leftJoin('views', 'apartments.id', '=', 'views.apartment_id')
+            ->groupBy('apartments.id')
+            ->orderBy('total_views', 'desc')
+            ->get();
 
         $totalViewsSum = $views->sum('total_views');
+        $mediumView = round($totalViewsSum / $apartment->count());
 
-        /* dd($totalViewsSum); */ 
         
-        return view('user.dashboard', compact('apartment','views'));
+        return view('user.dashboard', compact('apartment','totalViewsSum','mediumView'));
     }
 
     public function front_office()
