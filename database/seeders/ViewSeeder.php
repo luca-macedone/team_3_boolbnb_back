@@ -18,13 +18,13 @@ class ViewSeeder extends Seeder
     {
         $apartmentIds = Apartment::pluck('id')->toArray();
 
-        for ($i = 0; $i < 15000; $i++) {
+        for ($i = 0; $i < 5000; $i++) {
             $apartmentId = $apartmentIds[array_rand($apartmentIds)];
 
             $view = [
                 "apartment_id" => $apartmentId,
                 "ip" => $faker->ipv4(),
-                "date" => $faker->dateTimeBetween('-3 months', '-1 days'),
+                "date" => $faker->dateTimeBetween('-1 months', '-1 days'),
             ];
 
             View::create($view);

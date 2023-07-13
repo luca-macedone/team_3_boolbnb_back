@@ -19,13 +19,19 @@ body {
     background-color: $bnb-light;
 }
 
-.hr_margin{
+.hr_margin {
     margin-left: 2rem;
     margin-right: 2rem;
 }
 
-.hr_margin_apartment{
+.hr_margin_apartment {
     margin-right: 2.5rem;
+}
+
+.card_show {
+    height: 100% !important;
+    background-color: $bnb-light;
+    border-radius: 0.75rem;
 }
 
 // a {

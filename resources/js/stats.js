@@ -53,11 +53,16 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`)
         // massimo due decimali
         let md = media.toFixed(2);
 
+        datesArray.sort((a, b) => {
+            let date1 = new Date(a);
+            let date2 = new Date(b);
+            return date1 - date2;
+        });
 
-        datesArray.push('average views by day');
+        //datesArray.push('average views by day');
         countsArray.push(md);
 
-        // console.log(datesArray);
+        console.log(datesArray);
         const chart = new Chart(myChart, {
             type: 'line',
             data: {
@@ -66,10 +71,10 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`)
                     label: '',
                     data: countsArray,
                     borderWidth: 2,
-                    borderColor: '#72A5AA',
-                    backgroundColor: '#72A5AA',
-                    pointBackgroundColor: '#72A5AA',
-                    pointBorderColor: '#72A5AA',
+                    borderColor: '#8cc0de',
+                    backgroundColor: '#8cc0de',
+                    pointBackgroundColor: '#8cc0de',
+                    pointBorderColor: '#8cc0de',
                     pointRadius: 4,
                     pointHoverRadius: 6,
                     pointHoverBorderColor: '#FFF',
