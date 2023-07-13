@@ -34,7 +34,13 @@
                             <div class="col-12 col-lg-6">
                                 <a href="{{ route('user.apartments.show', $apartment->slug) }}">
                                     <div class="dashboard_card apartment_card shadow p-4 h-100">
-                                        <img src="{{ asset("/storage/$apartment->image") }}" class="card-img" alt="">
+                                        @if (File::exists(asset("/storage/$apartment->image")))
+                                            <img src="{{ asset("/storage/$apartment->image") }}" class="card-img"
+                                                alt="">
+                                        @else
+                                            <img src="{{ asset('/storage/internal/missing_img_v2.svg') }}" alt="missing image"
+                                                class="card-img" />
+                                        @endif
                                         <div class="card-img-overlay">
                                             <h5 class="section_title text-center m-0 p-0">
                                                 <i class="fa-solid fa-ranking-star"></i>

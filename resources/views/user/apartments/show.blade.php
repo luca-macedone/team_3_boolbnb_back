@@ -19,13 +19,9 @@
 
             <div class="col-12 col-xl-8">
                 <div class="apartment_show_img_wrapper">
-                    @if (File::exists(asset('/storage/' . $apartment->image)))
-                        <img src="{{ asset('/storage/' . $apartment->image) }}" class="apartment_show_img card_shadow"
-                            alt="{{ $apartment->title }}">
-                    @else
-                        <img src="{{ asset('/storage/internal/missing_img_v2.svg') }}"
-                            class="apartment_show_img card_shadow" alt="missing image">
-                    @endif
+                    <img src="{{ asset('/storage/' . $apartment->image) }}"
+                        onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'"
+                        class="apartment_show_img card_shadow" alt="{{ $apartment->title }}" />
                 </div>
             </div>
 
