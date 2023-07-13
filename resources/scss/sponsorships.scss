@@ -60,3 +60,26 @@
         scale: 1.08;
     }
 }
+
+.sponsorship_apartment_details {
+    background-color: $bnb-light;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    .sponsorship_apartment_img_wrapper {
+        max-height: 350px;
+        width: 100%;
+        // overflow: hidden;
+        position: relative;
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+
+        h1 {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            color: $bnb-light;
+        }
+    }
+}
