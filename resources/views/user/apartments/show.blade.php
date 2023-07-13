@@ -83,12 +83,12 @@
                             <i class="fa-solid fa-pen"></i>
                         </a>
                         {{-- delete --}}
-                        <button class="action_btn action_delete p-2" title="Delete apartment" data-bs-toggle="modal"
-                            data-bs-target="{{ '#modal' . $apartment->id }}" title="{{ __('Delete') }}">
+                        <button class="action_btn action_delete p-2" id="open_modal_btn" title="Delete apartment"
+                            title="{{ __('Delete') }}">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                         {{-- delete modal --}}
-                        <div class="modal fade" id="{{ 'modal' . $apartment->id }}" tabindex="-1" data-bs-backdrop="false"
+                        {{-- <div class="modal" id="{{ 'modal_' . $apartment->id }}" tabindex="-1" data-bs-backdrop="false"
                             data-bs-keyboard="false" role="dialog" aria-labelledby="{{ 'modalTitle' . $apartment->id }}"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
@@ -113,18 +113,62 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="rounded btn btn-outline-danger">
-                                                {{-- <i class="fa-solid fa-trash me-1"></i> --}}
-                                                {{ __('Delete permanently') }}
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                               
+                        {{ __('Delete permanently') }}
+                        </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+
+
+
+
                     </div>
                 </div>
             </div>
 
         </div>
+        <div class="d-none delete_modal shadow" id="delete_apartment_modal">
+            <div class="h-100 w-100 d-flex flex-column justify-content-center align-items-center gap-5 p-5">
+                <div class="d-flex flex-column gap-2">
+                    <strong class="text-danger">This operation is irreversible!</strong>
+                    <span>Are you sure you want to proceed?</span>
+                </div>
+
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn btn-outline-dark" id="close_modal_btn">
+                        close
+                    </button>
+
+                    <form action="{{ route('user.apartments.destroy', $apartment) }}" method="post" class="">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="rounded btn btn-outline-danger">
+
+                            {{ __('Delete permanently') }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        const open_modal_bnt = document.getElementById('open_modal_btn');
+        const close_modal_bnt = document.getElementById('close_modal_btn');
+        const modal_el = document.querySelector('#delete_apartment_modal');
+
+        open_modal_bnt.addEventListener('click', e => {
+            console.log('open')
+            modal_el.classList.toggle('d-none');
+
+        })
+
+        close_modal_bnt.addEventListener('click', e => {
+            console.log('close')
+            modal_el.classList.toggle('d-none');
+        })
+    </script>
 @endsection
