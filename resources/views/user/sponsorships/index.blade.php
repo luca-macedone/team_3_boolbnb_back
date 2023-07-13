@@ -12,9 +12,12 @@
         </div>
     </section>
 
-    <div class="p-5 mt-3 bg-light rounded-3">
-        <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold m-0 p-0">{{ $apartment->title }}</h1>
+    <div class=" mt-3 sponsorship_apartment_details shadow">
+        <div class="container-fluid mx-0 px-0">
+            <div class="sponsorship_apartment_img_wrapper">
+                <img src="{{ asset('/storage/' . $apartment->image) }}" class="" alt="">
+                <h1 class="display-5 fw-semibold m-0 p-0">{{ $apartment->title }}</h1>
+            </div>
         </div>
     </div>
 
