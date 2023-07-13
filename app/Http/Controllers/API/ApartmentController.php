@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ApartmentController extends Controller
 {
@@ -28,31 +29,47 @@ class ApartmentController extends Controller
         $services = $request->query('services');
         //$messages = $request->query('messages');
 
+        $timestamp = Carbon::now()->format("Y-m-d H:i:s");
+
         $query = Apartment::query()->with('services');
+
         if ($generic_search) {
-            $query->where('id', '>', 0)->orderByDesc('id');
+            $query
+                ->join('apartment_sponsorship', 'id', '=', 'apartment_sponsorship.apartment_id')
+                ->where('ending_date', '>', $timestamp)
+                ->groupBy('apartments.id')
+                ->select('apartments.*');
         } else {
-            if (! empty($left_lat) && ! empty($left_lon) && ! empty($right_lat) && ! empty($right_lon)) {
+            $query
+                ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
+                ->where(function ($query) use ($timestamp) {
+                    $query->whereNull('apartment_sponsorship.apartment_id')
+                        ->orWhere('apartment_sponsorship.ending_date', '>', $timestamp);
+                })
+                ->groupBy('apartments.id')
+                ->select('apartments.*')
+                ->orderByRaw('CASE WHEN apartment_sponsorship.apartment_id IS NOT NULL THEN 0 ELSE 1 END');
+
+            if (!empty($left_lat) && !empty($left_lon) && !empty($right_lat) && !empty($right_lon)) {
                 $query->whereBetween('latitude', [min($left_lat, $right_lat), max($left_lat, $right_lat)])->whereBetween('longitude', [min($left_lon, $right_lon), max($left_lon, $right_lon)]);
             }
 
-            if (! empty($rooms)) {
+            if (!empty($rooms)) {
                 $query->where('rooms', '>=', $rooms);
             }
-            if (! empty($beds)) {
+            if (!empty($beds)) {
                 $query->where('beds', '>=', $beds);
             }
 
-            if (! empty($services)) {
+            if (!empty($services)) {
                 $query->wherehas('services', function ($q) use ($services) {
 
                     $q->whereIn('id', $services);
-
                 });
             }
         }
-
         $apartments = $query->paginate(12);
+
 
         return response()->json([
             'success' => true,

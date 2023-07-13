@@ -75,12 +75,12 @@
                                 {{ __('Apartments') }}
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <i class="fa-solid fa-star"></i>
                             <a class="" href="{{ route('user.sponsorships.index') }}">
                                 {{ __('Sponsorships') }}
                             </a>
-                        </li>
+                        </li> --}}
                     @endauth
                     @guest
                         <li class="nav-item">
@@ -151,13 +151,13 @@
                                         {{ __('Apartments') }}
                                     </a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a class="" href="{{ url('/user/sponsorships') }}">
                                         <i class="fa-solid fa-star pe-2"></i>
 
                                         {{ __('Sponsorships') }}
                                     </a>
-                                </li>
+                                </li> --}}
                             @endauth
                             @guest
                                 <li class="nav-item">

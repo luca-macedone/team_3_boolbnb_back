@@ -1,31 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="offcanvas offcanvas-end p-4" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 id="offcanvasRightLabel">Cart</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-        </div>
-        <div class="offcanvas-footer p-0">
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <p class="fw-bold">Total</p>
-                </div>
-                <div>
-                    <p>€100</p>
-                </div>
-            </div>
-            <div>
-                <button class="btn text-uppercase">go to checkout</button>
-            </div>
-
-            <div>
-                <button class="btn text-uppercase">continue shopping</button>
-            </div>
-        </div>
-    </div>
     <section class="jumbotron shadow jumbotron-fluid rounded-4 mt-3 py-5 dashboard_jumbotron">
         <div class="container">
             <div class="row mx-3">
@@ -36,6 +11,13 @@
             </div>
         </div>
     </section>
+
+    <div class="p-5 mt-3 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold m-0 p-0">{{ $apartment->title }}</h1>
+        </div>
+    </div>
+
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center py-3 g-3">
         @forelse ($sponsorships as $sponsorship)
             <div class="col">
@@ -59,11 +41,11 @@
                                 <span class="ms-2 fw-regular fs-4">€{{ $sponsorship->price }}</span>
                             </div>
                         </div>
-                        <button class="cart px-5 py-3 rounded-pill text-uppercase" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                            add to cart
-                            <i class="fa-solid fa-cart-plus ms-2"></i>
-                        </button>
+                        <a href="{{ route('user.payment', ['apartment_id' => $apartment->id, 'sponsorship_id' => $sponsorship->id]) }}"
+                            class="cart px-5 py-3 rounded-pill text-uppercase text-decoration-none" type="button">
+                            <i class="fa-solid fa-dollar"></i>
+                            Buy
+                        </a>
 
                     </div>
                 </div>
@@ -71,6 +53,4 @@
         @empty
         @endforelse
     </div>
-    </div>
-    </script>
 @endsection
