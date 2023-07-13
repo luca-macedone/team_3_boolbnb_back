@@ -34,6 +34,16 @@ body {
     border-radius: 0.75rem;
 }
 
+.delete_modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    border-radius: 0.75rem;
+
+    background-color: $bnb-light;
+}
+
 // a {
 //     text-decoration: none;
 //     color: $bnb-dark;

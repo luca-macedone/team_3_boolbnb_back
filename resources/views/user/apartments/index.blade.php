@@ -84,8 +84,8 @@
                                 </a>
                                 {{-- messages --}}
                                 <a class="action_btn action_messages p-2" title="Show messages"
-                                href="{{ route('user.messages.index', $apartment->slug) }}">
-                                <i class="fa-regular fa-comments">
+                                    href="{{ route('user.messages.index', $apartment->slug) }}">
+                                    <i class="fa-regular fa-comments">
                                     </i>
                                     @if ($messages_count[$index] > 0)
                                         <span class="badge">{{ $messages_count[$index] }}</span>
@@ -96,51 +96,16 @@
                                     href="{{ route('user.apartments.edit', $apartment->slug) }}">
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
+                                {{-- sponsor --}}
+                                <a class="action_btn action_sponsor p-2" title="Show details"
+                                    href="{{ route('user.sponsorships.index', ['slug' => $apartment->slug]) }}">
+                                    <i class="fa-solid fa-star"></i>
+                                </a>
                                 {{-- stats --}}
                                 <a class="action_btn action_stats p-2" title="Stats apartment"
                                     href="{{ route('user.views.index', $apartment->slug) }}">
                                     <i class="fa-solid fa-chart-simple"></i>
                                 </a>
-                                {{-- delete --}}
-                                <button class="action_btn action_delete p-2" title="Delete apartment" data-bs-toggle="modal"
-                                    data-bs-target="{{ '#modal' . $apartment->id }}" title="{{ __('Delete') }}">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                                {{-- delete modal --}}
-                                <div class="modal fade" id="{{ 'modal' . $apartment->id }}" tabindex="-1"
-                                    data-bs-backdrop="false" data-bs-keyboard="false" role="dialog"
-                                    aria-labelledby="{{ 'modalTitle' . $apartment->id }}" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
-                                        role="document">
-                                        <div class="modal-content rounded-0">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title text-danger"
-                                                    id="{{ 'modalTitle' . $apartment->id }}">
-                                                    {{ __('Danger Zone') }}
-                                                </h5>
-                                                <button type="button" class="btn-close rounded-0" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div>{{ __('This operation is irreversible.') }}</div>
-                                                <div class="fw-semibold">{{ __('Are you sure?') }}</div>
-                                            </div>
-                                            <div class="modal-footer d-flex justify-content-between gap-1">
-                                                <button type="button" class="rounded btn btn-outline-dark"
-                                                    data-bs-dismiss="modal">{{ __('Close') }}</button>
-                                                <form action="{{ route('user.apartments.destroy', $apartment) }}"
-                                                    method="post" class="">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="rounded btn btn-outline-danger">
-                                                        {{-- <i class="fa-solid fa-trash me-1"></i> --}}
-                                                        {{ __('Delete permanently') }}
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -153,5 +118,3 @@
         {{ $apartments->links('pagination::bootstrap-5') }}
     </div>
 @endsection
-
-
