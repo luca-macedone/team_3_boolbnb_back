@@ -15,9 +15,10 @@
     <div class=" mt-3 sponsorship_apartment_details shadow">
         <div class="container-fluid mx-0 px-0">
             <div class="sponsorship_apartment_img_wrapper">
-                @if ($apartment->image)
-                    <img src="{{ asset('/storage/' . $apartment->image) }}" class="" alt="">
+                @if (File::exists(asset('/storage/' . $apartment->image)))
+                    <img src="{{ asset('/storage/' . $apartment->image) }}" class="" alt="{{ $apartment->title }}">
                 @else
+                    <img src="{{ asset('/storage/internal/missing_img_v2.svg') }}" class="" alt="missing image">
                 @endif
                 <h1 class="display-5 fw-semibold m-0 p-0">{{ $apartment->title }}</h1>
             </div>

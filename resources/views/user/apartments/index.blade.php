@@ -59,8 +59,9 @@
                             <div class="d-flex flex-column flex-md-row justify-content-between gap-3 p-1 h-100">
                                 <div class="list_img_wrapper">
                                     {{-- img --}}
-                                    <img src="{{ asset('/storage/' . $apartment->image) }}" class=""
-                                        alt="{{ $apartment->title }}" />
+                                    <img src="{{ asset('/storage/' . $apartment->image) }}"
+                                        onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'"
+                                        class="" alt="{{ $apartment->title }}" />
                                 </div>
                                 <div>
                                     {{-- title, address --}}

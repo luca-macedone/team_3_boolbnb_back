@@ -19,8 +19,13 @@
 
             <div class="col-12 col-xl-8">
                 <div class="apartment_show_img_wrapper">
-                    <img src="{{ asset('/storage/' . $apartment->image) }}" class="apartment_show_img card_shadow"
-                        alt="{{ $apartment->title }}">
+                    @if (File::exists(asset('/storage/' . $apartment->image)))
+                        <img src="{{ asset('/storage/' . $apartment->image) }}" class="apartment_show_img card_shadow"
+                            alt="{{ $apartment->title }}">
+                    @else
+                        <img src="{{ asset('/storage/internal/missing_img_v2.svg') }}"
+                            class="apartment_show_img card_shadow" alt="missing image">
+                    @endif
                 </div>
             </div>
 
@@ -161,13 +166,13 @@
         const modal_el = document.querySelector('#delete_apartment_modal');
 
         open_modal_bnt.addEventListener('click', e => {
-            console.log('open')
+            // console.log('open')
             modal_el.classList.toggle('d-none');
 
         })
 
         close_modal_bnt.addEventListener('click', e => {
-            console.log('close')
+            // console.log('close')
             modal_el.classList.toggle('d-none');
         })
     </script>
