@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@section('content')
-    <div class="container p-4 card_show rounded-5 mt-4" id="viewsContainer">
+    <div class="container p-4 card_show card_shadow " id="viewsContainer">
         <a type="button" class="btn back_btn gap-2 shadow" href="{{ route('user.apartments.show', $slug) }}">
             <i class="fa-solid fa-arrow-left-long"></i>
             Back
