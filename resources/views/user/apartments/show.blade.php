@@ -72,6 +72,11 @@
                             href="{{ route('user.messages.index', $apartment->slug) }}">
                             <i class="fa-regular fa-comments"></i>
                         </a>
+                        {{-- stats --}}
+                        <a class="action_btn action_stats p-2" title="Stats apartment"
+                            href="{{ route('user.views.index', $apartment->slug) }}">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </a>
                         {{-- edit --}}
                         <a class="action_btn action_edit p-2" title="Edit apartment"
                             href="{{ route('user.apartments.edit', $apartment->slug) }}">
