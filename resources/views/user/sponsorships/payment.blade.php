@@ -18,8 +18,8 @@
             method="post">
             @csrf
             <!-- Putting the empty container you plan to pass to
-                                                                                                                                                                    'braintree.dropin.create' inside a form will make layout and flow
-                                                                                                                                                                    easier to manage -->
+                                                                                                                                                                            'braintree.dropin.create' inside a form will make layout and flow
+                                                                                                                                                                            easier to manage -->
 
             <div id="dropin-container"></div>
             <input type="submit" />
