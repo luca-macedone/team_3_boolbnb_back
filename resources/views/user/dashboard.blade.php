@@ -74,7 +74,29 @@
                         @endif
                         <div class="col-12 col-lg-4">
                             <div class="dashboard_card shadow p-4 h-100">
-                                statistics of apartments
+
+                                <h3 class="mb-3"><strong class="statistic">Statistics</strong></h3>
+
+                                <div class="mb-3">
+                                    You have: <strong class="statistic">{{ $apartment->count() }}</strong> apartments
+
+                                </div>
+                                <div class="mb-3">
+
+                                    Your apartments views:<strong class="statistic">{{ $totalViewsSum }}</strong>
+
+                                </div>
+                                <div class="mb-3">
+
+                                    Average visits apartment: <strong class="statistic">{{ $mediumView }}</strong>
+                                    </strong>
+                                </div>
+                                <div class="mb-3">
+
+                                    Most seen:<strong class="statistic">{{ $apartment->title }}</strong> with <strong
+                                        class="statistic">{{ $apartment->total_views }}</strong> views
+
+                                </div>
                             </div>
                         </div>
                         <div class="col-12 col-lg-8">
