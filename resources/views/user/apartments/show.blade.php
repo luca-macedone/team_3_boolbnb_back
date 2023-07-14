@@ -17,7 +17,7 @@
 
             </div>
 
-            <div class="col-12 col-xl-8">
+            <div class="col-12 col-xl-7">
                 <div class="apartment_show_img_wrapper">
                     <img src="{{ asset('/storage/' . $apartment->image) }}"
                         onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'"
@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-xl-4 d-flex flex-column gap-3">
+            <div class="col-12 col-xl-5 d-flex flex-column gap-3">
                 <div class="d-flex flex-column justify-content-center align-items-start gap-3 p-4 card_show">
                     <div class="d-flex justify-content-between align-items-center gap-4 w-100">
                         <div class="d-flex flex-column w-100 justify-content-center align-items-center"><span

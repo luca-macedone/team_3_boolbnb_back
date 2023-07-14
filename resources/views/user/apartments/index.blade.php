@@ -22,13 +22,13 @@
                         {{ __('You can easily create, view, edit, and delete your rentals.') }}
                     </p>
                 </div>
-                <div class="pt-5 d-flex justify-content-between align-items-center">
+                <div class="pt-5 d-flex justify-content-between align-items-center flex-wrap">
                     <a type="button" class="btn back_btn d-flex align-items-center gap-2 shadow"
                         href="{{ route('user.dashboard') }}">
                         <i class="fa-solid fa-arrow-left-long"></i>
                         Back
                     </a>
-                    <a type="button" class="btn new_apartment_btn d-flex align-items-center gap-2 shadow"
+                    <a type="button" class="btn new_apartment_btn d-flex mt-2 align-items-center gap-2 shadow"
                         href="{{ route('user.apartments.create') }}">
                         <i class="fa-solid fa-house-medical"></i>
                         Add a new apartment
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                             {{-- actions --}}
-                            <div class="d-flex justify-content-center align-self-end gap-3 pt-3">
+                            <div class="d-flex justify-content-center flex-wrap align-self-end gap-3 pt-3">
                                 {{-- show --}}
                                 <a class="action_btn action_show p-2" title="Show details"
                                     href="{{ route('user.apartments.show', $apartment->slug) }}">

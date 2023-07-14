@@ -270,6 +270,21 @@
     }
 }
 
+.back_btn_form {
+    background-color: $bnb-secondary;
+    color: $bnb-dark;
+    padding: 0.5rem 2rem;
+    transition: 0.25s all ease-in-out;
+    border-radius: 0.75rem;
+    border: 1px solid rgba($bnb-dark, 0.2);
+    &:hover {
+        background-color: $bnb-tertiary;
+        color: $bnb-dark;
+        // scale: 1.2;
+        scale: 1.05;
+    }
+}
+
 .modal-content {
     background-color: $bnb-light;
     border-radius: 0.75rem !important;
