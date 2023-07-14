@@ -52,3 +52,26 @@ body {
 //     text-decoration: none;
 //     color: $bnb-dark;
 // }
+
+  .image-container {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card_text{
+    position: absolute;
+    top: 0;
+    color: white;
+    padding: 1rem;
+    background: rgba($color: #000000, $alpha: 0.3);
+    width: 100%;
+    height: 100%;
+  }
