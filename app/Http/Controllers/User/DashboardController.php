@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Message;
 
 
 class DashboardController extends Controller
@@ -30,8 +31,17 @@ class DashboardController extends Controller
         $totalViewsSum = $views->sum('total_views');
         $mediumView = round($totalViewsSum / $apartment->count());
 
-        
-        return view('user.dashboard', compact('apartment','totalViewsSum','mediumView'));
+        $apartments = Auth::user()->apartments()->orderByDesc('id')->get();
+        $messages_count = [];
+        $messages_sum = 0;
+        foreach ($apartments as $apartment)
+        {
+            $message = Message::where('apartment_id', $apartment->id)->where('is_read', 0)->count();
+            $messages_sum = $message + $messages_sum;
+            array_push($messages_count, $message);
+
+        }
+        return view('user.dashboard', compact('apartment','totalViewsSum','mediumView', 'apartments', 'messages_count', 'messages_sum'));
     }
 
     public function front_office()

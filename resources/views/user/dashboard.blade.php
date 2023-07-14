@@ -114,8 +114,41 @@
                                 </h3>
                             </div>
                         </div>
+                        {{--messages--}}
+                <div class="col-12 col-lg-8">
+                    <div class="dashboard_card banner_card shadow p-4 h-100">
+                        <h3 class="fs-5 text-center h-100 d-flex align-items-center">
+                            {{ __('Stay connected with your guests and never miss a beat with real-time updates on the messages received for each of your properties. ') }}
+                        </h3>
                     </div>
                 </div>
+                <div class="col-12 col-lg-4">
+                    <div class="dashboard_card statistic shadow p-4 h-100">
+                        <h3 class=""><strong class="fw-semibold fs-5">Messages</strong></h3>
+                        @if ($messages_sum == 0)
+                            <p>No new messages.</p>
+                        @elseif ($messages_sum == 1)
+                            <p>
+                                <strong>You got a new message!</strong>
+                            </p>
+                        @else ($messages_sum > 1)
+                        <p>
+                            <strong>You got a total of {{$messages_sum}} new messages!</strong>
+                        </p>
+                        @endif
+                        @forelse ($apartments as $index => $apartment)
+                            @if ($messages_count[$index] == 1)
+                                <p>You have <strong>{{$messages_count[$index]}}</strong> new message for the <strong>{{$apartment->title}}</strong> apartment!</p>
+                            @elseif ($messages_count[$index] > 1)
+                                <p>You have <strong>{{$messages_count[$index]}}</strong> new messages for the <strong>{{$apartment->title}}</strong> apartment</p>
+                            @endif
+                        @empty
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+
+
 
                 {{-- <h5>
 
