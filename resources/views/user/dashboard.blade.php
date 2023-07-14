@@ -10,7 +10,7 @@
     @auth
         <div class="">
             <div class="container">
-                <div class="p-5 mb-4 rounded-3 mt-3 shadow dashboard_jumbotron">
+                <div class="p-5 mb-3 mt-3 shadow dashboard_jumbotron">
                     <div class="container py-3">
                         <h1 class="display-5 fw-semibold mb-5">
                             {{ __('Welcome to our platform for renting houses and apartments!') }}
@@ -20,7 +20,7 @@
                         </p>
                     </div>
                 </div>
-
+                {{-- Jumbotron --}}
                 <div class="container-fluid" id="dashboard_content">
                     <div class="row g-3">
                         <div class="col-12 col-lg-6">
@@ -30,17 +30,14 @@
                                 </span>
                             </div>
                         </div>
+                        {{-- Most viewed apartment --}}
                         @if ($apartment)
                             <div class="col-12 col-lg-6">
                                 <a href="{{ route('user.apartments.show', $apartment->slug) }}">
                                     <div class="dashboard_card apartment_card shadow p-4 h-100">
-                                        @if (File::exists(asset("/storage/$apartment->image")))
-                                            <img src="{{ asset("/storage/$apartment->image") }}" class="card-img"
-                                                alt="">
-                                        @else
-                                            <img src="{{ asset('/storage/internal/missing_img_v2.svg') }}" alt="missing image"
-                                                class="card-img" />
-                                        @endif
+                                        <img src="{{ asset('/storage/' . $apartment->image) }}"
+                                            onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'"
+                                            class="card-img" alt="{{ $apartment->title }}" />
                                         <div class="card-img-overlay">
                                             <h5 class="section_title text-center m-0 p-0">
                                                 <i class="fa-solid fa-ranking-star"></i>
@@ -78,29 +75,34 @@
                             </div>
                         @else
                         @endif
+                        {{-- Statistics --}}
                         <div class="col-12 col-lg-4">
-                            <div class="dashboard_card shadow p-4 h-100">
+                            <div class="dashboard_card statistic shadow p-4 h-100">
 
-                                <h3 class="mb-3"><strong class="statistic">Statistics</strong></h3>
+                                <h3 class=""><strong class="fw-semibold fs-5">Statistics</strong></h3>
 
-                                <div class="mb-3">
-                                    You have: <strong class="statistic">{{ $apartment->count() }}</strong> apartments
-
-                                </div>
-                                <div class="mb-3">
-
-                                    Your apartments views:<strong class="statistic">{{ $totalViewsSum }}</strong>
+                                <div class="">
+                                    You have: <strong class="fw-semibold fs-5 mx-2">{{ $apartment->count() }}</strong>
+                                    apartments
 
                                 </div>
-                                <div class="mb-3">
+                                <div class="">
 
-                                    Average visits apartment: <strong class="statistic">{{ $mediumView }}</strong>
+                                    Your total views:<strong class="fw-semibold fs-5 ms-2">{{ $totalViewsSum }}</strong>
+
+                                </div>
+                                <div class="">
+
+                                    Average views: <strong class="fw-semibold fs-5">{{ $mediumView }}</strong>
                                     </strong>
                                 </div>
-                                <div class="mb-3">
+                                <div class="">
 
-                                    Most seen:<strong class="statistic">{{ $apartment->title }}</strong> with <strong
-                                        class="statistic">{{ $apartment->total_views }}</strong> views
+                                    Most seen:
+                                    <strong class="fw-normal text_italic ms-2">{{ $apartment->title }}</strong>
+                                    <br />
+                                    with
+                                    <strong class="fw-semibold fs-5 mx-2">{{ $apartment->total_views }}</strong> views
 
                                 </div>
                             </div>

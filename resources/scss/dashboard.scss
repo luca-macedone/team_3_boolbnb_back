@@ -319,6 +319,7 @@
     background-position: 180deg;
     background-size: cover;
     background-attachment: fixed;
+    border-radius: 0.75rem;
 }
 
 #dashboard_content {
@@ -394,7 +395,7 @@
         background-attachment: fixed;
     }
 
-    .statistic{
-        color: $bnb-tertiary;
+    .dashboard_card.statistic {
+        line-height: 2rem;
     }
 }
