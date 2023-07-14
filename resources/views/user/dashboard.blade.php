@@ -74,6 +74,12 @@
                                 </a>
                             </div>
                         @else
+                            <div class="col-12 col-lg-6">
+                                <div
+                                    class="dashboard_card apartment_card shadow p-4 h-100 d-flex justify-content-center align-items-center">
+                                    No apartments yet!
+                                </div>
+                            </div>
                         @endif
                         {{-- Statistics --}}
                         <div class="col-12 col-lg-4">
@@ -82,7 +88,13 @@
                                 <h3 class=""><strong class="fw-semibold fs-5">Statistics</strong></h3>
 
                                 <div class="">
-                                    You have: <strong class="fw-semibold fs-5 mx-2">{{ $apartment?->count() }}</strong>
+                                    You have: <strong class="fw-semibold fs-5 mx-2">
+                                        @if ($apartment)
+                                            {{ $apartment?->count() }}
+                                        @else
+                                            0
+                                        @endif
+                                    </strong>
                                     apartments
 
                                 </div>
@@ -96,15 +108,15 @@
                                     Average views: <strong class="fw-semibold fs-5">{{ $mediumView }}</strong>
                                     </strong>
                                 </div>
-                                <div class="">
-
-                                    Most seen:
-                                    <strong class="fw-normal text_italic ms-2">{{ $apartment?->title }}</strong>
-                                    <br />
-                                    with
-                                    <strong class="fw-semibold fs-5 mx-2">{{ $apartment?->total_views }}</strong> views
-
-                                </div>
+                                @if ($apartment)
+                                    <div class="">
+                                        Most seen:
+                                        <strong class="fw-normal text_italic ms-2">{{ $apartment?->title }}</strong>
+                                        <br />
+                                        with
+                                        <strong class="fw-semibold fs-5 mx-2">{{ $apartment?->total_views }}</strong> views
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         <div class="col-12 col-lg-8">
