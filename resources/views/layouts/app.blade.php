@@ -39,7 +39,7 @@
                 aria-controls="offcanvasExample">
                 <i class="fa-solid fa-bars fa-2x"></i>
             </a>
-            <div class="logo_wrapper"></div>
+            <a href="http://localhost:5174/" class="logo_wrapper"></a>
         </div>
 
         <div class="offcanvas offcanvas-start d-xl-none" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
@@ -114,7 +114,7 @@
 
         <div class="dashboard_bg"></div>
 
-        <div class="container-fluid container_z_index">
+        <div class="container container_z_index">
             <div class="row justify-content-center p-1 p-xl-5">
                 <!-- left -->
                 <div class="col-12 col-lg-3 d-none d-xl-block">
