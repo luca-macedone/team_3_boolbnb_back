@@ -31,13 +31,13 @@
                             </div>
                         </div>
                         {{-- Most viewed apartment --}}
-                        @if ($mostRelevant)
+                        @if ($apartment)
                             <div class="col-12 col-lg-6">
-                                <a href="{{ route('user.apartments.show', $mostRelevant->slug) }}">
+                                <a href="{{ route('user.apartments.show', $apartment->slug) }}">
                                     <div class="dashboard_card apartment_card shadow p-4 h-100">
-                                        <img src="{{ asset('/storage/' . $mostRelevant->image) }}"
+                                        <img src="{{ asset('/storage/' . $apartment->image) }}"
                                             onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'"
-                                            class="card-img" alt="{{ $mostRelevant->title }}" />
+                                            class="card-img" alt="{{ $apartment->title }}" />
                                         <div class="card-img-overlay">
                                             <h5 class="section_title text-center m-0 p-0">
                                                 <i class="fa-solid fa-ranking-star"></i>
@@ -45,25 +45,25 @@
                                             </h5>
 
                                             <div class="apartment_info flex-column justify-content-between align-items-start">
-                                                <h5 class="m-0 p-0">{{ $mostRelevant->title }}</h5>
+                                                <h5 class="m-0 p-0">{{ $apartment->title }}</h5>
                                                 <div class="d-flex justify-content-between align-items-center gap-2 w-100">
                                                     <div class="d-flex align-items-center gap-3">
                                                         <span>
-                                                            <span class="fw-semibold fs-3">{{ $mostRelevant?->rooms }}</span>
+                                                            <span class="fw-semibold fs-3">{{ $apartment?->rooms }}</span>
                                                             <span> rooms</span>
                                                         </span>
                                                         <span>
-                                                            <span class="fw-semibold fs-3">{{ $mostRelevant?->beds }}</span>
+                                                            <span class="fw-semibold fs-3">{{ $apartment?->beds }}</span>
                                                             <span> beds</span>
                                                         </span>
                                                         <span>
                                                             <span
-                                                                class="fw-semibold fs-3">{{ $mostRelevant?->square_meters }}</span>
+                                                                class="fw-semibold fs-3">{{ $apartment?->square_meters }}</span>
                                                             <span> mq</span>
                                                         </span>
                                                     </div>
                                                     <span>
-                                                        <span class="fw-semibold fs-3">{{ $mostRelevant?->total_views }}</span>
+                                                        <span class="fw-semibold fs-3">{{ $apartment?->total_views }}</span>
                                                         <span> views</span>
                                                     </span>
                                                 </div>
@@ -82,7 +82,7 @@
                                 <h3 class=""><strong class="fw-semibold fs-5">Statistics</strong></h3>
 
                                 <div class="">
-                                    You have: <strong class="fw-semibold fs-5 mx-2">{{ $mostRelevant->count() }}</strong>
+                                    You have: <strong class="fw-semibold fs-5 mx-2">{{ $apartment?->count() }}</strong>
                                     apartments
 
                                 </div>
@@ -99,10 +99,10 @@
                                 <div class="">
 
                                     Most seen:
-                                    <strong class="fw-normal text_italic ms-2">{{ $mostRelevant->title }}</strong>
+                                    <strong class="fw-normal text_italic ms-2">{{ $apartment?->title }}</strong>
                                     <br />
                                     with
-                                    <strong class="fw-semibold fs-5 mx-2">{{ $mostRelevant->total_views }}</strong> views
+                                    <strong class="fw-semibold fs-5 mx-2">{{ $apartment?->total_views }}</strong> views
 
                                 </div>
                             </div>
@@ -114,43 +114,48 @@
                                 </h3>
                             </div>
                         </div>
-                        {{--messages--}}
-                <div class="col-12 col-lg-8">
-                    <div class="dashboard_card banner_card shadow p-4 h-100">
-                        <h3 class="fs-5 text-center h-100 d-flex align-items-center">
-                            {{ __('Stay connected with your guests and never miss a beat with real-time updates on the messages received for each of your properties. ') }}
-                        </h3>
+                        {{-- messages --}}
+                        <div class="col-12 col-lg-8">
+                            <div class="dashboard_card banner_card shadow p-4 h-100">
+                                <h3 class="fs-5 text-center h-100 d-flex align-items-center">
+                                    {{ __('Stay connected with your guests and never miss a beat with real-time updates on the messages received for each of your properties. ') }}
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="dashboard_card statistic shadow p-4 h-100">
+                                <h3 class=""><strong class="fw-semibold fs-5">Messages</strong></h3>
+                                @if ($messages_sum == 0)
+                                    <p>No new messages.</p>
+                                @elseif ($messages_sum == 1)
+                                    <p>
+                                        <strong>You got a new message!</strong>
+                                    </p>
+                                @else
+                                    ($messages_sum > 1)
+                                    <p>
+                                        <strong>You got a total of {{ $messages_sum }} new messages!</strong>
+                                    </p>
+                                @endif
+                                @forelse ($apartments as $index => $apartment)
+                                    @if ($messages_count[$index] == 1)
+                                        <p>You have <strong>{{ $messages_count[$index] }}</strong> new message for the
+                                            <strong>{{ $apartment->title }}</strong> apartment!
+                                        </p>
+                                    @elseif ($messages_count[$index] > 1)
+                                        <p>You have <strong>{{ $messages_count[$index] }}</strong> new messages for the
+                                            <strong>{{ $apartment->title }}</strong> apartment
+                                        </p>
+                                    @endif
+                                @empty
+                                @endforelse
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="dashboard_card statistic shadow p-4 h-100">
-                        <h3 class=""><strong class="fw-semibold fs-5">Messages</strong></h3>
-                        @if ($messages_sum == 0)
-                            <p>No new messages.</p>
-                        @elseif ($messages_sum == 1)
-                            <p>
-                                <strong>You got a new message!</strong>
-                            </p>
-                        @else ($messages_sum > 1)
-                        <p>
-                            <strong>You got a total of {{$messages_sum}} new messages!</strong>
-                        </p>
-                        @endif
-                        @forelse ($apartments as $index => $apartment)
-                            @if ($messages_count[$index] == 1)
-                                <p>You have <strong>{{$messages_count[$index]}}</strong> new message for the <strong>{{$apartment->title}}</strong> apartment!</p>
-                            @elseif ($messages_count[$index] > 1)
-                                <p>You have <strong>{{$messages_count[$index]}}</strong> new messages for the <strong>{{$apartment->title}}</strong> apartment</p>
-                            @endif
-                        @empty
-                        @endforelse
-                    </div>
-                </div>
-            </div>
 
 
 
-                {{-- <h5>
+                    {{-- <h5>
 
                     Grazie per
                     aver scelto la nostra piattaforma e buona fortuna con i tuoi affitti!
@@ -158,16 +163,15 @@
                 </h5> --}}
 
 
+                </div>
             </div>
-        </div>
+        @endauth
 
-    @endauth
-
-    @guest
-        <!-- the img must be in a link that bring you to the front office -->
-        <img src="/storage/internal/logo_horizontal.svg" alt="">
-        <h1 class="text-center">Log in to start rent your first apartment!</h1>
+        @guest
+            <!-- the img must be in a link that bring you to the front office -->
+            <img src="/storage/internal/logo_horizontal.svg" alt="">
+            <h1 class="text-center">Log in to start rent your first apartment!</h1>
 
 
-    @endguest
-@endsection
+        @endguest
+    @endsection
