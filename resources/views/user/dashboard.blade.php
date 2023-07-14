@@ -124,14 +124,16 @@
                 <div class="col-12 col-lg-4">
                     <div class="dashboard_card new_messages shadow p-4 h-100">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h3 class=""><strong class="fw-semibold fs-5">Messages</strong></h3>
+                            <h3 class=""><strong class="fw-semibold fs-5">New Messages</strong></h3>
                             <div id="total_messages">
-                                @if ($messages_sum == 0)
-                                    <p>No new messages.</p>
-                                @else
-                                    <span class="badge shadow">
-                                        <strong class="fw-semibold">{{$messages_sum}} new!</strong>
+                                @if ($messages_sum > 0)
+                                    <span class="badge badge_new shadow">
+                                        <strong class="fw-semibold">{{$messages_sum}}</strong>
                                     </span>
+                                @else
+                                <span class="badge badge_default shadow">
+                                        <strong class="fw-semibold">{{$messages_sum}}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>

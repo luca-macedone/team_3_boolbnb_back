@@ -344,9 +344,13 @@
             height: 180px;
             overflow: auto;
         }
-        .badge{
+        .badge_new{
             background-color: $bnb-accent;
             color: $bnb-dark;
+        }
+        .badge_default{
+            background-color: $bnb-dark;
+            color: $bnb-light;
         }
         #messages_notifications::-webkit-scrollbar {
             display: none;
