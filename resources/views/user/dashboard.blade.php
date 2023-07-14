@@ -31,13 +31,13 @@
                             </div>
                         </div>
                         {{-- Most viewed apartment --}}
-                        @if ($apartment)
+                        @if ($mostRelevant)
                             <div class="col-12 col-lg-6">
-                                <a href="{{ route('user.apartments.show', $apartment->slug) }}">
+                                <a href="{{ route('user.apartments.show', $mostRelevant->slug) }}">
                                     <div class="dashboard_card apartment_card shadow p-4 h-100">
-                                        <img src="{{ asset('/storage/' . $apartment->image) }}"
+                                        <img src="{{ asset('/storage/' . $mostRelevant->image) }}"
                                             onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'"
-                                            class="card-img" alt="{{ $apartment->title }}" />
+                                            class="card-img" alt="{{ $mostRelevant->title }}" />
                                         <div class="card-img-overlay">
                                             <h5 class="section_title text-center m-0 p-0">
                                                 <i class="fa-solid fa-ranking-star"></i>
@@ -45,25 +45,25 @@
                                             </h5>
 
                                             <div class="apartment_info flex-column justify-content-between align-items-start">
-                                                <h5 class="m-0 p-0">{{ $apartment->title }}</h5>
+                                                <h5 class="m-0 p-0">{{ $mostRelevant->title }}</h5>
                                                 <div class="d-flex justify-content-between align-items-center gap-2 w-100">
                                                     <div class="d-flex align-items-center gap-3">
                                                         <span>
-                                                            <span class="fw-semibold fs-3">{{ $apartment?->rooms }}</span>
+                                                            <span class="fw-semibold fs-3">{{ $mostRelevant?->rooms }}</span>
                                                             <span> rooms</span>
                                                         </span>
                                                         <span>
-                                                            <span class="fw-semibold fs-3">{{ $apartment?->beds }}</span>
+                                                            <span class="fw-semibold fs-3">{{ $mostRelevant?->beds }}</span>
                                                             <span> beds</span>
                                                         </span>
                                                         <span>
                                                             <span
-                                                                class="fw-semibold fs-3">{{ $apartment?->square_meters }}</span>
+                                                                class="fw-semibold fs-3">{{ $mostRelevant?->square_meters }}</span>
                                                             <span> mq</span>
                                                         </span>
                                                     </div>
                                                     <span>
-                                                        <span class="fw-semibold fs-3">{{ $apartment?->total_views }}</span>
+                                                        <span class="fw-semibold fs-3">{{ $mostRelevant?->total_views }}</span>
                                                         <span> views</span>
                                                     </span>
                                                 </div>
@@ -82,7 +82,7 @@
                                 <h3 class=""><strong class="fw-semibold fs-5">Statistics</strong></h3>
 
                                 <div class="">
-                                    You have: <strong class="fw-semibold fs-5 mx-2">{{ $apartment->count() }}</strong>
+                                    You have: <strong class="fw-semibold fs-5 mx-2">{{ $mostRelevant->count() }}</strong>
                                     apartments
 
                                 </div>
@@ -99,10 +99,11 @@
                                 <div class="">
 
                                     Most seen:
-                                    <strong class="fw-normal text_italic ms-2">{{ $apartment->title }}</strong>
+                                    <strong class="fw-normal text_italic ms-2">{{ $mostRelevant->title }}</strong>
                                     <br />
                                     with
-                                    <strong class="fw-semibold fs-5 mx-2">{{ $apartment->total_views }}</strong> views
+                                    <strong class="fw-semibold fs-5 mx-2">{{ $mostRelevant->total_views }}</strong> views
+
                                 </div>
                             </div>
                         </div>
@@ -122,33 +123,27 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <div class="dashboard_card new_messages shadow p-4 h-100">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h3 class=""><strong class="fw-semibold fs-5">New Messages</strong></h3>
-                            <div id="total_messages">
-                                @if ($messages_sum > 0)
-                                    <span class="badge badge_new shadow">
-                                        <strong class="fw-semibold">{{$messages_sum}}</strong>
-                                    </span>
-                                @else
-                                <span class="badge badge_default shadow">
-                                        <strong class="fw-semibold">{{$messages_sum}}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div id="messages_notifications">
-                            <div >
-                                @forelse ($apartments as $index => $apartment)
-                                    @if ($messages_count[$index] == 1)
-                                        <p><strong>{{$messages_count[$index]}}</strong> new message for the <span class="text_italic">{{$apartment->title}}</span> apartment!</p>
-                                    @elseif ($messages_count[$index] > 1)
-                                        <p><strong>{{$messages_count[$index]}}</strong> new messages for the <span class="text_italic">{{$apartment->title}}</span> apartment</p>
-                                    @endif
-                                @empty
-                                @endforelse
-                            </div>
-                        </div>
+                    <div class="dashboard_card statistic shadow p-4 h-100">
+                        <h3 class=""><strong class="fw-semibold fs-5">Messages</strong></h3>
+                        @if ($messages_sum == 0)
+                            <p>No new messages.</p>
+                        @elseif ($messages_sum == 1)
+                            <p>
+                                <strong>You got a new message!</strong>
+                            </p>
+                        @else ($messages_sum > 1)
+                        <p>
+                            <strong>You got a total of {{$messages_sum}} new messages!</strong>
+                        </p>
+                        @endif
+                        @forelse ($apartments as $index => $apartment)
+                            @if ($messages_count[$index] == 1)
+                                <p>You have <strong>{{$messages_count[$index]}}</strong> new message for the <strong>{{$apartment->title}}</strong> apartment!</p>
+                            @elseif ($messages_count[$index] > 1)
+                                <p>You have <strong>{{$messages_count[$index]}}</strong> new messages for the <strong>{{$apartment->title}}</strong> apartment</p>
+                            @endif
+                        @empty
+                        @endforelse
                     </div>
                 </div>
             </div>
