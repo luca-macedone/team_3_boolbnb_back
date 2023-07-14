@@ -11,6 +11,10 @@ body {
     min-height: 100vh;
 }
 
+.container_z_index {
+    min-height: 80vh;
+}
+
 .card_shadow {
     box-shadow: 1px 3px 8px rgba($bnb-dark, 0.4);
 }
@@ -53,20 +57,20 @@ body {
 //     color: $bnb-dark;
 // }
 
-  .image-container {
+.image-container {
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
 
-  .image {
+.image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+}
 
-  .card_text{
+.card_text {
     position: absolute;
     top: 0;
     color: white;
@@ -74,4 +78,4 @@ body {
     background: rgba($color: #000000, $alpha: 0.3);
     width: 100%;
     height: 100%;
-  }
+}

@@ -1,17 +1,14 @@
-@import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap%27');
+@import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap%27");
 @import "/node_modules/@fortawesome/fontawesome-free/css/all.css";
 
-@import './partials/variables.scss';
-@import './partials/common.scss';
-@import './dashboard.scss';
-@import './partials/show.scss';
-@import './sponsorships.scss';
-@import './stats.scss';
-
-
-
-
+@import "./partials/variables.scss";
+@import "./partials/common.scss";
+@import "./partials/footer.scss";
+@import "./dashboard.scss";
+@import "./partials/show.scss";
+@import "./sponsorships.scss";
+@import "./stats.scss";
 
 .img-wrapper {
     height: 100px;
