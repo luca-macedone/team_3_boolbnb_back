@@ -14,34 +14,36 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`)
         // array delle views per appartamento
         let countsArray = [];
 
-        // ciclo le views
-        for (let i = 0; i < views.length; i++) {
-            // salvo la data della view ciclata
-            let date = views[i].date;
-            // transofromo la stringa in formato 'dd/mm/yyyy'
-            let yymmdd = date.split("-");
-            yymmdd[2] = yymmdd[2].slice(0, 2);
-            yymmdd = yymmdd.reverse();
-            yymmdd = yymmdd.join('/');
+        function updateChart(filteredViews) {
+            let datesArray = [];
+            let countsArray = [];
 
-            // console.log(yymmdd);
-            // contatore views
-            let count = 1;
+            for (let i = 0; i < filteredViews.length; i++) {
+                let date = filteredViews[i].date;
+                // transofromo la stringa in formato 'dd/mm/yyyy'
+                let yymmdd = date.split("-");
+                yymmdd[2] = yymmdd[2].slice(0, 2);
+                yymmdd = yymmdd.reverse();
+                yymmdd = yymmdd.join('/');
 
-            // se l'apartment id della view ciclata è = all'id dell'apartment attuale...
-            if (views[i].apartment_id == apartmentId) {
-                // se la data della view attuale non è presente nell'array delle date...
+                let count = 1;
+
                 if (!datesArray.includes(yymmdd)) {
-                    // ...pusho il contatore nell'array
                     countsArray.push(count);
                     // ...pusho la data nell'array
                     datesArray.push(yymmdd);
-                } else { // altrimenti...
+                } else {
+                    // altrimenti...
                     // ...aumento contatore views nella posizione attuale di 1
                     countsArray[countsArray.length - 1]++;
                 }
             }
-        };
+
+            const chart = Chart.getChart('myChart');
+            chart.data.labels = datesArray;
+            chart.data.datasets[0].data = countsArray;
+            chart.update();
+        }
 
         let totalviews = 0;
         // calcolo il totale delle views dell'array count
@@ -62,7 +64,6 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`)
         //datesArray.push('average views by day');
         countsArray.push(md);
 
-        console.log(datesArray);
         const chart = new Chart(myChart, {
             type: 'line',
             data: {
@@ -120,5 +121,12 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`)
             },
         });
 
-    })
-
+        document.getElementById('monthSelect').addEventListener('change', function () {
+            const selectedMonth = this.value;
+            const filteredViews = views.filter(view => {
+                const viewMonth = view.date.split('-')[1];
+                return viewMonth === selectedMonth;
+            });
+            updateChart(filteredViews);
+        });
+    });
