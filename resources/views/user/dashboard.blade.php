@@ -123,27 +123,25 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="dashboard_card new_messages shadow p-4 h-100">
-                        <h3 class=""><strong class="fw-semibold fs-5">Messages</strong></h3>
-                        <div id="messages_notifications">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class=""><strong class="fw-semibold fs-5">Messages</strong></h3>
                             <div id="total_messages">
                                 @if ($messages_sum == 0)
                                     <p>No new messages.</p>
-                                @elseif ($messages_sum == 1)
-                                    <p>
-                                        <strong>You got a new message!</strong>
-                                    </p>
-                                @else ($messages_sum > 1)
-                                <p>
-                                    <strong>You got a total of {{$messages_sum}} new messages!</strong>
-                                </p>
+                                @else
+                                    <span class="badge shadow">
+                                        <strong class="fw-semibold">{{$messages_sum}} new!</strong>
+                                    </span>
                                 @endif
                             </div>
-                            <div id="messages_to_x_apartment">
+                        </div>
+                        <div id="messages_notifications">
+                            <div >
                                 @forelse ($apartments as $index => $apartment)
                                     @if ($messages_count[$index] == 1)
-                                        <p>You have <strong>{{$messages_count[$index]}}</strong> new message for the <span class="text_italic">{{$apartment->title}}</span> apartment!</p>
+                                        <p><strong>{{$messages_count[$index]}}</strong> new message for the <span class="text_italic">{{$apartment->title}}</span> apartment!</p>
                                     @elseif ($messages_count[$index] > 1)
-                                        <p>You have <strong>{{$messages_count[$index]}}</strong> new messages for the <span class="text_italic">{{$apartment->title}}</span> apartment</p>
+                                        <p><strong>{{$messages_count[$index]}}</strong> new messages for the <span class="text_italic">{{$apartment->title}}</span> apartment</p>
                                     @endif
                                 @empty
                                 @endforelse
