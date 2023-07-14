@@ -398,4 +398,20 @@
     .dashboard_card.statistic {
         line-height: 2rem;
     }
+
+    .message_card {
+        border-radius: 0.75rem;
+        .card_header {
+            background-color: transparent;
+            border-radius: inherit;
+        }
+        .message_box {
+            line-height: 1.5rem;
+            max-height: 3rem;
+            overflow: hidden !important;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+    }
 }

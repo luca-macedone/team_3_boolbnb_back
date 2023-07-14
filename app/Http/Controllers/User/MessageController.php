@@ -22,7 +22,8 @@ class MessageController extends Controller
         $user = Auth::user();
         $apartment = Apartment::where('slug', $slug)->get();
 
-        $messages = $apartment[0]->messages;
+        $messages = $apartment[0]->messages->sortByDesc('id');
+        // dd($messages);
         return view('user.messages.index', compact('messages'));
     }
     /**
@@ -48,7 +49,6 @@ class MessageController extends Controller
     $message->fill($val_data);
     $message->save();
     return view('user.messages.show', compact('message')); */
-
     }
 
     /**
@@ -77,7 +77,6 @@ class MessageController extends Controller
      */
     public function edit(Message $message)
     {
-        
     }
 
     /**
@@ -107,5 +106,4 @@ class MessageController extends Controller
 
         return to_route('user.messages.index', compact('slug'))->with('message', 'Message deleted');
     }
-
 }
