@@ -103,7 +103,6 @@
                                     <br />
                                     with
                                     <strong class="fw-semibold fs-5 mx-2">{{ $apartment->total_views }}</strong> views
-
                                 </div>
                             </div>
                         </div>
@@ -123,27 +122,33 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <div class="dashboard_card statistic shadow p-4 h-100">
+                    <div class="dashboard_card new_messages shadow p-4 h-100">
                         <h3 class=""><strong class="fw-semibold fs-5">Messages</strong></h3>
-                        @if ($messages_sum == 0)
-                            <p>No new messages.</p>
-                        @elseif ($messages_sum == 1)
-                            <p>
-                                <strong>You got a new message!</strong>
-                            </p>
-                        @else ($messages_sum > 1)
-                        <p>
-                            <strong>You got a total of {{$messages_sum}} new messages!</strong>
-                        </p>
-                        @endif
-                        @forelse ($apartments as $index => $apartment)
-                            @if ($messages_count[$index] == 1)
-                                <p>You have <strong>{{$messages_count[$index]}}</strong> new message for the <strong>{{$apartment->title}}</strong> apartment!</p>
-                            @elseif ($messages_count[$index] > 1)
-                                <p>You have <strong>{{$messages_count[$index]}}</strong> new messages for the <strong>{{$apartment->title}}</strong> apartment</p>
-                            @endif
-                        @empty
-                        @endforelse
+                        <div id="messages_notifications">
+                            <div id="total_messages">
+                                @if ($messages_sum == 0)
+                                    <p>No new messages.</p>
+                                @elseif ($messages_sum == 1)
+                                    <p>
+                                        <strong>You got a new message!</strong>
+                                    </p>
+                                @else ($messages_sum > 1)
+                                <p>
+                                    <strong>You got a total of {{$messages_sum}} new messages!</strong>
+                                </p>
+                                @endif
+                            </div>
+                            <div id="messages_to_x_apartment">
+                                @forelse ($apartments as $index => $apartment)
+                                    @if ($messages_count[$index] == 1)
+                                        <p>You have <strong>{{$messages_count[$index]}}</strong> new message for the <span class="text_italic">{{$apartment->title}}</span> apartment!</p>
+                                    @elseif ($messages_count[$index] > 1)
+                                        <p>You have <strong>{{$messages_count[$index]}}</strong> new messages for the <span class="text_italic">{{$apartment->title}}</span> apartment</p>
+                                    @endif
+                                @empty
+                                @endforelse
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
