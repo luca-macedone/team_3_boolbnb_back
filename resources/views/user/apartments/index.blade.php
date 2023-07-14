@@ -54,60 +54,56 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
             @forelse ($apartments as $index => $apartment)
                 <div class="col">
-                    <div class="card h-100 mb-3 p-3 card_shadow">
-                        <div class="h-100 w-100 d-flex flex-column">
-                            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 p-1 h-100">
-                                <div class="list_img_wrapper">
-                                    {{-- img --}}
-                                    <img src="{{ asset('/storage/' . $apartment->image) }}"
-                                        onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'"
-                                        class="" alt="{{ $apartment->title }}" />
-                                </div>
-                                <div>
-                                    {{-- title, address --}}
-                                    <div class="fw-semibold">
-                                        {{ $apartment->title }}
-                                    </div>
+                    <div class="card h-100 mb-3 p-1 card_shadow">
+                        <div class=" gap-3 p-2" >   
 
-                                    <hr class="hr_margin_apartment justify-content-center">
-
-                                    <div class="fst-italic">
-                                        {{ $apartment->full_address }}
-                                    </div>
+                            
+                            <div class="image-container p-rel" style="width: 100%; height: 200px; position:relative">
+                                <div class="fw-semibold card_text rounded-3">
+                                    {{ $apartment->title }}
                                 </div>
+                                <img class="image rounded-3" src="{{ asset('/storage/' . $apartment->image) }}"
+                                    onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'" alt="{{ $apartment->title }}" />
                             </div>
-                            {{-- actions --}}
-                            <div class="d-flex justify-content-center flex-wrap align-self-end gap-3 pt-3">
-                                {{-- show --}}
-                                <a class="action_btn action_show p-2" title="Show details"
-                                    href="{{ route('user.apartments.show', $apartment->slug) }}">
-                                    <i class="fa-solid fa-eye"></i>
-                                </a>
-                                {{-- messages --}}
-                                <a class="action_btn action_messages p-2" title="Show messages"
-                                    href="{{ route('user.messages.index', $apartment->slug) }}">
-                                    <i class="fa-regular fa-comments">
-                                    </i>
-                                    @if ($messages_count[$index] > 0)
-                                        <span class="badge">{{ $messages_count[$index] }}</span>
-                                    @endif
-                                </a>
-                                {{-- edit --}}
-                                <a class="action_btn action_edit p-2" title="Edit apartment"
-                                    href="{{ route('user.apartments.edit', $apartment->slug) }}">
-                                    <i class="fa-solid fa-pen"></i>
-                                </a>
-                                {{-- sponsor --}}
-                                <a class="action_btn action_sponsor p-2" title="Show details"
-                                    href="{{ route('user.sponsorships.index', ['slug' => $apartment->slug]) }}">
-                                    <i class="fa-solid fa-star"></i>
-                                </a>
-                                {{-- stats --}}
-                                <a class="action_btn action_stats p-2" title="Stats apartment"
-                                    href="{{ route('user.views.index', $apartment->slug) }}">
-                                    <i class="fa-solid fa-chart-simple"></i>
-                                </a>
+                              
+                                                 
+                            {{-- img --}}
+                            <div>
+                                {{-- title, address --}}
+                                
                             </div>
+                        </div>
+                        {{-- actions --}}
+                        <div class="d-flex justify-content-center align-items-center h-100 flex-wrap  gap-2 p-1">
+                            {{-- show --}}
+                            <a class="action_btn action_show p-2" title="Show details"
+                                href="{{ route('user.apartments.show', $apartment->slug) }}">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                            {{-- messages --}}
+                            <a class="action_btn action_messages p-2" title="Show messages"
+                                href="{{ route('user.messages.index', $apartment->slug) }}">
+                                <i class="fa-regular fa-comments">
+                                </i>
+                                @if ($messages_count[$index] > 0)
+                                    <span class="badge">{{ $messages_count[$index] }}</span>
+                                @endif
+                            </a>
+                            {{-- edit --}}
+                            <a class="action_btn action_edit p-2" title="Edit apartment"
+                                href="{{ route('user.apartments.edit', $apartment->slug) }}">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+                            {{-- sponsor --}}
+                            <a class="action_btn action_sponsor p-2" title="Show details"
+                                href="{{ route('user.sponsorships.index', ['slug' => $apartment->slug]) }}">
+                                <i class="fa-solid fa-star"></i>
+                            </a>
+                            {{-- stats --}}
+                            <a class="action_btn action_stats p-2" title="Stats apartment"
+                                href="{{ route('user.views.index', $apartment->slug) }}">
+                                <i class="fa-solid fa-chart-simple"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
