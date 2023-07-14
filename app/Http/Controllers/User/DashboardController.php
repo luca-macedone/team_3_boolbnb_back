@@ -12,7 +12,7 @@ class DashboardController extends Controller
     public function index()
     {
         // $user_id = Auth::user();
-        $apartment = Auth::user()?->apartments()
+        $most_relevant_apartment = Auth::user()?->apartments()
             ->select('apartments.*', DB::raw('COUNT(views.id) as total_views'))
             ->leftJoin('views', 'apartments.id', '=', 'views.apartment_id')
             ->groupBy('apartments.id')
@@ -28,8 +28,8 @@ class DashboardController extends Controller
             ->get();
 
         $totalViewsSum = $views->sum('total_views');
-        if ($apartment) {
-            $mediumView = $apartment->count() > 0 ? round($totalViewsSum / $apartment->count()) : 0;
+        if ($most_relevant_apartment) {
+            $mediumView = $most_relevant_apartment->count() > 0 ? round($totalViewsSum / $most_relevant_apartment->count()) : 0;
         } else {
             $mediumView = 0;
         }
@@ -41,11 +41,10 @@ class DashboardController extends Controller
             $message = Message::where('apartment_id', $apartment->id)->where('is_read', 0)->count();
             $messages_sum = $message + $messages_sum;
             array_push($messages_count, $message);
-
         }
 
         //dd($mediumView);
-        return view('user.dashboard', compact('apartment', 'totalViewsSum', 'mediumView', 'apartments', 'messages_count', 'messages_sum'));
+        return view('user.dashboard', compact('most_relevant_apartment', 'totalViewsSum', 'mediumView', 'apartments', 'messages_count', 'messages_sum'));
     }
 
     public function front_office()
