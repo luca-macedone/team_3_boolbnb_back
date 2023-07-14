@@ -29,7 +29,6 @@ class MessageController extends Controller
                 'message' => 'There are no messages for this apartment',
             ]);
         }
-
     }
 
     /**
@@ -43,6 +42,8 @@ class MessageController extends Controller
         $validatedData = $request->validate([
             'email' => 'required|email',
             'message' => 'required',
+            'name' => 'nullable|string|max:255',
+            'lastname' => 'nullable|string|max:255',
             'apartment_id' => 'required|exists:apartments,id',
         ]);
 
@@ -50,6 +51,8 @@ class MessageController extends Controller
         $message = Message::create([
             'email' => $validatedData['email'],
             'message' => $validatedData['message'],
+            'name' => $validatedData['name'],
+            'lastname' => $validatedData['lastname'],
             'apartment_id' => $validatedData['apartment_id'],
         ]);
 
@@ -65,7 +68,6 @@ class MessageController extends Controller
                 'message' => 'Message not sent successfully',
             ]);
         }
-
     }
 
     /**
