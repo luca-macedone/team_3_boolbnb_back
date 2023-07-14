@@ -129,4 +129,12 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`)
             });
             updateChart(filteredViews);
         });
-    });
+
+        //mese corrente
+        const currentMonth = new Date().getMonth() + 1;
+        const filteredViews = views.filter(view => {
+            const viewMonth = view.date.split('-')[1];
+            return viewMonth === currentMonth.toString().padStart(2, '0');
+        });
+        updateChart(filteredViews);
+    })

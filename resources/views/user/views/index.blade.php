@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@php
+    $currentMonth = date('m');
+@endphp
 
 @section('content')
     <div class="container mt-3">
@@ -19,18 +22,18 @@
                     <div>
                         <select class="form-select form-select-lg" name="monthSelect" id="monthSelect">
                             <option selected>Select month</option>
-                            <option value="01">January</option>
-                            <option value="02">February</option>
-                            <option value="03">March</option>
-                            <option value="04">April</option>
-                            <option value="05">May</option>
-                            <option value="06">June</option>
-                            <option value="07">July</option>
-                            <option value="08">August</option>
-                            <option value="09">September</option>
-                            <option value="10">October</option>
-                            <option value="11">November</option>
-                            <option value="12">December</option>
+                            <option value="01" {{ $currentMonth === '01' ? 'selected' : '' }}>January</option>
+                            <option value="02" {{ $currentMonth === '02' ? 'selected' : '' }}>February</option>
+                            <option value="03" {{ $currentMonth === '03' ? 'selected' : '' }}>March</option>
+                            <option value="04" {{ $currentMonth === '04' ? 'selected' : '' }}>April</option>
+                            <option value="05" {{ $currentMonth === '05' ? 'selected' : '' }}>May</option>
+                            <option value="06" {{ $currentMonth === '06' ? 'selected' : '' }}>June</option>
+                            <option value="07" {{ $currentMonth === '07' ? 'selected' : '' }}>July</option>
+                            <option value="08" {{ $currentMonth === '08' ? 'selected' : '' }}>August</option>
+                            <option value="09" {{ $currentMonth === '09' ? 'selected' : '' }}>September</option>
+                            <option value="10" {{ $currentMonth === '10' ? 'selected' : '' }}>October</option>
+                            <option value="11" {{ $currentMonth === '11' ? 'selected' : '' }}>November</option>
+                            <option value="12" {{ $currentMonth === '12' ? 'selected' : '' }}>December</option>
                         </select>
                     </div>
                 </div>
