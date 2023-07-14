@@ -343,6 +343,8 @@
         margin-right: -1.25rem;
     }
 
+
+
     .dashboard_card {
         border: none;
         background: rgb(246, 246, 234);
@@ -353,6 +355,21 @@
         background-attachment: fixed;
         border-radius: 0.75rem;
         min-height: 250px;
+        #messages_notifications{
+            height: 180px;
+            overflow: auto;
+        }
+        .badge_new{
+            background-color: $bnb-accent;
+            color: $bnb-dark;
+        }
+        .badge_default{
+            background-color: $bnb-dark;
+            color: $bnb-light;
+        }
+        #messages_notifications::-webkit-scrollbar {
+            display: none;
+          }
     }
 
     .dashboard_card.apartment_card {
