@@ -22,7 +22,7 @@
                                                                                                                                                                             easier to manage -->
 
             <div id="dropin-container"></div>
-            <input type="submit" />
+            <input type="submit" class="btn back_btn_form" />
             <input type="hidden" id="nonce" name="payment_method_nonce" />
         </form>
 

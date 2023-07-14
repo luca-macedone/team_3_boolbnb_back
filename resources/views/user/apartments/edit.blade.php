@@ -174,9 +174,9 @@
                 <span class="fw-lighter">Please select at least 1 service</span>
             </div>
             <div class="mt-3">
-                <a type="button" href="{{ route('user.apartments.index') }}" class="btn btn-primary">Back</a>
-                <button type="reset" class="btn btn-primary">Reset</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <a type="button" href="{{ route('user.apartments.index') }}" class="btn back_btn_form">Back</a>
+                <button type="reset" class="btn back_btn_form">Reset</button>
+                <button type="submit" class="btn back_btn_form">Submit</button>
             </div>
         </form>
     </div>
