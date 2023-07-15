@@ -2,7 +2,7 @@
 
 @section('content')
     @include('partials.session_message')
-
+    @include('partials.validation_errors')
     <div class="container" id="apartment_show">
         <div class="row align-items-start justify-content-center g-4">
             <div class="col-12 d-flex justify-content-between">
@@ -114,7 +114,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="rounded btn btn-outline-danger">
-                                               
+
                         {{ __('Delete permanently') }}
                         </button>
                         </form>
