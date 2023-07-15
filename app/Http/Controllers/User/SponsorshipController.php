@@ -3,18 +3,14 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Requests\StoreSponsorshipRequest;
-use App\Http\Requests\UpdateSponsorshipRequest;
+use App\Models\Apartment;
 use App\Models\Sponsorship;
-use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
-use App\Models\Apartment;
-use DateTime;
-use DateInterval;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class SponsorshipController extends Controller
 {
@@ -85,7 +81,7 @@ class SponsorshipController extends Controller
         $result = $gateway->transaction()->sale([
             'amount' => $request->amount,
             'paymentMethodNonce' => $request->input('payment_method_nonce'),
-            'options' => ['submitForSettlement' => True],
+            'options' => ['submitForSettlement' => true],
         ]);
         // dd($result);
         if ($result->success) {
@@ -122,9 +118,10 @@ class SponsorshipController extends Controller
                 ]);
             }
 
-
             return to_route('user.apartments.show', $apartment->slug)->with('message', 'apartment sponsored with success');
         }
-        abort(403);
+        $apartment_id = $request->apartment_id;
+        $apartment = Apartment::find($apartment_id);
+        return to_route('user.apartments.show', ['apartment' => $apartment->slug])->withErrors(['error' => 'Unsponsored apartment']);
     }
 }
