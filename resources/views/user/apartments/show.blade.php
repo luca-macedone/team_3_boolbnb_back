@@ -27,7 +27,7 @@
 
             <div class="col-12 col-xl-5 d-flex flex-column gap-3">
                 <div class="d-flex flex-column justify-content-center align-items-start gap-3 p-4 card_show">
-                    <div class="d-flex justify-content-between align-items-center gap-4 w-100">
+                    <div class="d-flex justify-content-between align-items-center gap-2 w-100">
                         <div class="d-flex flex-column w-100 justify-content-center align-items-center"><span
                                 class="fs-2">{{ $apartment->rooms }}</span>
                             <span>rooms</span>
@@ -56,8 +56,8 @@
                         @endforelse
                         <ul>
                 </div>
-                <div class="d-flex flex-column card_show p-4">
-                    <div class="d-flex justify-content-center w-100 align-self-end gap-3 pt-3">
+                <div class="d-flex flex-column card_show p-4 mb-5">
+                    <div class="d-flex justify-content-center w-100 align-self-end gap-2 ">
                         {{-- sponsor --}}
                         <a class="action_btn action_sponsor p-2" title="Show details"
                             href="{{ route('user.sponsorships.index', ['slug' => $apartment->slug]) }}">
