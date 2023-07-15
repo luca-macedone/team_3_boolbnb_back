@@ -1018,10 +1018,21 @@ return [
         'beds' => 4,
         'square_meters' => 180,
         'bathrooms' => 1,
-        'image' => 'casa-gribaudo-imperia.webp',
+        'image' => 'uploads/casa-gribaudo-imperia.webp',
         'latitude' => 43.895812,
         'longitude' => 8.05182,
         'full_address' => 'Str. Vicinale Gorleri 3, 18100, Imperia',
-    ]
+    ],
+    [
+        'title' => 'Locazione Turistica Cascina Bosco Marengo',
+        'rooms' => 4,
+        'beds' => 8,
+        'square_meters' => 180,
+        'bathrooms' => 3,
+        'image' => 'uploads/appartamento_marengo.jpg',
+        'latitude' => 44.820625,
+        'longitude' => 8.67896,
+        'full_address' => 'via san pio V, 15062 Bosco Marengo AL, Italia',
+    ],
 
 ];
