@@ -1012,5 +1012,16 @@ return [
         'longitude' => 12.486507,
         'full_address' => 'Via della Fonte di Fauno 31, Aventino, 00153 Roma, Italia',
     ],
+    [
+        'title' => '[Wi-Fi] casa con giardino a 1km dal mare',
+        'rooms' => 2,
+        'beds' => 4,
+        'square_meters' => 180,
+        'bathrooms' => 1,
+        'image' => 'casa-gribaudo-imperia.webp',
+        'latitude' => 43.895812,
+        'longitude' => 8.05182,
+        'full_address' => 'Str. Vicinale Gorleri 3, 18100, Imperia',
+    ]
 
 ];
