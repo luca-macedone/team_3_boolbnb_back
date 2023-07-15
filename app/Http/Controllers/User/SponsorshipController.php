@@ -83,7 +83,7 @@ class SponsorshipController extends Controller
             'paymentMethodNonce' => $request->input('payment_method_nonce'),
             'options' => ['submitForSettlement' => true],
         ]);
-        // dd($result);
+        // dd($result->message);
         if ($result->success) {
             $apartment_id = $request->apartment_id;
             $sponsorship_id = $request->sponsorship_id;
@@ -118,10 +118,10 @@ class SponsorshipController extends Controller
                 ]);
             }
 
-            return to_route('user.apartments.show', $apartment->slug)->with('message', 'apartment sponsored with success');
+            return to_route('user.apartments.show', $apartment->slug)->with('message', 'Apartment sponsored with success');
         }
         $apartment_id = $request->apartment_id;
         $apartment = Apartment::find($apartment_id);
-        return to_route('user.apartments.show', ['apartment' => $apartment->slug])->withErrors(['error' => 'Unsponsored apartment']);
+        return to_route('user.apartments.show', ['apartment' => $apartment->slug])->withErrors(['error' => $result->message]);
     }
 }
