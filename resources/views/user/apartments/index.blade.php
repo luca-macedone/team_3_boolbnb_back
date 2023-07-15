@@ -51,7 +51,7 @@
         </div>
 
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-3 g-3">
             @forelse ($apartments as $index => $apartment)
                 <div class="col">
                     <div class="card h-100 mb-3 p-1 card_shadow">
