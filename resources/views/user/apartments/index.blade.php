@@ -12,9 +12,9 @@
                 </div>
             </div>
         @endif
-        <div class="p-5 mb-4 rounded-3 shadow mt-3 dashboard_jumbotron">
-            <div class="container-fluid d-flex flex-column justify-content-between gap-5">
-                <div class="pb-5">
+        <div class="p-5  rounded-3 shadow mt-3 dashboard_jumbotron">
+            <div class="container-fluid d-flex flex-column justify-content-around ">
+                <div class="">
                     <h1 class="display-5 fw-bold">
                         Apartments
                     </h1>
@@ -22,13 +22,13 @@
                         {{ __('You can easily create, view, edit, and delete your rentals.') }}
                     </p>
                 </div>
-                <div class="pt-5 d-flex justify-content-between align-items-center flex-wrap">
-                    <a type="button" class="btn back_btn d-flex align-items-center gap-2 shadow"
+                <div class=" d-flex justify-content-between align-items-center  flex-wrap">
+                    <a type="button" class="btn back_btn d-flex align-items-center mt-5 gap-2 shadow"
                         href="{{ route('user.dashboard') }}">
                         <i class="fa-solid fa-arrow-left-long"></i>
                         Back
                     </a>
-                    <a type="button" class="btn new_apartment_btn d-flex mt-2 align-items-center gap-2 shadow"
+                    <a type="button" class="btn new_apartment_btn d-flex mt-5  align-items-center gap-2 shadow"
                         href="{{ route('user.apartments.create') }}">
                         <i class="fa-solid fa-house-medical"></i>
                         Add a new apartment
