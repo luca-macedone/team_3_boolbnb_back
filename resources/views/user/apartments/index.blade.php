@@ -12,7 +12,7 @@
                 </div>
             </div>
         @endif
-        <div class="p-5  rounded-3 shadow mt-3 dashboard_jumbotron">
+        <div class="p-5  rounded-3 shadow mt-3 dashboard_jumbotron ">
             <div class="container-fluid d-flex flex-column justify-content-around ">
                 <div class="">
                     <h1 class="display-5 fw-bold">
