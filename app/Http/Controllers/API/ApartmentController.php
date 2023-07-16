@@ -134,4 +134,21 @@ class ApartmentController extends Controller
 
         return ($c * $radius);
     }
+    public function all()
+    {
+        $apartments = Apartment::all();
+        if ($apartments) {
+
+            return response()->json([
+                'success' => true,
+                'result' => $apartments,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'result' => 'apartments not found 404',
+            ]);
+        }
+    }
+
 }
