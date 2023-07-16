@@ -64,8 +64,8 @@
                             <i class="fa-solid fa-star"></i>
                         </a>
                         {{-- show --}}
-                        <a class="action_btn action_show p-2" title="Show details"
-                            href="{{ route('user.apartments.show', $apartment->slug) }}">
+                        <a class="action_btn action_show p-2" title="Show public page"
+                            href="{{ "http://localhost:5174/search/$apartment->slug" }}">
                             <i class="fa-solid fa-eye"></i>
                         </a>
                         {{-- messages --}}
