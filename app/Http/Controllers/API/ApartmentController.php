@@ -136,7 +136,7 @@ class ApartmentController extends Controller
     }
     public function all()
     {
-        $apartments = Apartment::all();
+        $apartments = Apartment::where('id', '>', 0)->orderByDesc('id')->get();
         if ($apartments) {
 
             return response()->json([
@@ -150,5 +150,4 @@ class ApartmentController extends Controller
             ]);
         }
     }
-
 }
