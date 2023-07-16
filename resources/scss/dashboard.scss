@@ -329,12 +329,17 @@
     background-color: $bnb-light;
     background: rgb(246, 246, 234);
     // background-image: url("/public/storage/internal/bg_wave.svg");
-    background-image: url("/public/storage/internal/wave_animated.svg");
+    background-image: url("/public/storage/internal/banner_dashboard.jpg");
     background-repeat: no-repeat;
     background-position: 180deg;
     background-size: cover;
-    background-attachment: fixed;
+    // background-attachment: fixed;
     border-radius: 0.75rem;
+    color: $bnb-light;
+    .container {
+        background-color: rgba($bnb-dark, 0.3);
+        border-radius: 0.75rem;
+    }
 }
 
 #dashboard_content {
@@ -342,8 +347,6 @@
         margin-left: -1.25rem;
         margin-right: -1.25rem;
     }
-
-
 
     .dashboard_card {
         border: none;
@@ -355,21 +358,21 @@
         background-attachment: fixed;
         border-radius: 0.75rem;
         min-height: 250px;
-        #messages_notifications{
+        #messages_notifications {
             height: 180px;
             overflow: auto;
         }
-        .badge_new{
+        .badge_new {
             background-color: $bnb-accent;
             color: $bnb-dark;
         }
-        .badge_default{
+        .badge_default {
             background-color: $bnb-dark;
             color: $bnb-light;
         }
         #messages_notifications::-webkit-scrollbar {
             display: none;
-          }
+        }
     }
 
     .dashboard_card.apartment_card {
