@@ -63,7 +63,7 @@
                                 {{ __('Dashboard') }}
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <i class="fa-solid fa-user"></i>
                             <a class="" href="{{ url('profile') }}">
                                 @if (Auth::user()->name)
@@ -72,7 +72,7 @@
                                     {{ __('Profile') }}
                                 @endif
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
                             <i class="fa-regular fa-building"></i>
                             <a class="" href="{{ route('user.apartments.index') }}">
@@ -138,7 +138,7 @@
                                         {{ __('Dashboard') }}
                                     </a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a class="" href="{{ url('profile') }}">
                                         <i class="fa-solid fa-user pe-2"></i>
                                         @if (Auth::user()->name)
@@ -147,7 +147,7 @@
                                             {{ __('Profile') }}
                                         @endif
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a class="" href="{{ url('/user/apartments') }}">
                                         <i class="fa-regular fa-building pe-2"></i>

@@ -84,7 +84,55 @@
                                 </div>
                             </div>
                         @endif
+                        {{-- messages --}}
+                        <div class="col-12 col-lg-4">
+                            <div class="dashboard_card new_messages shadow p-4 h-100">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3 class=""><strong class="fw-semibold fs-5">New Messages</strong></h3>
+                                    <div id="total_messages">
+                                        @if ($messages_sum > 0)
+                                            <span class="badge badge_new shadow">
+                                                <strong class="fw-semibold">{{ $messages_sum }}</strong>
+                                            </span>
+                                        @else
+                                            <span class="badge badge_default shadow">
+                                                <strong class="fw-semibold">{{ $messages_sum }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div id="messages_notifications">
+                                    <div>
+                                        @forelse ($apartments as $index => $apartment)
+                                            @if ($messages_count[$index] == 1)
+                                                <p><strong>{{ $messages_count[$index] }}</strong> new message for the <span
+                                                        class="text_italic">{{ $apartment->title }}</span> apartment!</p>
+                                            @elseif ($messages_count[$index] > 1)
+                                                <p><strong>{{ $messages_count[$index] }}</strong> new messages for the <span
+                                                        class="text_italic">{{ $apartment->title }}</span> apartment</p>
+                                            @endif
+                                        @empty
+                                        @endforelse
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-8">
+                            <div class="dashboard_card banner_card shadow p-4 h-100">
+                                <h3 class="fs-5 text-center h-100 d-flex align-items-center">
+                                    {{ __('Stay connected with your guests and never miss a beat with real-time updates on the messages received for each of your properties. ') }}
+                                </h3>
+                            </div>
+                        </div>
                         {{-- Statistics --}}
+
+                        <div class="col-12 col-lg-8">
+                            <div class="dashboard_card banner_card shadow p-4 h-100">
+                                <h3 class="fs-5 text-center h-100 d-flex align-items-center">
+                                    {{ __('You will also be able to view the statistics of your sponsored listings to further improve your sales.') }}
+                                </h3>
+                            </div>
+                        </div>
                         <div class="col-12 col-lg-4">
                             <div class="dashboard_card statistic shadow p-4 h-100">
 
@@ -129,64 +177,6 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-12 col-lg-8">
-                            <div class="dashboard_card banner_card shadow p-4 h-100">
-                                <h3 class="fs-5 text-center h-100 d-flex align-items-center">
-                                    {{ __('You will also be able to view the statistics of your sponsored listings to further improve your sales.') }}
-                                </h3>
-                            </div>
-                        </div>
-                        {{-- messages --}}
-                        <div class="col-12 col-lg-8">
-                            <div class="dashboard_card banner_card shadow p-4 h-100">
-                                <h3 class="fs-5 text-center h-100 d-flex align-items-center">
-                                    {{ __('Stay connected with your guests and never miss a beat with real-time updates on the messages received for each of your properties. ') }}
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4">
-                            <div class="dashboard_card new_messages shadow p-4 h-100">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h3 class=""><strong class="fw-semibold fs-5">New Messages</strong></h3>
-                                    <div id="total_messages">
-                                        @if ($messages_sum > 0)
-                                            <span class="badge badge_new shadow">
-                                                <strong class="fw-semibold">{{ $messages_sum }}</strong>
-                                            </span>
-                                        @else
-                                            <span class="badge badge_default shadow">
-                                                <strong class="fw-semibold">{{ $messages_sum }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div id="messages_notifications">
-                                    <div>
-                                        @forelse ($apartments as $index => $apartment)
-                                            @if ($messages_count[$index] == 1)
-                                                <p><strong>{{ $messages_count[$index] }}</strong> new message for the <span
-                                                        class="text_italic">{{ $apartment->title }}</span> apartment!</p>
-                                            @elseif ($messages_count[$index] > 1)
-                                                <p><strong>{{ $messages_count[$index] }}</strong> new messages for the <span
-                                                        class="text_italic">{{ $apartment->title }}</span> apartment</p>
-                                            @endif
-                                        @empty
-                                        @endforelse
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        {{-- <h5>
-
-                    Grazie per
-                    aver scelto la nostra piattaforma e buona fortuna con i tuoi affitti!
-
-                </h5> --}}
-
-
                     </div>
                 </div>
             @endauth
