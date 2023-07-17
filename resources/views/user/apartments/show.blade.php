@@ -28,24 +28,34 @@
             <div class="col-12 col-xl-5 d-flex flex-column gap-3">
                 <div class="d-flex flex-column justify-content-center align-items-start gap-3 p-4 card_show">
                     <div class="d-flex justify-content-between align-items-center gap-2 w-100">
-                        <div class="d-flex flex-column w-100 justify-content-center align-items-center"><span
-                                class="fs-2">{{ $apartment->rooms }}</span>
-                            <span>rooms</span>
-                        </div>
-                        <div class="d-flex flex-column w-100 justify-content-center align-items-center"><span
-                                class="fs-2">{{ $apartment->beds }}</span>
-                            <span>beds</span>
-                        </div>
-                        <div class="d-flex flex-column w-100 justify-content-center align-items-center"><span
-                                class="fs-2">{{ $apartment->bathrooms }}</span>
-                            <span>bathrooms</span>
-                        </div>
-                        <div class="d-flex flex-column w-100 justify-content-center align-items-center"><span
-                                class="fs-2">{{ $apartment->square_meters }}</span>
-                            <span>mq</span>
-                        </div>
+                        @if ($apartment->rooms)
+                            <div class="d-flex flex-column w-100 justify-content-center align-items-center"><span
+                                    class="fs-2">{{ $apartment->rooms }}</span>
+                                <span>rooms</span>
+                            </div>
+                        @endif
+                        @if ($apartment->beds)
+                            <div class="d-flex flex-column w-100 justify-content-center align-items-center"><span
+                                    class="fs-2">{{ $apartment->beds }}</span>
+                                <span>beds</span>
+                            </div>
+                        @endif
+                        @if ($apartment->bathrooms)
+                            <div class="d-flex flex-column w-100 justify-content-center align-items-center"><span
+                                    class="fs-2">{{ $apartment->bathrooms }}</span>
+                                <span>bathrooms</span>
+                            </div>
+                        @endif
+                        @if ($apartment->square_meters)
+                            <div class="d-flex flex-column w-100 justify-content-center align-items-center"><span
+                                    class="fs-2">{{ $apartment->square_meters }}</span>
+                                <span>mq</span>
+                            </div>
+                        @endif
                     </div>
-                    <div class="text-center w-100 py-3">{{ $apartment->full_address }}</div>
+                    @if ($apartment->full_address)
+                        <div class="text-center w-100 py-3">{{ $apartment->full_address }}</div>
+                    @endif
                     <ul class="d-flex flex-row align-items-start gap-3 flex-wrap list-unstyled">
                         @forelse ($apartment->services as $service)
                             <li> {{ $service->name }}</li>
