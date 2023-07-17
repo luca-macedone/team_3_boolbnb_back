@@ -342,6 +342,11 @@
     }
 }
 
+.apartments_jumbotron {
+    background-image: url("/public/storage/internal/wave_animated.svg") !important;
+    color: $bnb-dark;
+}
+
 #dashboard_content {
     .row {
         margin-left: -1.25rem;

@@ -12,7 +12,7 @@
                 </div>
             </div>
         @endif
-        <div class="p-5  rounded-3 shadow mt-3 dashboard_jumbotron ">
+        <div class="p-5  rounded-3 shadow mt-3 dashboard_jumbotron apartments_jumbotron ">
             <div class="container-fluid d-flex flex-column justify-content-around ">
                 <div class="">
                     <h1 class="display-5 fw-bold">
@@ -55,22 +55,23 @@
             @forelse ($apartments as $index => $apartment)
                 <div class="col">
                     <div class="card h-100 mb-3 p-1 card_shadow">
-                        <div class=" gap-3 p-2" >   
+                        <div class=" gap-3 p-2">
 
-                            
+
                             <div class="image-container p-rel" style="width: 100%; height: 200px; position:relative">
                                 <div class="fw-semibold card_text rounded-3">
                                     {{ $apartment->title }}
                                 </div>
                                 <img class="image rounded-3" src="{{ asset('/storage/' . $apartment->image) }}"
-                                    onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'" alt="{{ $apartment->title }}" />
+                                    onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'"
+                                    alt="{{ $apartment->title }}" />
                             </div>
-                              
-                                                 
+
+
                             {{-- img --}}
                             <div>
                                 {{-- title, address --}}
-                                
+
                             </div>
                         </div>
                         {{-- actions --}}
