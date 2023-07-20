@@ -5,15 +5,16 @@
     @include('partials.validation_errors')
     <div class="container" id="apartment_show">
         <div class="row align-items-start justify-content-center g-4">
-            <div class="col-12 d-flex justify-content-between">
+            <div class="col-12 d-flex flex-column flex-md-row mt-5 mb-2 justify-content-between">
 
-                <h1 class="text-center apartment_show_title">{{ $apartment->title }}</h1>
-
-                <a type="button" class="btn back_btn d-flex align-items-center gap-2 shadow h-50 mt-1"
+                <a type="button"
+                    class="btn back_btn d-flex align-items-center gap-2 mb-3 mb-md-0 w-25 shadow d-flex align-items-center justify-content-center h-50 mt-1"
                     href="{{ route('user.apartments.index') }}">
                     <i class="fa-solid fa-arrow-left-long"></i>
                     Back
                 </a>
+
+                <h1 class="text-center apartment_show_title">{{ $apartment->title }}</h1>
 
             </div>
 
@@ -69,7 +70,7 @@
                 <div class="d-flex flex-column card_show p-4 mb-5">
                     <div class="d-flex justify-content-center w-100 align-self-end gap-2 ">
                         {{-- sponsor --}}
-                        <a class="action_btn action_sponsor p-2" title="Show details"
+                        <a class="action_btn action_sponsor p-2" title="Sponsorize the apartment"
                             href="{{ route('user.sponsorships.index', ['slug' => $apartment->slug]) }}">
                             <i class="fa-solid fa-star"></i>
                         </a>

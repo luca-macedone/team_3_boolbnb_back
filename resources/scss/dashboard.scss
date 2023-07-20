@@ -241,6 +241,7 @@
 // }
 
 .new_apartment_btn {
+    width: 100%;
     background-color: $bnb-primary;
     color: $bnb-dark;
     padding: 0.5rem 2rem;
@@ -453,5 +454,11 @@
             text-overflow: ellipsis;
             width: 100%;
         }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .new_apartment_btn {
+        width: 255px;
     }
 }

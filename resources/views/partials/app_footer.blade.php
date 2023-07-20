@@ -3,7 +3,7 @@
         <div class="container container_width">
             <div class="row mt-5 pt-5">
 
-                <div class="col-12 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3 mb-5">
                     <!-- <h2>BOOL BNB</h2> -->
                     <div class="footer_logo_wrapper d-flex justify-content-center justify-content-md-start">
                         <img class="d-inline-flex" src="{{ asset('/storage/internal/full_logo_horizontal.svg') }}"

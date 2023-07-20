@@ -12,7 +12,7 @@
                 </div>
             </div>
         @endif
-        <div class="p-5  rounded-3 shadow mt-3 dashboard_jumbotron apartments_jumbotron ">
+        <div class="p-3 p-md-5 rounded-3 shadow mt-3 dashboard_jumbotron apartments_jumbotron ">
             <div class="container-fluid d-flex flex-column justify-content-around ">
                 <div class="">
                     <h1 class="display-5 fw-bold">
@@ -22,13 +22,14 @@
                         {{ __('You can easily create, view, edit, and delete your rentals.') }}
                     </p>
                 </div>
-                <div class=" d-flex justify-content-between align-items-center  flex-wrap">
+                <div
+                    class=" d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center flex-wrap">
                     <a type="button" class="btn back_btn d-flex align-items-center mt-5 gap-2 shadow"
                         href="{{ route('user.dashboard') }}">
                         <i class="fa-solid fa-arrow-left-long"></i>
                         Back
                     </a>
-                    <a type="button" class="btn new_apartment_btn d-flex mt-5  align-items-center gap-2 shadow"
+                    <a type="button" class="btn new_apartment_btn d-flex mt-3 mt-md-5 align-items-center gap-2 shadow"
                         href="{{ route('user.apartments.create') }}">
                         <i class="fa-solid fa-house-medical"></i>
                         Add a new apartment
@@ -96,7 +97,7 @@
                                 <i class="fa-solid fa-pen"></i>
                             </a>
                             {{-- sponsor --}}
-                            <a class="action_btn action_sponsor p-2" title="Show details"
+                            <a class="action_btn action_sponsor p-2" title="Sponsorize the apartment"
                                 href="{{ route('user.sponsorships.index', ['slug' => $apartment->slug]) }}">
                                 <i class="fa-solid fa-star"></i>
                             </a>

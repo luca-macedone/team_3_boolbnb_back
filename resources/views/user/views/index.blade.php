@@ -13,7 +13,7 @@
             </div>
 
             <div class="container p-4 card_show_stats card_shadow " id="viewsContainer">
-                <div class="d-flex justify-content-between align-items-center flex-wrap pb-5">
+                <div class="d-flex justify-content-between align-items-center flex-wrap pb-5 gap-3">
                     <a type="button" class="btn back_btn gap-2 shadow" href="{{ route('user.apartments.show', $slug) }}">
                         <i class="fa-solid fa-arrow-left-long"></i>
                         Back

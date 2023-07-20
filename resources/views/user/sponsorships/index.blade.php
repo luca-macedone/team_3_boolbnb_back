@@ -16,9 +16,9 @@
         <div class="container-fluid mx-0 px-0">
             <div class="sponsorship_apartment_img_wrapper">
                 <img src="{{ asset('/storage/' . $apartment->image) }}"
-                    onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'" class=""
+                    onerror="this.src='{{ asset('/storage/internal/missing_img_v2.svg') }}'" class="h-100"
                     alt="{{ $apartment->title }}" />
-                <h1 class="display-5 fw-semibold m-0 p-3">{{ $apartment->title }}</h1>
+                <h1 class="display-5 fw-semibold m-0 p-3 w-100">{{ $apartment->title }}</h1>
             </div>
         </div>
     </div>

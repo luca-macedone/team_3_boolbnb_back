@@ -133,7 +133,7 @@
                                 </h3>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-4">
+                        <div class="col-12 col-lg-4 mb-3">
                             <div class="dashboard_card statistic shadow p-4 h-100">
 
                                 <h3 class=""><strong class="fw-semibold fs-5">Statistics</strong></h3>

@@ -4,7 +4,7 @@
 @section('content')
     <div class="container-fluid">
         @include('partials.session_message')
-        <div class="p-5 mb-4 rounded-3 shadow mt-3 dashboard_jumbotron">
+        <div class="p-3 p-md-5 mb-4 rounded-3 shadow mt-3 dashboard_jumbotron">
             <div class="container-fluid d-flex flex-column justify-content-between gap-5">
                 <div class="pb-2">
                     <h1 class="display-6 fw-bold">
