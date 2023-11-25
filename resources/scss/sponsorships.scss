@@ -1,0 +1,89 @@
+@import "./partials/variables";
+
+// #sponsor_Bronze #name {
+//     width: 150px;
+//     border-radius: 0.75rem;
+//     border: 1px solid #cd7f32;
+//     color: #cd7f32;
+// }
+
+// #sponsor_Silver #name {
+//     width: 150px;
+//     border-radius: 0.75rem;
+//     border: 1px solid #a5a9b4;
+//     color: #a5a9b4;
+// }
+
+// #sponsor_Gold #name {
+//     // width: 150px;
+//     border-radius: 0.75rem;
+//     // border: 1px solid #d4af37;
+//     // color: #d4af37;
+// }
+
+.sponsorship_card {
+    border-radius: 1rem !important;
+    .sponsorship_name {
+        min-width: 150px;
+        max-width: 100%;
+    }
+}
+
+#sponsor_Gold .sponsorship_name {
+    border: 1px solid #d4af37;
+    color: #d4af37;
+}
+
+#sponsor_Silver .sponsorship_name {
+    border: 1px solid #a5a9b4;
+    color: #a5a9b4;
+}
+
+#sponsor_Bronze .sponsorship_name {
+    border: 1px solid #cd7f32;
+    color: #cd7f32;
+}
+
+.jumbotron {
+    background-color: $bnb-light;
+}
+.cart {
+    background-color: $bnb-accent;
+    color: $bnb-light;
+    transition: 0.25s all ease-in-out;
+    // border-radius: 0.75rem;
+    border: none;
+    &:hover {
+        border: 1px solid $bnb-accent;
+        background-color: $bnb-light;
+        color: $bnb-accent;
+        scale: 1.08;
+    }
+}
+
+.sponsorship_apartment_details {
+    background-color: $bnb-light;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    .sponsorship_apartment_img_wrapper {
+        height: 350px;
+        max-height: fit-content;
+        width: 100%;
+        // overflow: hidden;
+        position: relative;
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+
+        h1 {
+            max-width: calc(100% - 4rem);
+            border-radius: 0.75rem;
+            background-color: rgba($bnb-dark, 0.4);
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            color: $bnb-light;
+        }
+    }
+}

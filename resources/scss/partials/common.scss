@@ -1,0 +1,81 @@
+@import "./variables.scss";
+
+body {
+    font-family: "Open Sans", sans-serif;
+
+    background-color: $bnb-light;
+    background-image: url("../../storage/app/public/internal/bg_wave_green.svg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.container_z_index {
+    min-height: 80vh;
+}
+
+.card_shadow {
+    box-shadow: 1px 3px 8px rgba($bnb-dark, 0.4);
+}
+
+.bg_bnb_white {
+    background-color: $bnb-light;
+}
+
+.hr_margin {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.hr_margin_apartment {
+    margin-right: 2.5rem;
+}
+
+.card_show {
+    height: 100% !important;
+    background-color: $bnb-light;
+    border-radius: 0.75rem;
+}
+
+.delete_modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    border-radius: 0.75rem;
+
+    background-color: $bnb-light;
+}
+
+.text_italic {
+    font-style: italic;
+}
+
+// a {
+//     text-decoration: none;
+//     color: $bnb-dark;
+// }
+
+.image-container {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card_text {
+    position: absolute;
+    top: 0;
+    color: white;
+    padding: 1rem;
+    background: rgba($color: #000000, $alpha: 0.3);
+    width: 100%;
+    height: 100%;
+}

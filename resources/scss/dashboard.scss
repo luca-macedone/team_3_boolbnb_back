@@ -1,0 +1,464 @@
+@import "./partials/variables";
+
+// .my_dashboard {
+//     position: absolute;
+// }
+
+// .dashboard_bg {
+//     background-image: url("../../storage/app/public/internal/bg_wave.svg");
+
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     min-height: 100vh;
+// }
+
+// .container_z_index {
+//     position: absolute;
+//     top: 10px;
+// }
+
+// .col_bg {
+//     background-color: $bnb-light;
+// }
+
+.user_name {
+    font-size: 2rem;
+    font-weight: 800;
+}
+// .navbar {
+//     position: sticky;
+//     z-index: 100;
+//     background-color: $bnb-light;
+// }
+.navbar-nav {
+    a {
+        color: $bnb-dark;
+        text-decoration: none;
+    }
+}
+
+.sidebar_menu {
+    background-color: $bnb-light;
+    border-radius: 0.75rem;
+    margin-top: 1rem;
+
+    position: sticky;
+    top: 6rem;
+    left: 0;
+}
+
+.offcanvas {
+    background-color: $bnb-light;
+}
+
+.offcanvas_navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    width: 100%;
+    height: 60px;
+    background-color: rgba($bnb-primary, 1);
+
+    .logo_wrapper {
+        width: 250px;
+        aspect-ratio: 2.25 / 1;
+        // overflow: hidden;
+        background-image: url("../../storage/app/public/internal/logo_horizontal.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        margin-left: calc(50% - 125px - 52px);
+
+        @media screen and (min-width: 1200px) {
+            margin-left: calc(50% - 125px);
+        }
+    }
+}
+
+.offcanvas_button {
+    // background-color: $bnb-light;
+    color: $bnb-dark;
+    border: none;
+    border-radius: 0.75rem;
+    &:hover {
+        // background-color: transparent;
+        color: $bnb-accent;
+    }
+}
+
+.offcanvas-body,
+.sidebar_menu ul {
+    margin-bottom: 0;
+
+    li {
+        padding: 0.5rem;
+        list-style: none;
+        width: 100%;
+        border-bottom: 0.15rem solid transparent;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        transition: 0.25s border-bottom ease-in-out;
+        a {
+            color: $bnb-dark;
+            text-decoration: none;
+        }
+        &:hover {
+            // color: $bnb-light;
+            border-bottom: 0.15rem solid $bnb-primary;
+            // border-radius: 0.25rem;
+        }
+    }
+}
+
+.action_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: 3px solid transparent;
+    border-radius: 100%;
+    aspect-ratio: 1 /1;
+    height: $bnb-xxxl;
+    position: relative;
+    i {
+        scale: 1;
+        transition: scale 0.25s ease-in-out;
+    }
+    .badge {
+        position: absolute;
+        z-index: 10;
+        top: 60%;
+        left: 60%;
+        color: $bnb-tertiary;
+        background-color: $bnb-light;
+        border: 1px solid $bnb-tertiary;
+        scale: 1.1;
+        border-radius: 50%;
+        &:hover {
+            scale: 2;
+            transition: scale 0.25s ease-in-out;
+            border: none;
+        }
+    }
+}
+
+.action_show {
+    border-color: $bnb-dark;
+    i {
+        color: $bnb-dark;
+    }
+}
+
+.action_sponsor {
+    border-color: $bnb-secondary;
+    i {
+        color: $bnb-secondary;
+    }
+}
+
+.action_messages {
+    border-color: $bnb-primary;
+    i {
+        color: $bnb-primary;
+    }
+}
+
+.action_edit {
+    border-color: $bnb-accent;
+    i {
+        color: $bnb-accent;
+    }
+}
+
+.action_stats {
+    border-color: $bnb-info;
+    i {
+        color: $bnb-info;
+    }
+}
+
+.action_delete {
+    border-color: $bnb-tertiary;
+    background-color: transparent;
+    i {
+        color: $bnb-tertiary;
+    }
+}
+
+.action_btn:hover {
+    border: none;
+}
+
+.action_btn:hover > i {
+    // transition: font-size 0.1s linear;
+    // font-size: calc($bnb-xxxl + $bnb-xxs);
+    scale: 2;
+}
+
+.card {
+    scale: 1;
+    background: rgb(246, 246, 234);
+    background: linear-gradient(236deg, rgba(246, 246, 234, 1) 74%, rgba(255, 243, 216, 0.9472163865546218) 100%);
+    border-radius: 0.75rem;
+    &:hover {
+        scale: 1.025;
+        box-shadow: 3px 8px 14px rgba($bnb-dark, 0.5);
+        transition: box-shadow 0.2s ease-in-out;
+        transition: scale 0.2s ease-in-out;
+    }
+    .list_img_wrapper {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 0.25rem;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        @media screen and (min-width: 768px) {
+            width: 50%;
+            aspect-ratio: 1 / 1;
+            img {
+                aspect-ratio: 1 / 1;
+            }
+        }
+    }
+    .card-title {
+        font-weight: $bnb-w-semibold;
+        font-size: $bnb-lg;
+    }
+    .description {
+        font-size: $bnb-md;
+    }
+}
+
+// .modal-backdrop {
+//     z-index: 0;
+// }
+
+.new_apartment_btn {
+    width: 100%;
+    background-color: $bnb-primary;
+    color: $bnb-dark;
+    padding: 0.5rem 2rem;
+    transition: 0.25s all ease-in-out;
+    border-radius: 0.75rem;
+    border: 1px solid rgba($bnb-dark, 0.2);
+    &:hover {
+        background-color: $bnb-light;
+        color: $bnb-accent;
+        // scale: 1.2;
+        scale: 1.08;
+    }
+}
+
+.back_btn {
+    background-color: $bnb-secondary;
+    color: $bnb-dark;
+    padding: 0.5rem 2rem;
+    transition: 0.25s all ease-in-out;
+    border-radius: 0.75rem;
+    border: 1px solid rgba($bnb-dark, 0.2);
+    &:hover {
+        background-color: $bnb-light;
+        color: $bnb-accent;
+        // scale: 1.2;
+        scale: 1.08;
+    }
+}
+
+.back_btn_form {
+    background-color: $bnb-secondary;
+    color: $bnb-dark;
+    padding: 0.5rem 2rem;
+    transition: 0.25s all ease-in-out;
+    border-radius: 0.75rem;
+    border: 1px solid rgba($bnb-dark, 0.2);
+    &:hover {
+        background-color: $bnb-tertiary;
+        color: $bnb-dark;
+        // scale: 1.2;
+        scale: 1.05;
+    }
+}
+
+.modal-content {
+    background-color: $bnb-light;
+    border-radius: 0.75rem !important;
+}
+
+.pagination {
+    border-radius: 0.25rem;
+    .page-item {
+        .page-link {
+            color: $bnb-dark;
+            border-color: $bnb-primary;
+            background-color: $bnb-light;
+            &:hover {
+                background-color: $bnb-primary;
+                color: $bnb-accent;
+            }
+        }
+    }
+    .page-item.disabled {
+        .page-link {
+            // border-color: $bnb-dark;
+            background-color: rgba(128, 128, 128, 0.3);
+        }
+    }
+    .page-item.active {
+        .page-link {
+            // border-color: $bnb-accent;
+            border-color: $bnb-primary;
+            color: $bnb-accent;
+            background-color: $bnb-primary;
+        }
+    }
+    // .page-item:first-child,
+    // .page-item:last-child {
+    //     .page-link {
+    //         background-color: $bnb-primary;
+    //     }
+    // }
+}
+
+.dashboard_jumbotron {
+    background-color: $bnb-light;
+    background: rgb(246, 246, 234);
+    // background-image: url("/public/storage/internal/bg_wave.svg");
+    background-image: url("/public/storage/internal/banner_dashboard.jpg");
+    background-repeat: no-repeat;
+    background-position: 180deg;
+    background-size: cover;
+    // background-attachment: fixed;
+    border-radius: 0.75rem;
+    color: $bnb-light;
+    .container {
+        background-color: rgba($bnb-dark, 0.3);
+        border-radius: 0.75rem;
+    }
+}
+
+.apartments_jumbotron {
+    background-image: url("/public/storage/internal/wave_animated.svg") !important;
+    color: $bnb-dark;
+}
+
+#dashboard_content {
+    .row {
+        margin-left: -1.25rem;
+        margin-right: -1.25rem;
+    }
+
+    .dashboard_card {
+        border: none;
+        background: rgb(246, 246, 234);
+        background-image: url("/public/storage/internal/wave_animated.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        background-attachment: fixed;
+        border-radius: 0.75rem;
+        min-height: 250px;
+        #messages_notifications {
+            height: 180px;
+            overflow: auto;
+        }
+        .badge_new {
+            background-color: $bnb-accent;
+            color: $bnb-dark;
+        }
+        .badge_default {
+            background-color: $bnb-dark;
+            color: $bnb-light;
+        }
+        #messages_notifications::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .dashboard_card.apartment_card {
+        padding: 0 !important;
+        max-height: 250px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        img {
+            height: 100%;
+            border-radius: 0.75rem;
+            object-fit: cover;
+        }
+        .card-img-overlay {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: $bnb-light;
+            background-color: rgba($bnb-dark, 0.3);
+            width: calc(100% - 2rem);
+            padding: 0.5rem;
+            border-radius: 0.75rem;
+            height: max-content;
+            max-height: calc(100% - 2rem);
+            width: calc(100% - 2rem);
+            transition: 0.25s all ease-in-out;
+            .section_title {
+                display: block;
+            }
+            .apartment_info {
+                display: none;
+                height: 100%;
+            }
+        }
+
+        &:hover {
+            .card-img-overlay {
+                height: calc(100% - 2rem);
+                .section_title {
+                    display: none;
+                }
+                .apartment_info {
+                    display: flex !important;
+                }
+            }
+        }
+    }
+
+    .dashboard_card.banner_card {
+        background: rgb(246, 246, 234);
+        background-image: url("/public/storage/internal/wave_animated.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        background-attachment: fixed;
+    }
+
+    .dashboard_card.statistic {
+        line-height: 2rem;
+    }
+
+    .message_card {
+        border-radius: 0.75rem;
+        .card_header {
+            background-color: transparent;
+            border-radius: inherit;
+        }
+        .message_box {
+            line-height: 1.5rem;
+            max-height: 3rem;
+            overflow: hidden !important;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .new_apartment_btn {
+        width: 255px;
+    }
+}
